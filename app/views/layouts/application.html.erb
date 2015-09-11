@@ -17,9 +17,11 @@
 
   <%= csrf_meta_tags %>
 
+<base href="/">
+
 </head>
 
-<body ng-app class="blue">
+<body ng-app="CoffeeBankApp" class="blue">
 
 <!-- Nav Bar -->
 
@@ -131,9 +133,9 @@
         <div class="col-md-1 col-sm-1 col-xs-12 empty"></div>
         <div class="col-md-10 col-sm-10 col-xs-12 full">
           <div class="logo"><i class="fa fa-coffee"></i></div>
-          <h1 class="welcome">
-            Welcome to Coffee Bank.<br />
-            <span>Responsive. Customizable. Clean.</span>
+          <h1 class="welcome" style="color:#333333">
+            <strong>Welcome to Coffee Bank.</strong><br />
+            <span style="color:#333333">Come save with us.</span>
           </h1> 
         </div>
         <div class="col-md-1 col-sm-1 col-xs-12 empty"></div>
@@ -469,6 +471,7 @@
       </div>  
     </div>
 
-{{5+5}}
+<p>Hi Angular, 5 + 5 = {{5+5}}</p>
+<div ng-view></div>
 </body>
 </html>
