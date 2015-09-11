@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>Coffee Bank</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Saving money is fun">
+    <meta name="author" content="David Horn">
+
+  <%= render partial: 'shared/theme_header' %>
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+
+  <%= csrf_meta_tags %>
+
+</head>
+
+<body ng-app class="blue">
+
+<!-- Nav Bar -->
+
+ <div id="navbar" class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand scroll" href="#home"><i class="fa fa-coffee"></i><span>Coffee Bank</span></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">COLORS<i class="fa fa-caret-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="product-blue.html">Blue</a></li>
+                <li><a href="product-green.html">Green</a></li>
+              </ul>
+            </li>
+            <li><a class="scroll hidden" href="#home"></a></li>
+            <li><a class="scroll" href="#features">FEATURES</a></li>
+            <li><a class="scroll" href="#gallery">GALLERY</a></li>
+            <li><a class="scroll" href="#pricing">PRICING</a></li>
+            <li><a class="scroll" href="#accordion">ACCORDION</a></li>
+            <li><a class="scroll" href="#subscribe">SUBSCRIBE</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>  
+
+    <!-- All Page Modals -->      
+    <div class="modals">
+      <div class="modal fade" id="contact-form" tabindex="-1" role="dialog">
+        <div class="wrapper">
+
+          <div class="container text-center">
+            <a class="close" data-dismiss="modal" href=""><i class="icon-remove"></i></a>            
+            <h1 class="text-center">Contact Us</h1>
+
+            <form role="form">
+              <div class="form-group">
+                <label for="exampleInputName"><i class="icon-tag"></i></label>
+                <input type="text" class="form-control" id="exampleInputName" placeholder="Full Name" required>
+                <div class="clearfix"></div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1"><i class="icon-inbox"></i></label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required>
+                <div class="clearfix"></div>
+              </div>
+              <div class="form-group textarea">
+                <label for="exampleInputMessage"><i class="icon-pencil"></i></label>
+                <textarea rows="6" class="form-control" id="exampleInputMessage" placeholder="Write Message" required></textarea>
+                <div class="clearfix"></div>
+              </div>
+
+              <button type="submit" class="btn">SEND MESSAGE</button>
+            </form>
+          </div>
+
+        </div><!-- /.content -->      
+      </div><!-- /.modal -->      
+      <div class="modal fade" id="modal1" tabindex="-1" role="dialog">
+        <div class="wrapper">
+          <img data-dismiss="modal" class="img-responsive" src="assets/sintel-bedroom.png" alt="">
+          <h2 class="modal-title"><a href="http://sintel.org">Sintel Bedroom</a></h2>
+        </div><!-- /.content -->      
+      </div><!-- /.modal -->
+      <div class="modal fade" id="modal2" tabindex="-1" role="dialog">
+        <div class="wrapper">
+          <img data-dismiss="modal" class="img-responsive" src="assets/sintel-snowscape.jpg" alt="">
+          <h2 class="modal-title"><a href="http://sintel.org">Sintel Snowscape</a></h2>
+        </div><!-- /.content -->      
+      </div><!-- /.modal -->
+      <div class="modal fade" id="modal3" tabindex="-1" role="dialog">
+        <div class="wrapper">
+          <img data-dismiss="modal" class="img-responsive" src="assets/sintel-wallpaper-ishtar.jpg" alt="">
+          <h2 class="modal-title"><a href="http://sintel.org">Sintel Wallpaper Ishtar</a></h2>
+        </div><!-- /.content -->      
+      </div><!-- /.modal -->
+      <div class="modal fade" id="modal4" tabindex="-1" role="dialog">
+        <div class="wrapper">
+          <img data-dismiss="modal" class="img-responsive" src="assets/sintel-bamboo-2.jpg" alt="">
+          <h2 class="modal-title"><a href="http://sintel.org">Sintel Bamboo</a></h2>
+        </div><!-- /.content -->      
+      </div><!-- /.modal -->
+      <div class="modal fade" id="modal5" tabindex="-1" role="dialog">
+        <div class="wrapper">
+          <img data-dismiss="modal" class="img-responsive" src="assets/ishtar-alley.png" alt="">
+          <h2 class="modal-title"><a href="http://sintel.org">Ishtar Alley</a></h2>
+        </div><!-- /.content -->      
+      </div><!-- /.modal -->
+      <div class="modal fade" id="modal6" tabindex="-1" role="dialog">
+        <div class="wrapper">
+          <img data-dismiss="modal" class="img-responsive" src="assets/sintel-town-concept.jpg" alt="">
+          <h2 class="modal-title"><a href="http://sintel.org">Sintel Town Concept</a></h2>
+        </div><!-- /.content -->      
+      </div><!-- /.modal -->
+    </div><!-- /.modals -->
+    
+    
+    <!-- Home Section -->
+    <div id="home" class="section macbook">   
+      <div class="parallax"><img src="assets/coffee-head.png"></div>
+      <div class="row">
+        <div class="col-md-1 col-sm-1 col-xs-12 empty"></div>
+        <div class="col-md-10 col-sm-10 col-xs-12 full">
+          <div class="logo"><i class="fa fa-coffee"></i></div>
+          <h1 class="welcome">
+            Welcome to Coffee Bank.<br />
+            <span>Responsive. Customizable. Clean.</span>
+          </h1> 
+        </div>
+        <div class="col-md-1 col-sm-1 col-xs-12 empty"></div>
+      </div>     
+    </div><!-- /.container -->
+
+    <!-- Features Section -->
+    <div id="features" class="section gray">
+      <div class="container">
+        
+        <div class="content">
+          <div class="row single vcontainer">
+            <div class="col-md-6 col-sm-6 col-xs-12 valign">
+              <div class="wrapper">
+                <h3>Customizable.</h3>
+                <p>Each section is clearly defined in Summit meaning you can easily mix and match to create your perfect website. Because Summit is a one page theme, all you have to do is rearrange the sections in one page.</p>
+                <a class="btn color" href="#">MORE DETAILS</a>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 valign">
+              <img class="preview slide-in right" src="assets/preview2.jpg">
+            </div>
+          </div>
+          
+        </div><!-- /.content -->
+      </div>
+      <div class="container">
+        
+        <div class="content">
+          <div class="row single vcontainer">
+            <div class="col-md-6 col-sm-6 col-xs-12 valign pull-right">
+              <h3>Responsive.</h3>
+              <p>What does responsive mean? It means that Studio will adapt and conform to any device size and will still look great. Studio is great for those looking to capture a large mobile audience.</p>
+              <a class="btn color" href="#">MORE DETAILS</a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 valign pull-right">
+              <img class="preview slide-in left" src="assets/preview3.jpg">
+            </div>
+          </div>
+          
+        </div><!-- /.content -->
+      </div>
+      <div class="container no-bottom">
+        
+        <div class="content">
+          <div class="row single">
+            <div class="col-md-2 col-sm-2 col-xs-12 empty"></div>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+              <h3 class="text-center">Crisp.</h3>
+              <p>Summit looks great on all devices. It uses retina fonts and icons like FontAwesome. All these animations are as simple as adding a class to a div. You can choose to slide the preview image to the left, the right or up from the bottom. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis sollicitudin risus at rhoncus. Nullam id sagittis justo. </p>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-12 empty"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+              <img class="preview slide-in up" src="assets/preview6.jpg">
+            </div>
+          </div>
+          
+        </div><!-- /.content -->
+      </div>
+      <hr>
+    </div>
+
+    <div id="gallery" class="section">
+      <div class="container">  
+        <div class="content">
+          <div class="text-center">
+            <h2 class="title">Gallery</h2>            
+          </div>
+          <div class="row">
+            <div class="col-md-2 col-sm-2 col-xs-12"></div>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+              <p class="description">Check out these screenshots of our product. Here you can add as many screenshots as you want. They will all be animated and placed with Masonry.
+                </p>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-12"></div>
+          </div>
+
+        </div><!-- /.content -->  
+        <div id="grid" class="row masonry-grid effect-2">
+          <li class="col-md-4 col-sm-4 col-xs-12 item">
+            <a data-toggle="modal" href="#modal1" class="image">
+              <img src="assets/sintel-bedroom.png" alt="sintel bedroom"> 
+              <span class="overlay"><span class="valign"></span><i class="fa fa-search"></i></span>              
+            </a>
+            <div class="description">
+              <h2>Sintel Bedroom</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <div class="clearfix"></div>
+            </div>          
+          </li>
+          <li class="col-md-4 col-sm-4 col-xs-12 item">
+            <a data-toggle="modal" href="#modal4" class="image">
+              <img src="assets/sintel-bamboo-2.jpg" alt="ishtar alley"> 
+              <span class="overlay"><span class="valign"></span><i class="fa fa-search"></i></span>              
+            </a>     
+            <div class="description">
+              <h2>Sintel Bamboo</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <div class="clearfix"></div>
+            </div>         
+          </li>
+          <li class="col-md-4 col-sm-4 col-xs-12 item">
+            <a data-toggle="modal" href="#modal2" class="image">
+              <img src="assets/sintel-snowscape.jpg" alt="sintel snowscape"> 
+              <span class="overlay"><span class="valign"></span><i class="fa fa-search"></i></span>              
+            </a>
+            <div class="description">
+              <h2>Snowscape</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <div class="clearfix"></div>
+            </div>          
+          </li>
+          <li class="col-md-4 col-sm-4 col-xs-12 item">
+            <a data-toggle="modal" href="#modal3" class="image">
+              <img src="assets/sintel-wallpaper-ishtar.jpg" alt="sintel wallpaper ishtar"> 
+              <span class="overlay"><span class="valign"></span><i class="fa fa-search"></i></span>              
+            </a>
+            <div class="description">
+              <h2>Ishtar Wallpaper</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <div class="clearfix"></div>
+            </div>          
+          </li>     
+          <li class="col-md-4 col-sm-4 col-xs-12 item">
+            <a data-toggle="modal" href="#modal6" class="image">
+              <img src="assets/sintel-town-concept.jpg" alt="sintel town concept"> 
+              <span class="overlay"><span class="valign"></span><i class="fa fa-search"></i></span>              
+            </a>  
+            <div class="description">
+              <h2>Sintel Town Concept</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <div class="clearfix"></div>
+            </div>          
+          </li>          
+          <li class="col-md-4 col-sm-4 col-xs-12 item">
+            <a data-toggle="modal" href="#modal5" class="image">
+              <img src="assets/ishtar-alley.png" alt="ishtar alley"> 
+              <span class="overlay"><span class="valign"></span><i class="fa fa-search"></i></span>              
+            </a>   
+            <div class="description">
+              <h2>Ishtar Alley</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <div class="clearfix"></div>
+            </div>         
+          </li>
+        </div>  
+      </div>
+      <hr>
+      
+    </div><!-- /.container -->  
+
+    <div id="pricing" class="section gray">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="title">Pricing</h2>            
+        </div>        
+        <div class="content">          
+          <div class="pricing">
+            <div class="row">
+              <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="wrapper">
+                  <h3 class="text-center">BASIC</h3>
+                  <table class="table">
+                    <thead>
+                      <tr><th>9</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>One Time Installation</td></tr>
+                      <tr><td>No reselling </td></tr>
+                      <tr><td>Free Email Support</td></tr>  
+                      <tr><td><a class="btn color" href="#">PURCHASE NOW</a></td></tr>  
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="wrapper">
+                  <h3 class="text-center">PREMIUM</h3>
+                  <table class="table">
+                    <thead>
+                      <tr><th>35</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Multiple Installations</td></tr>
+                      <tr><td>No reselling </td></tr>
+                      <tr><td>Free Email Support</td></tr>  
+                      <tr><td><a class="btn color" href="#">PURCHASE NOW</a></td></tr>  
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="wrapper">                
+                  <h3 class="text-center">PRO</h3>
+                  <table class="table">
+                    <thead>
+                      <tr><th>99</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Multiple Installations</td></tr>
+                      <tr><td>Allowed to use and resell</td></tr>  
+                      <tr><td>Free Email Support</td></tr>  
+                      <tr><td><a class="btn color" href="#">PURCHASE NOW</a></td></tr>  
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.container -->
+    <hr>
+
+
+    <!-- Collapsible -->
+    <div id="accordion" class="section">
+      <div class="container">  
+        <div class="content">
+          <div class="text-center">
+            <h2 class="title">Accordion</h2><br><br>         
+          </div>
+        </div>    
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading active">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                  Collapsible Group Item #1
+                </a>
+              </h4><i class="fa fa-plus"></i><i class="fa fa-minus"></i>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+              <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                  Collapsible Group Item #2
+                </a>
+              </h4><i class="fa fa-plus"></i><i class="fa fa-minus"></i>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+              <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                  Collapsible Group Item #3
+                </a>
+              </h4><i class="fa fa-plus"></i><i class="fa fa-minus"></i>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+              <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <hr>
+
+
+    <div id="subscribe" class="section gray footer-padding">
+      <div class="container no-bottom">
+        <div class="content">
+          <div class="text-center">
+            <h2 class="title">Subscribe</h2>            
+          </div>
+          <div class="row">
+            <div class="col-md-2 col-sm-2 col-xs-12"></div>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+              <p class="description">Join our mailing list to stay informed. We will never use your email for anything other than important updates. Subscribe now with the form below!
+                </p>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-12"></div>
+          </div>
+        </div>
+
+        <div class="content">
+          <form role="form">
+            <div class="row">
+              <div class="col-md-2 col-sm-2 col-xs-12 empty"></div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                  <label for="exampleInputName"><i class="icon-tag"></i></label>
+                  <input type="text" class="form-control" id="exampleInputName" placeholder="Full Name" required>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+              <div class="col-md-2 col-sm-2 col-xs-12">
+                <button type="submit" class="btn color">SUBSCRIBE</button>
+              </div>
+              <div class="col-md-2 col-sm-2 col-xs-12 empty"></div>
+            </div>
+          </form>         
+        </div>
+      </div>
+    </div><!-- /.container -->
+
+    <div id="footer" class="section light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <p>Made by <a href="http://davidhorndev.com">David Horn</a></p>   
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="">
+            <p class="social-media">
+              <a href="#" data-toggle="tooltip" title="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" data-toggle="tooltip" title="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" data-toggle="tooltip" title="linkedin"><i class="fa fa-linkedin"></i></a>
+              <a href="#" data-toggle="tooltip" title="github"><i class="fa fa-github"></i></a>
+              <a href="#" data-toggle="tooltip" title="pinterest"><i class="fa fa-pinterest"></i></a>
+            </p>
+         </div>
+        </div>
+      </div>  
+    </div>
+
+{{5+5}}
+</body>
+</html>
