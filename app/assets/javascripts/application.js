@@ -12,5 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require angular/app
 //= require_tree .
