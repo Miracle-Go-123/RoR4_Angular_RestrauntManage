@@ -21,7 +21,7 @@
 
 </head>
 
-<body ng-app="CoffeeBankApp" class="blue">
+<body ng-app="CoffeeBankApp" class="blue" ng-controller="MainController">
 
 <!-- Nav Bar -->
 
@@ -125,18 +125,105 @@
       </div><!-- /.modal -->
     </div><!-- /.modals -->
     
-    
+
+
+
+
     <!-- Home Section -->
-    <div id="home" class="section macbook">   
+    <div id="home" class="section macbook" >   
       <div class="parallax"><img src="assets/coffee-head.png"></div>
-      <div class="row">
+    
+    <!-- TOP -->
+
+
+
+    <!-- Auth Section -->
+
+<form class="form-horizontal auth-form" novalidate name="post_form" ng-show="loginForm">
+  <div class="form-group">
+    <label class="col-sm-2 control-label"><strong>Name:</strong></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="newPost.title" name="title" placeholder="first and last name" required>
+   
+         <!-- Name Error Message -->
+  
+        <div class="text-center alert alert-danger" ng-show="post_form.title.$error.required && post_form.title.$invalid && post_form.submitted">Your Name is Required</div>
+    
+    
+    </div>
+  </div>
+ 
+  <div class="form-group">
+    <label class="col-sm-2 control-label"><strong>Email:</strong></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="newPost.author" name="author" placeholder="email" required>
+       
+       <!-- Author Error Message -->
+  
+        <div class="text-center alert alert-danger" ng-show="post_form.author.$error.required && post_form.author.$invalid && post_form.submitted">A valid email is Required</div>
+
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label class="col-sm-2 control-label"><strong>Picture:</strong></label>
+    <div class="col-sm-10">
+      <input type="url" class="form-control" ng-model="newPost.image" name="image" placeholder="url only please" required>
+
+       <!-- Image Error Message -->
+  
+        <div class="text-center alert alert-danger" ng-show="post_form.image.$error.required && post_form.image.$invalid && post_form.submitted">A URL is Required</div>
+
+        <div class="text-center alert alert-danger" ng-show="post_form.image.$error.url && post_form.image.$invalid && post_form.submitted">A valid URL is Required</div>
+
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label class="col-sm-2 control-label"><strong>Password:</strong></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="newPost.description" name="description" placeholder="password" required>
+
+        <!-- Description Error Message -->
+  
+        <div class="text-center alert alert-danger" ng-show="post_form.description.$error.required && post_form.description.$invalid && post_form.submitted">A password is Required</div>
+
+    </div>
+  </div>
+ 
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button ng-click="loginForm = false" class="btn btn-info">Login</button>
+    </div>
+  </div>
+</form>
+
+
+
+
+
+<!-- ######## -->
+
+
+
+
+
+
+
+
+      <div class="row" ng-hide="loginForm" >
         <div class="col-md-1 col-sm-1 col-xs-12 empty"></div>
         <div class="col-md-10 col-sm-10 col-xs-12 full">
           <div class="logo"><i class="fa fa-coffee"></i></div>
           <h1 class="welcome" style="color:#333333">
             <strong>Welcome to Coffee Bank.</strong><br />
-            <span style="color:#333333">Come save with us.</span>
-          </h1> 
+            <span style="color:#333333">Come save with us.</span><br />
+             <% if !@current_user %>
+             <span ng-click="loginForm = true"><%= link_to "Let's go!", "#", id:"login", class:"btn btn-primary btn-lg" %></span>
+             <% end %>
+         </h1> 
+
+         
         </div>
         <div class="col-md-1 col-sm-1 col-xs-12 empty"></div>
       </div>     
@@ -470,8 +557,13 @@
         </div>
       </div>  
     </div>
+</div>
+
+<!-- Angular Tests -->
 
 <p>Hi Angular, 5 + 5 = {{5+5}}</p>
+
 <div ng-view></div>
+
 </body>
 </html>

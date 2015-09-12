@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+ #login.btn-primary {
+  border-radius: 2px;
+  background-color: rgba(255,255,255,0.1);
+  border: 2px solid #333333;
+  height: 50px;
+  width: 300px;
+  font-size: 20px;
+  font-style: bold;
+  color: #000;
+  padding-top: 10px;
+}
+
+#login.btn-primary:hover {
+  background-color: #CED9D2;
+  border: 2px solid #CED9D2;
+  color: #000;
+}
+
+.auth-form {
+
+margin-top: 80px;
+background: rgba(206, 217, 210, 0.8);
+padding-top: 20px;
+
+}
