@@ -39,3 +39,24 @@ background: rgba(206, 217, 210, 0.8);
 padding-top: 20px;
 
 }
+
+.auth-error {
+  padding-top: 4px;
+  /*padding-bottom: auto;*/
+  width: 400px;
+  max-height: 30px; 
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.avatar {
+  width: 30px;
+}
+
+.white {
+  color: white;
+}
+
+.pad {
+  padding-top: 16px;
+}

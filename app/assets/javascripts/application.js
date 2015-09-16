@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require angular/app
 //= require_tree .
+//= require angular-devise

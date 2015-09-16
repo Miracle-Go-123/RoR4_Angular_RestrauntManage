@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'bundler', '>= 1.8.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
@@ -32,7 +32,18 @@ gem 'font-awesome-sass'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
+# Different Auth Options:
+
 gem 'omniauth', '~> 1.2.2'
+
+gem 'devise'  
+gem 'angular_rails_csrf' 
+
+source 'https://rails-assets.org' do
+gem "rails-assets-angular-devise"
+end
+
+
 
 gem 'json'
 gem 'handlebars_assets'
