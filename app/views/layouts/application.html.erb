@@ -50,6 +50,11 @@
             <li><a class="scroll" href="#pricing">PRICING</a></li>
             <li><a class="scroll" href="#accordion">ACCORDION</a></li>
             <li><a class="scroll" href="#subscribe">SUBSCRIBE</a></li>
+
+
+           <!-- Current User Info -->   
+            <li ng-show="currentUser"><p class="navbar-text pad"><img ng-show="currentUser.picture" ng-src="{{currentUser.picture}}" alt="currentUser.picture" class="avatar"><span class="white"> Signed in as {{currentUser.name}}</span></p></li>
+            <li ng-show="currentUser" ng-click="currentUser = false"><%= link_to "Log Out", logout_path, {method: :delete, :style => 'color: white'}%></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -137,17 +142,17 @@
 
 
 
-    <!-- Auth Section -->
+    <!-- Auth Sign Up Section -->
 
-<form class="form-horizontal auth-form" novalidate name="post_form" ng-show="loginForm">
+<form class="form-horizontal auth-form" novalidate name="auth_form" ng-show="signUpForm">
   <div class="form-group">
     <label class="col-sm-2 control-label"><strong>Name:</strong></label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" ng-model="newPost.title" name="title" placeholder="first and last name" required>
+      <input type="text" class="form-control" ng-model="newUser.name" name="name" placeholder="first and last name" required>
    
          <!-- Name Error Message -->
   
-        <div class="text-center alert alert-danger" ng-show="post_form.title.$error.required && post_form.title.$invalid && post_form.submitted">Your Name is Required</div>
+        <div class="auth-error alert alert-danger" ng-show="auth_form.name.$error.required && auth_form.name.$invalid && auth_form.submitted">Your Name is Required</div>
     
     
     </div>
@@ -156,11 +161,15 @@
   <div class="form-group">
     <label class="col-sm-2 control-label"><strong>Email:</strong></label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" ng-model="newPost.author" name="author" placeholder="email" required>
+      <input type="email" class="form-control" ng-model="newUser.email" name="email" placeholder="email" required>
        
-       <!-- Author Error Message -->
+       <!-- Email Error Message -->
   
-        <div class="text-center alert alert-danger" ng-show="post_form.author.$error.required && post_form.author.$invalid && post_form.submitted">A valid email is Required</div>
+        <div class="auth-error alert alert-danger" ng-show="auth_form.email.$error.required && auth_form.email.$invalid && auth_form.submitted">A email is Required</div>
+
+         <div class="auth-error alert alert-danger" ng-show="authError">Email: {{authError}}</div>
+
+         <div class="auth-error alert alert-danger" ng-show="auth_form.email.$error.email && auth_form.email.$invalid && auth_form.submitted">A valid email is Required</div>
 
     </div>
   </div>
@@ -168,13 +177,13 @@
    <div class="form-group">
     <label class="col-sm-2 control-label"><strong>Picture:</strong></label>
     <div class="col-sm-10">
-      <input type="url" class="form-control" ng-model="newPost.image" name="image" placeholder="url only please" required>
+      <input type="url" class="form-control" ng-model="newUser.picture" name="picture" placeholder="url only please" required>
 
-       <!-- Image Error Message -->
+       <!-- Picture Error Message -->
   
-        <div class="text-center alert alert-danger" ng-show="post_form.image.$error.required && post_form.image.$invalid && post_form.submitted">A URL is Required</div>
+        <div class="auth-error alert alert-danger" ng-show="auth_form.picture.$error.required && auth_form.picture.$invalid && auth_form.submitted">A URL is Required</div>
 
-        <div class="text-center alert alert-danger" ng-show="post_form.image.$error.url && post_form.image.$invalid && post_form.submitted">A valid URL is Required</div>
+        <div class="auth-error alert alert-danger" ng-show="auth_form.picture.$error.url && auth_form.picture.$invalid && auth_form.submitted">A valid URL is Required</div>
 
     </div>
   </div>
@@ -182,18 +191,20 @@
    <div class="form-group">
     <label class="col-sm-2 control-label"><strong>Password:</strong></label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" ng-model="newPost.description" name="description" placeholder="password" required>
+      <input type="password" class="form-control" ng-model="newUser.password" name="password" placeholder="password" required>
+   
+        <!-- Password Error Message -->
 
-        <!-- Description Error Message -->
-  
-        <div class="text-center alert alert-danger" ng-show="post_form.description.$error.required && post_form.description.$invalid && post_form.submitted">A password is Required</div>
+        <div class="alert alert-danger auth-error" ng-show="auth_form.password.$error.required && auth_form.password.$invalid && auth_form.submitted">A password is Required</div>
+        
 
-    </div>
+     </div>
   </div>
  
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button ng-click="loginForm = false" class="btn btn-info">Login</button>
+      <button ng-click="AddUser()" class="btn btn-info">Signup</button>   
+      <button ng-click="loginForm = true; signUpForm = false" class="btn btn-info">Already have an account?</button>
     </div>
   </div>
 </form>
@@ -202,25 +213,63 @@
 
 
 
+    <!-- Auth Login Section -->
+
+<form class="form-horizontal auth-form" novalidate name="login_form" ng-show="loginForm">
+ 
+  <div class="form-group">
+    <label class="col-sm-2 control-label"><strong>Email:</strong></label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" ng-model="newUser.email" name="email" placeholder="email" required>
+       
+       <!-- Email Error Message -->
+  
+        <div class="auth-error alert alert-danger" ng-show="login_form.email.$error.required && login_form.email.$invalid && login_form.submitted">A email is Required</div>
+
+         <div class="auth-error alert alert-danger" ng-show="authError">Email: {{authError}}</div>
+
+         <div class="auth-error alert alert-danger" ng-show="login_form.email.$error.email && login_form.email.$invalid && login_form.submitted">A valid email is Required</div>
+
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label class="col-sm-2 control-label"><strong>Password:</strong></label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" ng-model="newUser.password" name="password" placeholder="password" required>
+   
+        <!-- Password Error Message -->
+
+        <div class="alert alert-danger auth-error" ng-show="login_form.password.$error.required && login_form.password.$invalid && login_form.submitted">A password is Required</div>
+        
+
+     </div>
+  </div>
+ 
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button ng-click="LoginUser()" class="btn btn-info">Login</button>   
+      <button ng-click="loginForm = false; signUpForm = true" class="btn btn-info">Don't have an account?</button>
+    </div>
+  </div>
+</form>
+
+
+
+
 <!-- ######## -->
 
 
-
-
-
-
-
-
-      <div class="row" ng-hide="loginForm" >
+      <div class="row" ng-hide="loginForm || signUpForm" >
         <div class="col-md-1 col-sm-1 col-xs-12 empty"></div>
         <div class="col-md-10 col-sm-10 col-xs-12 full">
           <div class="logo"><i class="fa fa-coffee"></i></div>
           <h1 class="welcome" style="color:#333333">
             <strong>Welcome to Coffee Bank.</strong><br />
             <span style="color:#333333">Come save with us.</span><br />
-             <% if !@current_user %>
-             <span ng-click="loginForm = true"><%= link_to "Let's go!", "#", id:"login", class:"btn btn-primary btn-lg" %></span>
-             <% end %>
+             
+             <span ng-hide="currentUser" ng-click="loginForm = true"><%= link_to "Let's go!", "#", id:"login", class:"btn btn-primary btn-lg" %></span>
+             
          </h1> 
 
          
