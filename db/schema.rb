@@ -26,19 +26,6 @@ ActiveRecord::Schema.define(version: 20150911224131) do
   add_index "connections", ["global_id"], name: "index_connections_on_global_id", using: :btree
   add_index "connections", ["user_id"], name: "index_connections_on_user_id", using: :btree
 
-  create_table "global_saves", force: :cascade do |t|
-    t.string   "user_name"
-    t.string   "user_picture"
-    t.string   "category"
-    t.string   "item_name"
-    t.datetime "date_added"
-    t.integer  "price"
-    t.integer  "points"
-    t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "globals", force: :cascade do |t|
     t.string   "user_name"
     t.string   "user_picture"

@@ -49,6 +49,12 @@ padding-top: 20px;
   margin-left: auto;
 }
 
+.login-error {
+  padding-top: 20px; 
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .avatar {
   width: 30px;
 }
