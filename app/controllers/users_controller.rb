@@ -32,7 +32,28 @@ class UsersController < ApplicationController
 
   def login
     
-      binding.pry
+      
+
+  if params[:email].present? && params[:password].present?
+      @found_user = User.where(email: params[:email]).first
+      # binding.pry
+      if @found_user && @found_user.authenticate(params[:password])
+        session[:user_id] = @found_user.id
+        render json: @found_user, status: :created 
+        # redirect_to user_path(current_user)
+      else
+        render json: @found_user.errors, status: :unprocessable_entity
+        # flash[:alert] = "email / password combination is invalid"
+        # redirect_to login_path(@user)
+      end
+    else
+      render json: @found_user.errors, status: :unprocessable_entity
+      # flash[:alert] = "please enter an email and password"
+      # redirect_to login_path
+    end
+
+
+
 
       
   end
