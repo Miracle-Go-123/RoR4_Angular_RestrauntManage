@@ -5,20 +5,27 @@ coffeeBankApp.config(['$httpProvider', function($httpProvider) {
     $('meta[name=csrf-token]').attr('content');
 }]);
 
-coffeeBankApp.config(["$routeProvider", function($routeProvider) {
+coffeeBankApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
+
+$locationProvider.html5Mode(true);
 
 $routeProvider
       .when('/', {
-        templateUrl: 'partials/items.html',
-        controller: 'ItemsController'
+        templateUrl: 'partials/home.html',
+        controller: 'MainController'
       })
        .when('/users/:id', {
         templateUrl: 'partials/items.html',
         controller: 'MainController'
       })
-      // .when('/sign_in', {
-      //    templateUrl: 'sign_in.html'
-      //   })
+      .when('/login', {
+         templateUrl: 'partials/login.html',
+         controller: 'AuthController'
+        })
+      .when('/signup', {
+         templateUrl: 'partials/signin.html',
+         controller: 'AuthController'
+        })
       .otherwise({ redirectTo: '/'});
 
 }]);

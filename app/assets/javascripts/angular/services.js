@@ -8,6 +8,8 @@
   );
 }]);
 
+ //////////////////////////
+
  coffeeBankApp.service('Login', ['$resource', function($resource) {
   return $resource(
     "/login"    
@@ -15,14 +17,27 @@
 }]);
 
 
-// Additional Auth Work
+//////////////////////////
 
-//  coffeeBankApp.factory('UserService', [function() {
-//   var sdo = {
-//     isLogged: false,
-//     username: ''
-//   };
-//   return sdo;
-// }]);
+ coffeeBankApp.factory('CurrentUser', ['User', function(User) {
+  var CurrentUser = {};
+
+ var getCurrentUser = function() {
+      User.get(function(user){
+ 		// $rootScope.currentUser = user;
+      	CurrentUser = user;
+      })
+    }
+
+  getCurrentUser();
+
+  // ----------------
+
+  return CurrentUser;
+
+}]);
+
+
+ // --------------------------------------------------
 
   
