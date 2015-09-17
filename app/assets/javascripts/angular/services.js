@@ -3,8 +3,7 @@
   return $resource(
     "/users/:id.json",
     {id: "@id"},
-    {update: {method: "PUT"}}
-       
+    {update: {method: "PUT"}}      
   );
 }]);
 
@@ -13,6 +12,17 @@
  coffeeBankApp.service('Login', ['$resource', function($resource) {
   return $resource(
     "/login"    
+  );
+}]);
+
+
+//////////////////////////
+
+ coffeeBankApp.service('Item', ['$resource', function($resource) {
+  return $resource(
+    "/items/:id.json",
+    {id: "@id"},
+    {update: {method: "PUT"}}  
   );
 }]);
 
@@ -36,6 +46,68 @@
   return CurrentUser;
 
 }]);
+
+//////////////////////////
+
+coffeeBankApp.factory('ItemFactory', ['Item', '$resource', '$rootScope', function(Item, $resource, $rootScope) {
+ 
+var ItemList = {};
+  
+ 
+
+
+ ItemList.addItem = function(newItem) {
+   console.log("new item", newItem);
+
+      var item = new Item(newItem);
+      
+      item.$save().then(function(data) {
+      
+      console.log("save", data);     
+        
+      }, function(response){
+        console.log("response", response);
+
+      });
+  };
+
+
+
+
+
+
+  return ItemList;
+
+}]);
+
+
+
+//////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  // --------------------------------------------------
