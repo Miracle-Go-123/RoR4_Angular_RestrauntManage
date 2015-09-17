@@ -138,147 +138,17 @@
     <div id="home" class="section macbook" >   
       <div class="parallax"><img src="assets/coffee-head.png"></div>
     
-    <!-- TOP -->
+<!-- TOP -->
 
+<!-- Auth Section and Landing Section -->
 
-
-    <!-- Auth Sign Up Section -->
-
-<form class="form-horizontal auth-form" novalidate name="auth_form" ng-show="signUpForm">
-  <div class="form-group">
-    <label class="col-sm-2 control-label"><strong>Name:</strong></label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" ng-model="newUser.name" name="name" placeholder="first and last name" required>
-   
-         <!-- Name Error Message -->
-  
-        <div class="auth-error alert alert-danger" ng-show="auth_form.name.$error.required && auth_form.name.$invalid && auth_form.submitted">Your Name is Required</div>
-    
-    
-    </div>
-  </div>
- 
-  <div class="form-group">
-    <label class="col-sm-2 control-label"><strong>Email:</strong></label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" ng-model="newUser.email" name="email" placeholder="email" required>
-       
-       <!-- Email Error Message -->
-  
-        <div class="auth-error alert alert-danger" ng-show="auth_form.email.$error.required && auth_form.email.$invalid && auth_form.submitted">A email is Required</div>
-
-         <div class="auth-error alert alert-danger" ng-show="authError">Email: {{authError}}</div>
-
-         <div class="auth-error alert alert-danger" ng-show="auth_form.email.$error.email && auth_form.email.$invalid && auth_form.submitted">A valid email is Required</div>
-
-    </div>
-  </div>
-
-   <div class="form-group">
-    <label class="col-sm-2 control-label"><strong>Picture:</strong></label>
-    <div class="col-sm-10">
-      <input type="url" class="form-control" ng-model="newUser.picture" name="picture" placeholder="url only please" required>
-
-       <!-- Picture Error Message -->
-  
-        <div class="auth-error alert alert-danger" ng-show="auth_form.picture.$error.required && auth_form.picture.$invalid && auth_form.submitted">A URL is Required</div>
-
-        <div class="auth-error alert alert-danger" ng-show="auth_form.picture.$error.url && auth_form.picture.$invalid && auth_form.submitted">A valid URL is Required</div>
-
-    </div>
-  </div>
-
-   <div class="form-group">
-    <label class="col-sm-2 control-label"><strong>Password:</strong></label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" ng-model="newUser.password" name="password" placeholder="password" required>
-   
-        <!-- Password Error Message -->
-
-        <div class="alert alert-danger auth-error" ng-show="auth_form.password.$error.required && auth_form.password.$invalid && auth_form.submitted">A password is Required</div>
-        
-
-     </div>
-  </div>
- 
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button ng-click="AddUser()" class="btn btn-info">Signup</button>   
-      <button ng-click="loginForm = true; signUpForm = false" class="btn btn-info">Already have an account?</button>
-    </div>
-  </div>
-</form>
-
-
-
-
-
-    <!-- Auth Login Section -->
-
-<form class="form-horizontal auth-form" novalidate name="login_form" ng-show="loginForm">
- 
- <div class="login-error alert alert-danger" ng-show="loginError">{{loginError}}</div>
-
-  <div class="form-group">
-
-    <label class="col-sm-2 control-label"><strong>Email:</strong></label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" ng-model="newUser.email" name="email" placeholder="email" required>
-       
-       <!-- Email Error Message -->
-  
-        <div class="auth-error alert alert-danger" ng-show="login_form.email.$error.required && login_form.email.$invalid && login_form.submitted">A email is Required</div>
-
-         <div class="auth-error alert alert-danger" ng-show="authError">Email: {{authError}}</div>
-
-         <div class="auth-error alert alert-danger" ng-show="login_form.email.$error.email && login_form.email.$invalid && login_form.submitted">A valid email is Required</div>
-
-    </div>
-  </div>
-
-   <div class="form-group">
-    <label class="col-sm-2 control-label"><strong>Password:</strong></label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" ng-model="newUser.password" name="password" placeholder="password" required>
-   
-        <!-- Password Error Message -->
-
-        <div class="alert alert-danger auth-error" ng-show="login_form.password.$error.required && login_form.password.$invalid && login_form.submitted">A password is Required</div>
-        
-
-     </div>
-  </div>
- 
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button ng-click="LoginUser()" class="btn btn-info">Login</button>   
-      <button ng-click="loginForm = false; signUpForm = true" class="btn btn-info">Don't have an account?</button>
-    </div>
-  </div>
-</form>
-
-
-
+<div ng-view></div>
 
 <!-- ######## -->
 
+ 
 
-      <div class="row" ng-hide="loginForm || signUpForm" >
-        <div class="col-md-1 col-sm-1 col-xs-12 empty"></div>
-        <div class="col-md-10 col-sm-10 col-xs-12 full">
-          <div class="logo"><i class="fa fa-coffee"></i></div>
-          <h1 class="welcome" style="color:#333333">
-            <strong>Welcome to Coffee Bank.</strong><br />
-            <span style="color:#333333">Come save with us.</span><br />
-             
-             <span ng-hide="currentUser" ng-click="loginForm = true"><%= link_to "Let's go!", "#", id:"login", class:"btn btn-primary btn-lg" %></span>
-             
-         </h1> 
-
-         
-        </div>
-        <div class="col-md-1 col-sm-1 col-xs-12 empty"></div>
-      </div>     
+      
     </div><!-- /.container -->
 
     <!-- Features Section -->
@@ -611,11 +481,7 @@
     </div>
 </div>
 
-<!-- Angular Tests -->
 
-<p>Hi Angular, 5 + 5 = {{5+5}}</p>
-
-<div ng-view></div>
 
 </body>
 </html>
