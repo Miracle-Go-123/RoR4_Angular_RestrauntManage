@@ -32,6 +32,25 @@
   color: #000;
 }
 
+ #item {
+  border-radius: 2px;
+  background-color: rgba(119,147,232,0.6);
+/*  background-color: rgba(255,255,255,0.1);*/
+  border: 2px solid black;
+ /* height: 50px;
+  width: 300px;*/
+  font-size: 20px;
+  font-style: bold;
+  color: #FCFDFF;
+  padding-top: 8px;
+}
+
+#item:hover {
+  background-color: #CED9D2;
+  border: 2px solid #CED9D2;
+  color: #000;
+}
+
 .auth-form {
 
 margin-top: 80px;

@@ -40,13 +40,13 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">COLORS<i class="fa fa-caret-down"></i></a>
               <ul class="dropdown-menu">
-                <li><a href="product-blue.html">Blue</a></li>
-                <li><a href="product-green.html">Green</a></li>
+                <li><a href="#">Blue</a></li>
+                <li><a href="#">Green</a></li>
               </ul>
             </li>
             <li><a class="scroll hidden" href="#home"></a></li>
+             <li><a class="scroll" href="#gallery">Items</a></li>
             <li><a class="scroll" href="#features">FEATURES</a></li>
-            <li><a class="scroll" href="#gallery">GALLERY</a></li>
             <li><a class="scroll" href="#pricing">PRICING</a></li>
             <li><a class="scroll" href="#accordion">ACCORDION</a></li>
             <li><a class="scroll" href="#subscribe">SUBSCRIBE</a></li>
@@ -59,6 +59,9 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>  
+
+
+
 
     <!-- All Page Modals -->      
     <div class="modals">
@@ -151,7 +154,135 @@
       
     </div><!-- /.container -->
 
-    <!-- Features Section -->
+
+
+<!-- Items will be placed here -->
+
+
+    <div id="gallery" class="section" >
+
+<!-- ng-if="currentUser" -->
+
+      <div class="container">  
+        <div class="content">
+          <div class="text-center">
+            <h2 class="title">What did you save on today?</h2>            
+          </div>
+          <div class="row">
+            <div class="col-md-2 col-sm-2 col-xs-12"></div>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+              <p class="description text-center">Nulla capicola lorem short loin, eu excepteur tongue. Spare ribs bacon sausage in est. Landjaeger pork belly nisi, andouille qui venison pariatur. Minim in beef ribs turkey jowl. Cillum laborum tongue pariatur aliqua, sint flank ribeye strip steak ea. Nisi filet mignon venison voluptate tri-tip t-bone.</p>
+
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-12">
+              <a href="#" id="item" class="btn btn-info" ng-show="currentUser">Add Item</a> 
+              <a href="#" id="item" class="btn btn-info" ng-show="currentUser">Remove Item</a> 
+            </div>
+          </div>
+           
+<!-- Forms for CRUD on Items -->
+
+           <div class="row">
+
+                
+
+           </div>
+
+
+        </div><!-- /.content -->  
+
+        <div id="grid" class="row masonry-grid effect-2" >
+         
+
+
+          <li class="col-md-4 col-sm-4 col-xs-12 item">
+              <img ng-src="assets/Coffee-Mug.png" alt="coffee"> 
+              <span class="overlay"><span class="valign"></span><i class="fa fa-check"></i></span>              
+            
+            <div class="description">
+              <h2>Coffee</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <div class="clearfix"></div>
+            </div>          
+          </li>
+         
+
+
+          <li class="col-md-4 col-sm-4 col-xs-12 item">
+              <img ng-src="assets/Tea-Cup.png" alt="tea"> 
+              <span class="overlay"><span class="valign"></span><i class="fa fa-check"></i></span>              
+                
+            <div class="description">
+              <h2>Tea</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <div class="clearfix"></div>
+            </div>         
+          </li>
+          
+
+
+          <li class="col-md-4 col-sm-4 col-xs-12 item">
+              <img ng-src="assets/Drinks.png" alt="drinks"> 
+              <span class="overlay"><span class="valign"></span><i class="fa fa-check"></i></span>              
+            
+            <div class="description">
+              <h2>Drinks</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <div class="clearfix"></div>
+            </div>          
+          </li>
+          
+
+
+          <li class="col-md-4 col-sm-4 col-xs-12 item">
+              <img ng-src="assets/Food-Sign.png" alt="food"> 
+              <span class="overlay"><span class="valign"></span><i class="fa fa-check"></i></span>              
+            
+            <div class="description">
+              <h2>Food</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <div class="clearfix"></div>
+            </div>          
+          </li>     
+          
+
+          <li class="col-md-4 col-sm-4 col-xs-12 item">
+              <img ng-src="assets/Travel.png" alt="travel"> 
+              <span class="overlay"><span class="valign"></span><i class="fa fa-check"></i></span>              
+              
+            <div class="description">
+              <h2>Travel</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <div class="clearfix"></div>
+            </div>          
+          </li>          
+          
+
+          <li class="col-md-4 col-sm-4 col-xs-12 item">
+              <img src="assets/Entertainment.png" alt="entertainment"> 
+              <span class="overlay"><span class="valign"></span><i class="fa fa-check"></i></span>              
+            
+            <div class="description">
+              <h2>Entertainment</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <div class="clearfix"></div>
+            </div>         
+          </li>
+
+
+
+        </div>  
+      </div>
+      <hr>
+      
+    </div><!-- /.container -->  
+
+
+
+
+
+    <!-- Stats Section -->
+
     <div id="features" class="section gray">
       <div class="container">
         
@@ -209,94 +340,8 @@
       <hr>
     </div>
 
-    <div id="gallery" class="section">
-      <div class="container">  
-        <div class="content">
-          <div class="text-center">
-            <h2 class="title">Gallery</h2>            
-          </div>
-          <div class="row">
-            <div class="col-md-2 col-sm-2 col-xs-12"></div>
-            <div class="col-md-8 col-sm-8 col-xs-12">
-              <p class="description">Check out these screenshots of our product. Here you can add as many screenshots as you want. They will all be animated and placed with Masonry.
-                </p>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-12"></div>
-          </div>
 
-        </div><!-- /.content -->  
-        <div id="grid" class="row masonry-grid effect-2">
-          <li class="col-md-4 col-sm-4 col-xs-12 item">
-            <a data-toggle="modal" href="#modal1" class="image">
-              <img src="assets/sintel-bedroom.png" alt="sintel bedroom"> 
-              <span class="overlay"><span class="valign"></span><i class="fa fa-search"></i></span>              
-            </a>
-            <div class="description">
-              <h2>Sintel Bedroom</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <div class="clearfix"></div>
-            </div>          
-          </li>
-          <li class="col-md-4 col-sm-4 col-xs-12 item">
-            <a data-toggle="modal" href="#modal4" class="image">
-              <img src="assets/sintel-bamboo-2.jpg" alt="ishtar alley"> 
-              <span class="overlay"><span class="valign"></span><i class="fa fa-search"></i></span>              
-            </a>     
-            <div class="description">
-              <h2>Sintel Bamboo</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <div class="clearfix"></div>
-            </div>         
-          </li>
-          <li class="col-md-4 col-sm-4 col-xs-12 item">
-            <a data-toggle="modal" href="#modal2" class="image">
-              <img src="assets/sintel-snowscape.jpg" alt="sintel snowscape"> 
-              <span class="overlay"><span class="valign"></span><i class="fa fa-search"></i></span>              
-            </a>
-            <div class="description">
-              <h2>Snowscape</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <div class="clearfix"></div>
-            </div>          
-          </li>
-          <li class="col-md-4 col-sm-4 col-xs-12 item">
-            <a data-toggle="modal" href="#modal3" class="image">
-              <img src="assets/sintel-wallpaper-ishtar.jpg" alt="sintel wallpaper ishtar"> 
-              <span class="overlay"><span class="valign"></span><i class="fa fa-search"></i></span>              
-            </a>
-            <div class="description">
-              <h2>Ishtar Wallpaper</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <div class="clearfix"></div>
-            </div>          
-          </li>     
-          <li class="col-md-4 col-sm-4 col-xs-12 item">
-            <a data-toggle="modal" href="#modal6" class="image">
-              <img src="assets/sintel-town-concept.jpg" alt="sintel town concept"> 
-              <span class="overlay"><span class="valign"></span><i class="fa fa-search"></i></span>              
-            </a>  
-            <div class="description">
-              <h2>Sintel Town Concept</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <div class="clearfix"></div>
-            </div>          
-          </li>          
-          <li class="col-md-4 col-sm-4 col-xs-12 item">
-            <a data-toggle="modal" href="#modal5" class="image">
-              <img src="assets/ishtar-alley.png" alt="ishtar alley"> 
-              <span class="overlay"><span class="valign"></span><i class="fa fa-search"></i></span>              
-            </a>   
-            <div class="description">
-              <h2>Ishtar Alley</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <div class="clearfix"></div>
-            </div>         
-          </li>
-        </div>  
-      </div>
-      <hr>
-      
-    </div><!-- /.container -->  
+
 
     <div id="pricing" class="section gray">
       <div class="container">
