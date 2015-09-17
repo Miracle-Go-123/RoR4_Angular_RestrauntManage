@@ -74,9 +74,31 @@ if ($scope.login_form.$valid) {
 
 //////////////////////////////////////////////
 
-coffeeBankApp.controller("ItemsController", ["$scope", "$http", function($scope, $http) {
+coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootScope", "$location", "ItemFactory", function($scope, $http, User, $rootScope, $location, ItemFactory) {
 
-  $scope.test = "Yo yo home slice!";
+ $scope.newItem = {name: "", price: null, picture: "", category: ""};
+ $scope.itemForm = false;
+ // $scope.AddItem = ItemFactory.addItem
+
+
+$scope.AddItem = function(){
+if ($scope.item_form.$valid) {
+
+        ItemFactory.addItem($scope.newItem)
+        $scope.newItem = {name: "", price: null, picture: "", category: ""};
+        $scope.itemForm = false;
+        $scope.item_form.submitted = false;
+
+} else {
+
+  $scope.item_form.submitted = true;
+
+  }
+};
+
+
+
+
 
 
 }]);

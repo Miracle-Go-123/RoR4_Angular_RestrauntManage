@@ -159,7 +159,7 @@
 <!-- Items will be placed here -->
 
 
-    <div id="gallery" class="section" >
+    <div id="gallery" class="section" ng-controller="ItemsController" >
 
 <!-- ng-if="currentUser" -->
 
@@ -175,14 +175,88 @@
 
             </div>
             <div class="col-md-2 col-sm-2 col-xs-12">
-              <a href="#" id="item" class="btn btn-info" ng-show="currentUser">Add Item</a> 
-              <a href="#" id="item" class="btn btn-info" ng-show="currentUser">Remove Item</a> 
+              <a href="#" id="item" class="btn btn-info" ng-show="currentUser" ng-click="itemForm = true">Add Item</a> 
+              <a href="#" id="item" class="btn btn-info" ng-show="currentUser" ng-click="itemForm = true">Remove Item</a> 
             </div>
           </div>
            
 <!-- Forms for CRUD on Items -->
 
-           <div class="row">
+<div class="row">
+
+<form class="form-horizontal item-form" novalidate name="item_form" ng-show="itemForm">
+
+  <div class="form-group">
+
+    <label class="col-sm-2 control-label"><strong>Name:</strong></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="newItem.name" name="name" placeholder="item name" required>
+       
+       <!-- Name Error Message -->
+  
+        <div class="auth-error alert alert-danger text-center" ng-show="item_form.name.$error.required && item_form.name.$invalid && item_form.submitted">A item name is Required</div>
+
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label class="col-sm-2 control-label"><strong>Price:</strong></label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" ng-model="newItem.price" name="price" placeholder="cost of item" min="0" required>
+   
+        <!-- Price Error Message -->
+
+        <div class="alert alert-danger auth-error text-center" ng-show="item_form.price.$error.required && item_form.price.$invalid && item_form.submitted">A price for the item is Required</div>
+        
+
+     </div>
+  </div>
+
+ <div class="form-group">
+    <label class="col-sm-2 control-label"><strong>Category:</strong></label>
+    <div class="col-sm-10">
+
+<select ng-model="newItem.category" class="form-control" name="category" required>
+  <option value="coffee">Coffee</option>
+  <option value="tea">Tea</option>
+  <option value="drinks">Drinks</option>
+  <option value="entertainment">Entertainment</option>
+  <option value="food">Food</option>
+  <option value="travel">Travel</option>
+  <option value="clothing">Clothing</option>
+  <option value="other">Other</option>
+</select>
+
+
+        <!-- Price Error Message -->
+
+        <div class="alert alert-danger auth-error text-center" ng-show="item_form.category.$error.required && item_form.category.$invalid && item_form.submitted">A category for the item is Required</div>
+        
+
+     </div>
+  </div>
+ 
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+  
+  <a href="#" ng-click="AddItem(newItem)" id="item" class="btn btn-info">Create</a>
+
+  <a href="#" id="item" ng-click="itemForm = false" class="btn btn-info">Exit</a>
+
+    </div>
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
 
                 
 
