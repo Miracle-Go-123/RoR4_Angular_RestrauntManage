@@ -265,20 +265,24 @@
 
         </div><!-- /.content -->  
 
-        <div id="grid" class="row masonry-grid effect-2" >
-         
+
+<!-- ng-repeat for items -->
+
+
+<div id="grid" class="row masonry-grid effect-2" >
+
+    <div ng-repeat="item in items" class="repeated-item"> 
 
 
 
-    <div ng-repeat="item in items"> 
+
 
 
 <!-- ng-repeat with items/ directive -->
 
+<dh-item-template itemdata="item" id="item._id"></dh-item-template>
 
 
-
-<p>{{item.name}}</p>
 
 
 
@@ -286,8 +290,7 @@
 
         </div>  
       </div>
-      <hr>
-      
+      <hr>     
     </div><!-- /.container -->  
 
 

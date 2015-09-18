@@ -5,7 +5,7 @@ coffeeBankApp.directive('dhItemTemplate', function() {
   	templateUrl: 'item-template.html',
     scope: {
 
-      item: '='
+      item: '=itemdata'
     
       },
 

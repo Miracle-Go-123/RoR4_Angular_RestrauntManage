@@ -56,7 +56,7 @@ ItemList.items = [];
 
   var getAllItems = function() {
       ItemList.items = Item.query();
-      console.log(ItemList.items);
+      // console.log(ItemList.items);
     }
 
    
@@ -65,10 +65,8 @@ ItemList.items = [];
 
  ItemList.addItem = function(newItem) {
 
-      var item = new Item(newItem);
-      
+      var item = new Item(newItem);   
       item.$save().then(function(data) {
-      // getAllItems();
       // console.log("save", data);     
         
       }, function(response){
