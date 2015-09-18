@@ -59,6 +59,14 @@ padding-top: 20px;
 
 }
 
+.item-form .price.ng-invalid.ng-touched {
+  background-color: #FA787E;
+}
+
+.item-form .price.ng-valid.ng-touched {
+  background-color: #78FA89;
+}
+
 .auth-error {
   padding-top: 4px;
   /*padding-bottom: auto;*/

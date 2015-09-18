@@ -52,18 +52,24 @@
 coffeeBankApp.factory('ItemFactory', ['Item', '$resource', '$rootScope', function(Item, $resource, $rootScope) {
  
 var ItemList = {};
-  
+ItemList.items = [];
+
+  var getAllItems = function() {
+      ItemList.items = Item.query();
+      console.log(ItemList.items);
+    }
+
+   
  
 
 
  ItemList.addItem = function(newItem) {
-   console.log("new item", newItem);
 
       var item = new Item(newItem);
       
       item.$save().then(function(data) {
-      
-      console.log("save", data);     
+      // getAllItems();
+      // console.log("save", data);     
         
       }, function(response){
         console.log("response", response);
@@ -74,7 +80,7 @@ var ItemList = {};
 
 
 
-
+  getAllItems();
 
   return ItemList;
 
