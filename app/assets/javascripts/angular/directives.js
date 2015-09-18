@@ -1,9 +1,11 @@
-coffeeBankApp.directive('dhAuth', function() {
+coffeeBankApp.directive('dhItemTemplate', function() {
   return {
     
   	restrict: 'E',
-  	templateUrl: 'auth-form.html',
+  	templateUrl: 'item-template.html',
     scope: {
+
+      item: '='
     
       },
 

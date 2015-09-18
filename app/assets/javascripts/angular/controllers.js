@@ -79,15 +79,20 @@ coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootSc
  $scope.newItem = {name: "", price: null, picture: "", category: ""};
  $scope.itemForm = false;
  // $scope.AddItem = ItemFactory.addItem
+ $scope.items = ItemFactory.items
+
 
 
 $scope.AddItem = function(){
 if ($scope.item_form.$valid) {
 
         ItemFactory.addItem($scope.newItem)
+        $scope.items.push($scope.newItem);
         $scope.newItem = {name: "", price: null, picture: "", category: ""};
         $scope.itemForm = false;
         $scope.item_form.submitted = false;
+        $scope.item_form.$setUntouched();
+       
 
 } else {
 
@@ -96,7 +101,12 @@ if ($scope.item_form.$valid) {
   }
 };
 
-
+$scope.ResetItemForm = function(){
+        $scope.newItem = {name: "", price: null, picture: "", category: ""};
+        $scope.itemForm = false;
+        $scope.item_form.submitted = false;
+        $scope.item_form.$setUntouched();       
+};
 
 
 

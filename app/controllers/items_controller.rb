@@ -3,9 +3,17 @@ class ItemsController < ApplicationController
 before_action :set_user, except: [:edit]
 
 
+# --------------------------------------------------
+
+  # GET /items
+  def index
+    @items = @user.items
+    render json: @items, status: :ok
+  end
 
 # ---------------------------------------------
-
+  
+  # POST /items
   def create
     
     @item = Item.create item_params
