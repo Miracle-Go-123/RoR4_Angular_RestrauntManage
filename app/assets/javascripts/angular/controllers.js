@@ -83,7 +83,7 @@ coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootSc
  $scope.newItem = {name: "", price: null, picture: "", category: ""};
  $scope.itemForm = false;
  $scope.deleteMe = false;
- $scope.showItem = false;
+ $scope.showItem = true;
  $scope.items = ItemFactory.items
  
  var getAllItems = function() {
