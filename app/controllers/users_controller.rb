@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 # ---------------------------------------------
 
  def index
-    # binding.pry
+    
     @user = User.find @current_user.id
     render json: @user, status: :ok
  end
@@ -19,11 +19,10 @@ class UsersController < ApplicationController
     if @user.save
     render json: @user, status: :created  
       session[:user_id] = @user.id
-      # redirect_to user_path(@user)
+      
     else
     render json: @user.errors, status: :unprocessable_entity
-      # @landing_page = true
-      # render "sessions/signup"
+     
     end
   end
 
@@ -37,17 +36,15 @@ class UsersController < ApplicationController
       if @found_user && @found_user.authenticate(params[:password])
         session[:user_id] = @found_user.id
         render json: @found_user, status: :created 
-        # redirect_to user_path(current_user)
+       
       else
         render json: @found_user.errors, status: :unprocessable_entity
         # flash[:alert] = "email / password combination is invalid"
-        # redirect_to login_path(@user)
+       
       end
     else
-      render json: @found_user.errors, status: :unprocessable_entity
-     
+      render json: @found_user.errors, status: :unprocessable_entity   
   end
-      
   end
 
 

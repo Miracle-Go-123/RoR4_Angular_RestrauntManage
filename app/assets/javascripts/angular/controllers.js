@@ -17,7 +17,7 @@ coffeeBankApp.controller("MainController", ["$scope", "$http", "User", "$rootSco
 
 //////////////////////////////////////////////
 
-coffeeBankApp.controller("AuthController", ["$scope", "$http", "User", "$rootScope", "Login", "$location", function($scope, $http, User, $rootScope, Login, $location) {
+coffeeBankApp.controller("AuthController", ["$scope", "$http", "User", "$rootScope", "Login", "$location", "ItemFactory", "Item", function($scope, $http, User, $rootScope, Login, $location, ItemFactory, Item) {
 
   $scope.newUser = {name: "", email: "", picture: "", password: ""};
 
@@ -48,6 +48,10 @@ if ($scope.auth_form.$valid) {
 
 // -----------------------------------
 
+ // var getAllItems = function() {
+ //      $scope.items = Item.query();
+ //    }
+
 $scope.LoginUser = function(){
 if ($scope.login_form.$valid) {
      var user = new Login($scope.newUser);
@@ -74,25 +78,59 @@ if ($scope.login_form.$valid) {
 
 //////////////////////////////////////////////
 
-coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootScope", "$location", "ItemFactory", function($scope, $http, User, $rootScope, $location, ItemFactory) {
+coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootScope", "$location", "ItemFactory", "Item", function($scope, $http, User, $rootScope, $location, ItemFactory, Item) {
 
  $scope.newItem = {name: "", price: null, picture: "", category: ""};
  $scope.itemForm = false;
- // $scope.AddItem = ItemFactory.addItem
+ $scope.deleteMe = false;
+ $scope.showItem = false;
  $scope.items = ItemFactory.items
+ 
+ var getAllItems = function() {
+      $scope.items = Item.query();
+    }
 
+$scope.ShowItems = function(){
+
+if ($scope.showItem === false) {
+   getAllItems();
+   $scope.showItem = true;
+
+} else {
+$scope.showItem = false;
+    }
+}
 
 
 $scope.AddItem = function(){
 if ($scope.item_form.$valid) {
 
         ItemFactory.addItem($scope.newItem)
-        $scope.items.push($scope.newItem);
+        
+     // Adds a picture to the item based on category
+      if ($scope.newItem.category === "food") {
+      $scope.newItem.picture = "assets/Food-Sign.png"
+      } else if ($scope.newItem.category === "drinks") {
+      $scope.newItem.picture = "assets/Drinks.png" 
+      } else if ($scope.newItem.category === "travel") {
+      $scope.newItem.picture = "assets/Travel.png"
+      } else if ($scope.newItem.category === "entertainment") {
+      $scope.newItem.picture = "assets/Entertainment.png"
+      } else if ($scope.newItem.category === "tea") {
+      $scope.newItem.picture = "assets/Tea-Cup.png"
+      } else if ($scope.newItem.category === "coffee") {
+      $scope.newItem.picture = "assets/Coffee-Mug.png"
+      } else if ($scope.newItem.category === "clothing") {
+      $scope.newItem.picture = "assets/Clothing.png"
+      } else {
+      $scope.newItem.picture = "assets/Dollar.png"
+    }
+
         $scope.newItem = {name: "", price: null, picture: "", category: ""};
         $scope.itemForm = false;
         $scope.item_form.submitted = false;
         $scope.item_form.$setUntouched();
-       
+        getAllItems();
 
 } else {
 
@@ -109,7 +147,13 @@ $scope.ResetItemForm = function(){
 };
 
 
-
+$scope.DeleteItem = function(id){
+if ($scope.deleteMe === true) {
+ItemFactory.deleteItem(id)
+$scope.deleteMe = false;
+getAllItems();
+    }
+}
 
 }]);
 

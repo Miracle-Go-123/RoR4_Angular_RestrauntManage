@@ -149,17 +149,21 @@
 
 <!-- ######## -->
 
- 
-
-      
     </div><!-- /.container -->
+
+
+
+
+
+
+
 
 
 
 <!-- Items will be placed here -->
 
 
-    <div id="gallery" class="section" ng-controller="ItemsController" >
+ <div id="gallery" class="section" ng-controller="ItemsController" >
 
 <!-- ng-if="currentUser" -->
 
@@ -176,10 +180,11 @@
             </div>
             <div class="col-md-2 col-sm-2 col-xs-12">
               <a href="#" id="item" class="btn btn-info" ng-show="currentUser" ng-click="itemForm = true">Add Item</a> 
-              <a href="#" id="item" class="btn btn-info" ng-show="currentUser" ng-click="itemForm = true">Remove Item</a> 
+              <a href="#" id="item" class="btn btn-info" ng-show="currentUser" ng-click="deleteMe = true">Remove Item</a> 
+              <a href="#" id="item" class="btn btn-info" ng-show="currentUser" ng-click="ShowItems()">Show/Hide Items</a>
             </div>
           </div>
-           
+          
 <!-- Forms for CRUD on Items -->
 
 <div class="row">
@@ -248,50 +253,48 @@
 </form>
 
 
-
-
-
-
-
-
-
-
-
-
-                
+<!-- End of create item form -->
 
            </div>
-
-
         </div><!-- /.content -->  
+
+
+
+
+
 
 
 <!-- ng-repeat for items -->
 
+<p class="red" ng-show="deleteMe">Click on an item to Delete it! <a href="#" ng-click="deleteMe = false">(nevermind)</a></p>
 
-<div id="grid" class="row masonry-grid effect-2" >
+<div id="grid" class="row effect-2" ng-show="showItem">
 
-    <div ng-repeat="item in items" class="repeated-item"> 
+<!-- masonry-grid effect-2
+ -->
 
-
-
+<div ng-repeat="(key, item) in items" class="repeated-item"> 
 
 
 
 <!-- ng-repeat with items/ directive -->
 
-<dh-item-template itemdata="item" id="item._id"></dh-item-template>
+<dh-item-template ng-click="DeleteItem(item.id)"itemdata="item" id="item._id"></dh-item-template>
 
 
+        </div> 
 
-
-
-
-
-        </div>  
       </div>
       <hr>     
     </div><!-- /.container -->  
+</div>
+
+
+
+
+
+
+
 
 
 

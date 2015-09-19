@@ -59,9 +59,6 @@ ItemList.items = [];
       // console.log(ItemList.items);
     }
 
-   
- 
-
 
  ItemList.addItem = function(newItem) {
 
@@ -76,6 +73,18 @@ ItemList.items = [];
   };
 
 
+ ItemList.deleteItem = function(id) {
+     
+     new Item({id: id}).$remove().then(function() {       
+   
+     getAllItems();
+
+      }), function(response){
+        console.log("response", response);
+
+     }
+  };
+
 
 
   getAllItems();
@@ -88,32 +97,3 @@ ItemList.items = [];
 
 //////////////////////////////////////////////////
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- // --------------------------------------------------
-
-  

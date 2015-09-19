@@ -51,6 +51,20 @@
   color: #000;
 }
 
+.item {
+  border: 6px solid #F8F9FF;
+  background: rgba(206, 217, 210, 0.8);
+  max-height: 400px;
+}
+
+.red {
+  color: red;
+}
+
+#grid li{
+  list-style-type: none;
+}
+
 .auth-form {
 
 margin-top: 80px;
