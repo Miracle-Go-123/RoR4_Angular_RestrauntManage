@@ -1,11 +1,23 @@
-   <div class="col-md-4 col-sm-4 col-xs-12 item">
-              <img ng-src="assets/Drinks.png" alt="drinks"> 
-              <span class="overlay"><span class="valign"></span><i class="fa fa-check"></i></span>              
+   <li class="col-md-4 item">
+              <div class="text-center">
+              <img ng-src="{{item.picture}}" alt="{{item.category}}"> 
+              </div>
+              <span ng-hide="edit" class="overlay"><span class="valign"></span><i class="fa fa-check"></i></span>              
             
             <div class="description">
+
               <h2>{{item.name}}</h2>
-              <p>{{item.category}}</p>
+
+              <p><strong>Category: </strong>{{item.category}}<br/ ><strong>Price: </strong>{{item.price | currency:"$":2}}</p>
               <div class="clearfix"></div>
             </div>          
-          </div>
+         </li>
 
+
+
+
+
+
+   <!-- <li class="col-md-4 col-sm-4 col-xs-12 item"> 
+   </li>
+   -->

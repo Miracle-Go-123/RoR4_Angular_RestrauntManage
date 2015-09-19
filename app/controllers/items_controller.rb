@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
 before_action :set_user, except: [:edit]
+before_action :set_item, only: [:destroy]
 
 
 # --------------------------------------------------
@@ -17,6 +18,25 @@ before_action :set_user, except: [:edit]
   def create
     
     @item = Item.create item_params
+    # binding.pry
+    if params[:category] === "food"
+      @item.picture = "assets/Food-Sign.png"
+      elsif params[:category] === "drinks"
+      @item.picture = "assets/Drinks.png" 
+      elsif params[:category] === "travel"
+      @item.picture = "assets/Travel.png"
+      elsif params[:category] === "entertainment"
+      @item.picture = "assets/Entertainment.png"
+      elsif params[:category] === "tea"
+      @item.picture = "assets/Tea-Cup.png"
+      elsif params[:category] === "coffee"
+      @item.picture = "assets/Coffee-Mug.png"
+      elsif params[:category] === "clothing"
+      @item.picture = "assets/Clothing.png"
+      else 
+      @item.picture = "assets/Dollar.png"
+    end
+
     @item.user_id = @user.id
     if @item.save
     
@@ -33,15 +53,16 @@ before_action :set_user, except: [:edit]
 # --------------------------------------------- 
 
 
+  # DELETE /items/:id
+  def destroy
+   
+    @item.destroy
+    render json: @item, status: ok
+
+  end
 
 
-
-
-
-
-
-
-
+# --------------------------------------------------
 
 
 
@@ -70,6 +91,10 @@ def set_user
 
 	@user = User.find @current_user.id
 	
+end
+
+def set_item
+      @item = Item.find(params[:id])
 end
 
  def item_params
