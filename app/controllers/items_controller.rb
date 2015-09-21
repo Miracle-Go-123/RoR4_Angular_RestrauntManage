@@ -74,12 +74,11 @@ def saveit
 @save.date_saved = Time.now
 @save.user_id = @user.id
 @user.total_savings += params[:price]
-   
-   if @save.save && @user.save
-    
-    # binding.pry
-    render json: {:save => @save, :user => @user}, status: :created  
   
+   if @save.save && @user.save
+    # @saves = @user.keeps
+    # render json: {:saves => @saves, :user => @user}, status: :created  
+    render json: @save, status: :created  
     else
     
     render json: @save.errors, status: :unprocessable_entity
@@ -89,8 +88,15 @@ def saveit
 end
 
 
+# --------------------------------------------- 
 
+def getsaves
 
+ @saves = @user.keeps
+    render json: @saves, status: :ok
+
+  
+end
 
 
 

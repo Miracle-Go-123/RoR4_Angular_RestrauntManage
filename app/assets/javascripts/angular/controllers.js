@@ -11,11 +11,13 @@ coffeeBankApp.controller("MainController", ["$scope", "$http", "User", "$rootSco
 
   getCurrentUser();
 
-
-
 }]);
 
+
+
 //////////////////////////////////////////////
+
+
 
 coffeeBankApp.controller("AuthController", ["$scope", "$http", "User", "$rootScope", "Login", "$location", "ItemFactory", "Item", function($scope, $http, User, $rootScope, Login, $location, ItemFactory, Item) {
 
@@ -48,10 +50,6 @@ if ($scope.auth_form.$valid) {
 
 // -----------------------------------
 
- // var getAllItems = function() {
- //      $scope.items = Item.query();
- //    }
-
 $scope.LoginUser = function(){
 if ($scope.login_form.$valid) {
      var user = new Login($scope.newUser);
@@ -76,7 +74,11 @@ if ($scope.login_form.$valid) {
 
 }]);
 
+
+
 //////////////////////////////////////////////
+
+
 
 coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootScope", "$location", "ItemFactory", "Item", function($scope, $http, User, $rootScope, $location, ItemFactory, Item) {
 
@@ -85,10 +87,18 @@ coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootSc
  $scope.deleteMe = false;
  $scope.showItem = true;
  $scope.items = ItemFactory.items
+ // $scope.saves = ItemFactory.saves
+
  
  var getAllItems = function() {
       $scope.items = Item.query();
     }
+
+  $http.get('/getsaves').then(function(data) {      
+      $scope.saves = data.data
+   });
+
+// -----------------------------------
 
 $scope.ShowItems = function(){
 
@@ -101,34 +111,18 @@ $scope.showItem = false;
     }
 }
 
+// -----------------------------------
 
 $scope.AddItem = function(){
 if ($scope.item_form.$valid) {
 
         ItemFactory.addItem($scope.newItem)
-        
-     // Adds a picture to the item based on category
-      if ($scope.newItem.category === "food") {
-      $scope.newItem.picture = "assets/Food-Sign.png"
-      } else if ($scope.newItem.category === "drinks") {
-      $scope.newItem.picture = "assets/Drinks.png" 
-      } else if ($scope.newItem.category === "travel") {
-      $scope.newItem.picture = "assets/Travel.png"
-      } else if ($scope.newItem.category === "entertainment") {
-      $scope.newItem.picture = "assets/Entertainment.png"
-      } else if ($scope.newItem.category === "tea") {
-      $scope.newItem.picture = "assets/Tea-Cup.png"
-      } else if ($scope.newItem.category === "coffee") {
-      $scope.newItem.picture = "assets/Coffee-Mug.png"
-      } else if ($scope.newItem.category === "clothing") {
-      $scope.newItem.picture = "assets/Clothing.png"
-      } else {
-      $scope.newItem.picture = "assets/Dollar.png"
-    }
+
         // Use push() into the array if you want to incorporate the singular
         // addition of an item to the array. Ran into issues with formating this
         // with the current template.  
         // $scope.items.push($scope.newItem)
+
         $scope.newItem = {name: "", price: null, picture: "", category: ""};
         $scope.itemForm = false;
         $scope.item_form.submitted = false;
@@ -143,6 +137,8 @@ if ($scope.item_form.$valid) {
   }
 };
 
+// -----------------------------------
+
 $scope.ResetItemForm = function(){
         $scope.newItem = {name: "", price: null, picture: "", category: ""};
         $scope.itemForm = false;
@@ -150,6 +146,7 @@ $scope.ResetItemForm = function(){
         $scope.item_form.$setUntouched();       
 };
 
+// -----------------------------------
 
 $scope.DeleteItem = function(item, $index){
 if ($scope.deleteMe === true) {
@@ -162,19 +159,38 @@ $scope.items.splice($index, 1)
     }
 }
 
+// -----------------------------------
+
 $scope.SaveIt = function(item){
   
   if ($scope.deleteMe === false) {  
+         ItemFactory.saveItem(item) 
 
-      console.log("Save It");
-      ItemFactory.saveItem(item)
-
-
-
+// Request to get an updated list of saves as of the most recent save.
+    $http.get('/getsaves').then(function(data) {  
+      // console.log(data);
+      $scope.saves = data.data
+   })  
   }
 };
 
+// -----------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
 }]);
+
+
 
 //////////////////////////////////////////////
 
