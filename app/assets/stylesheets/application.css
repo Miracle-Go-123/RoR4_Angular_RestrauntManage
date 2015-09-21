@@ -115,8 +115,8 @@ padding-top: 20px;
 
 /* Works fine with NO animations....*/
 
-/*.repeated-item.ng-enter, 
-.repeated-itel.ng-leave
+/*.repeated_item.ng-enter, 
+.repeated_item.ng-leave
 { 
     -webkit-transition: 300ms cubic-bezier(0.445, 0.050, 0.550, 0.950) all;
     -moz-transition: 300ms cubic-bezier(0.445, 0.050, 0.550, 0.950) all;
@@ -130,15 +130,15 @@ padding-top: 20px;
     white-space:nowrap;
 } 
  
-.repeated-item.ng-leave.repeated-item.ng-leave-active,
-.repeated-item.ng-enter {
+.repeated_item.ng-leave.repeated_item.ng-leave-active,
+.repeated_item.ng-enter {
     opacity: 0;
     width: 0px;
     height: 0px;
 }
  
-.repeated-item.ng-enter.repeated-item.ng-enter-active,  
-.repeated-item.ng-leave {
+.repeated_item.ng-enter.repeated_item.ng-enter-active,  
+.repeated_item.ng-leave {
     opacity: 1;
     width: 150px;
     height: 30px;
@@ -150,9 +150,9 @@ when there are a large number of rows and then how it looks when the item leave
 when a new one is added and we re-set the array*/
 
 
-/*.repeated-item.ng-enter, */
-/*.repeated-item.ng-move,*/
-.repeated-item.ng-leave { 
+.repeated_item.ng-enter, 
+/*.repeated_item.ng-move,*/
+.repeated_item.ng-leave { 
     -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
     -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
     -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
@@ -162,9 +162,9 @@ when a new one is added and we re-set the array*/
     display: block;
 } 
 
-/*.repeated-item.ng-enter,
-.repeated-item.ng-move, */
-.repeated-item.ng-leave.repeated-item.ng-leave-active {
+.repeated_item.ng-enter,
+/*.repeated_item.ng-move, */
+.repeated_item.ng-leave.repeated_item.ng-leave-active {
     -webkit-transform: rotateX(90deg) rotateZ(90deg);
     -moz-transform: rotateX(90deg) rotateZ(90deg);
     -ms-transform: rotateX(90deg) rotateZ(90deg);
@@ -174,8 +174,9 @@ when a new one is added and we re-set the array*/
     height: 0px;
 }        
 
-/*.repeated-item.ng-enter.repeated-item.ng-enter-active, .repeated-item.ng-move.repeated-item.ng-move-active, */
-.repeated-item.ng-leave {
+.repeated_item.ng-enter.repeated_item.ng-enter-active, 
+/*.repeated_item.ng-move.repeated_item.ng-move-active, */
+.repeated_item.ng-leave {
     -webkit-transform: rotateX(0deg) rotateZ(0deg);
     -moz-transform: rotateX(0deg) rotateZ(0deg);
     -ms-transform: rotateX(0deg) rotateZ(0deg);
