@@ -47,8 +47,7 @@
             <li><a class="scroll hidden" href="#home"></a></li>
              <li><a class="scroll" href="#gallery">ITEMS</a></li>
             <li><a class="scroll" href="#features">MY SAVINGS</a></li>
-            <li><a class="scroll" href="#pricing">PRICING</a></li>
-            <li><a class="scroll" href="#accordion">ACCORDION</a></li>
+            <li><a class="scroll" href="#accordion">Global</a></li>
 
 
            <!-- Current User Info -->   
@@ -161,8 +160,9 @@
 
 <!-- Items will be placed here -->
 
+<div ng-controller="ItemsController" >
 
- <div id="gallery" class="section" ng-controller="ItemsController" >
+ <div id="gallery" class="section">
 
 <!-- ng-if="currentUser" -->
 
@@ -284,6 +284,7 @@
       </div>
       <hr>     
     </div><!-- /.container -->  
+
 </div>
 
 
@@ -307,7 +308,9 @@
             <div class="col-md-6 col-sm-6 col-xs-12 valign">
               <div class="wrapper">
                 <h3>How am I doing?</h3>
-                <p>{{currentUser}}</p>
+                <p>Number of SAVES:</p>
+                <p>{{saves.length}}</p>
+            
 
               <!--   <a class="btn color" href="#">MORE DETAILS</a> -->
 
@@ -360,74 +363,9 @@
       </div>
       <hr>
     </div>
+</div>
 
 
-
-
-    <div id="pricing" class="section gray">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="title">Pricing</h2>            
-        </div>        
-        <div class="content">          
-          <div class="pricing">
-            <div class="row">
-              <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="wrapper">
-                  <h3 class="text-center">BASIC</h3>
-                  <table class="table">
-                    <thead>
-                      <tr><th>9</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr><td>One Time Installation</td></tr>
-                      <tr><td>No reselling </td></tr>
-                      <tr><td>Free Email Support</td></tr>  
-                      <tr><td><a class="btn color" href="#">PURCHASE NOW</a></td></tr>  
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="wrapper">
-                  <h3 class="text-center">PREMIUM</h3>
-                  <table class="table">
-                    <thead>
-                      <tr><th>35</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr><td>Multiple Installations</td></tr>
-                      <tr><td>No reselling </td></tr>
-                      <tr><td>Free Email Support</td></tr>  
-                      <tr><td><a class="btn color" href="#">PURCHASE NOW</a></td></tr>  
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="wrapper">                
-                  <h3 class="text-center">PRO</h3>
-                  <table class="table">
-                    <thead>
-                      <tr><th>99</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr><td>Multiple Installations</td></tr>
-                      <tr><td>Allowed to use and resell</td></tr>  
-                      <tr><td>Free Email Support</td></tr>  
-                      <tr><td><a class="btn color" href="#">PURCHASE NOW</a></td></tr>  
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div><!-- /.container -->
     <hr>
 
 

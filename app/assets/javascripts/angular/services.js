@@ -29,24 +29,7 @@
 
 //////////////////////////
 
-//  coffeeBankApp.factory('CurrentUser', ['User', function(User) {
-//   var CurrentUser = {};
 
-//  var getCurrentUser = function() {
-//       User.get(function(user){
-//       	CurrentUser = user;
-//       })
-//     }
-
-//   getCurrentUser();
-
-//   // ----------------
-
-//   return CurrentUser;
-
-// }]);
-
-//////////////////////////
 
 coffeeBankApp.factory('ItemFactory', ['Item', '$resource', '$rootScope', '$http', function(Item, $resource, $rootScope, $http) {
  
@@ -55,15 +38,14 @@ ItemList.items = [];
 
   var getAllItems = function() {
       ItemList.items = Item.query();
-      // console.log(ItemList.items);
     }
 
+// -----------------------------------
 
  ItemList.addItem = function(newItem) {
 
       var item = new Item(newItem);   
-      item.$save().then(function(data) {
-      // console.log("save", data);     
+      item.$save().then(function(data) {    
         
       }, function(response){
         console.log("response", response);
@@ -71,6 +53,8 @@ ItemList.items = [];
       });
   };
 
+
+// -----------------------------------
 
  // Removes an Item from the database
  ItemList.deleteItem = function(id) {    
@@ -82,11 +66,13 @@ ItemList.items = [];
      }
   };
 
+// -----------------------------------
 
-
+// Saves item to the current user
 ItemList.saveItem = function(item) {     
    $http.post('/saveit', item).then(function(data) {
-    console.log("HOWDY!", data);
+    // console.log("HOWDY!", data.data); 
+
    }), function(response){
         console.log("response", response);
      }
@@ -94,8 +80,10 @@ ItemList.saveItem = function(item) {
   };
 
 
+// -----------------------------------
 
   getAllItems();
+  
 
   return ItemList;
 

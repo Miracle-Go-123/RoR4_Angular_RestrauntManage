@@ -12,7 +12,7 @@ resources :users, except: [:edit, :new]
 resources :items, except: [:edit, :new]
 
 post '/saveit', to: "items#saveit"
-
+get '/getsaves', to: "items#getsaves"
 
 
 end
