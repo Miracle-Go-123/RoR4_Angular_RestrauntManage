@@ -1,6 +1,6 @@
-class CreateSaves < ActiveRecord::Migration
+class CreateKeeps < ActiveRecord::Migration
   def change
-    create_table :saves do |t|
+    create_table :keeps do |t|
       t.string :item_name
       t.string :category
       t.integer :price
