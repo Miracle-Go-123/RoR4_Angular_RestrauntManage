@@ -178,7 +178,7 @@
 
             </div>
             <div class="col-md-2 col-sm-2 col-xs-12">
-              <a href="#" id="item" class="btn btn-info" ng-show="currentUser" ng-click="itemForm = true" ng-hide="itemForm">Add Item</a> 
+              <a href="#" id="item" class="btn btn-info" ng-click="itemForm = true" ng-hide="itemForm || !currentUser">Add Item</a> 
               <a href="#" id="item" class="btn btn-info" ng-show="currentUser" ng-click="deleteMe = true">Remove Item</a> 
               <a href="#" id="item" class="btn btn-info" ng-show="currentUser" ng-click="ShowItems()">Show/Hide Items</a>
             </div>
@@ -306,13 +306,18 @@
           <div class="row single vcontainer">
             <div class="col-md-6 col-sm-6 col-xs-12 valign">
               <div class="wrapper">
-                <h3>Customizable.</h3>
-                <p>Each section is clearly defined in Summit meaning you can easily mix and match to create your perfect website. Because Summit is a one page theme, all you have to do is rearrange the sections in one page.</p>
-                <a class="btn color" href="#">MORE DETAILS</a>
+                <h3>How am I doing?</h3>
+                <p>{{currentUser}}</p>
+
+              <!--   <a class="btn color" href="#">MORE DETAILS</a> -->
+
+
               </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12 valign">
-              <img class="preview slide-in right" src="assets/preview2.jpg">
+
+             <!--  <img class="preview slide-in right" src="assets/preview2.jpg"> -->
+
             </div>
           </div>
           

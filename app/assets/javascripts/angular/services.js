@@ -85,7 +85,8 @@ ItemList.items = [];
 
 
 ItemList.saveItem = function(item) {     
-   $http.post('/saveit', item).then(function() {
+   $http.post('/saveit', item).then(function(data) {
+    console.log("HOWDY!", data);
    }), function(response){
         console.log("response", response);
      }
