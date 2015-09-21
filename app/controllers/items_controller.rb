@@ -65,7 +65,30 @@ before_action :set_item, only: [:destroy]
 # --------------------------------------------------
 
 
+def saveit
 
+# params[:price]
+
+@save = Keep.new 
+@save.item_name = params[:name]
+@save.category = params[:category]
+@save.price = params[:price]
+@save.date_saved = Time.now
+@save.user_id = @user.id
+
+# binding.pry
+   if @save.save
+    binding.pry
+
+    render json: @save, status: :created  
+  
+    else
+    
+    render json: @save.errors, status: :unprocessable_entity
+     
+   end
+  
+end
 
 
 

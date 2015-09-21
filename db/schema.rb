@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20150911224131) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "saves", force: :cascade do |t|
+  create_table "keeps", force: :cascade do |t|
     t.string   "item_name"
     t.string   "category"
     t.integer  "price"

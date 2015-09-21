@@ -125,7 +125,9 @@ if ($scope.item_form.$valid) {
       } else {
       $scope.newItem.picture = "assets/Dollar.png"
     }
-
+        // Use push() into the array if you want to incorporate the singular
+        // addition of an item to the array. Ran into issues with formating this
+        // with the current template.  
         $scope.newItem = {name: "", price: null, picture: "", category: ""};
         $scope.itemForm = false;
         $scope.item_form.submitted = false;
@@ -147,13 +149,28 @@ $scope.ResetItemForm = function(){
 };
 
 
-$scope.DeleteItem = function(id){
+$scope.DeleteItem = function(item, $index){
 if ($scope.deleteMe === true) {
-ItemFactory.deleteItem(id)
+ItemFactory.deleteItem(item.id)
 $scope.deleteMe = false;
-getAllItems();
+$scope.items.splice($index, 1)
+
+// Trying to avoid a full reset after deleting an item
+// getAllItems();
     }
 }
+
+$scope.SaveIt = function(item){
+  
+  if ($scope.deleteMe === false) {  
+
+      console.log("Save It");
+      ItemFactory.saveItem(item)
+
+
+
+  }
+};
 
 }]);
 

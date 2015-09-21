@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 	validates :email, presence: true, uniqueness: true
 	validates :name, presence: true
 
-	has_many :saves, dependent: :destroy
+	has_many :keeps, dependent: :destroy
 	has_many :items, dependent: :destroy
     has_many :globals, through: :connections
 	has_many :connections, dependent: :destroy
