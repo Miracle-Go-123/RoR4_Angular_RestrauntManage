@@ -73,10 +73,12 @@ def saveit
 @save.price = params[:price]
 @save.date_saved = Time.now
 @save.user_id = @user.id
-
-   if @save.save
-
-    render json: @save, status: :created  
+@user.total_savings += params[:price]
+   
+   if @save.save && @user.save
+    
+    # binding.pry
+    render json: {:save => @save, :user => @user}, status: :created  
   
     else
     
