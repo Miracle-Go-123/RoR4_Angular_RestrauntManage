@@ -128,10 +128,12 @@ if ($scope.item_form.$valid) {
         // Use push() into the array if you want to incorporate the singular
         // addition of an item to the array. Ran into issues with formating this
         // with the current template.  
+        // $scope.items.push($scope.newItem)
         $scope.newItem = {name: "", price: null, picture: "", category: ""};
         $scope.itemForm = false;
         $scope.item_form.submitted = false;
         $scope.item_form.$setUntouched();
+        
         getAllItems();
 
 } else {

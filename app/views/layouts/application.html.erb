@@ -46,7 +46,7 @@
             </li>
             <li><a class="scroll hidden" href="#home"></a></li>
              <li><a class="scroll" href="#gallery">ITEMS</a></li>
-            <li><a class="scroll" href="#features">FEATURES</a></li>
+            <li><a class="scroll" href="#features">MY SAVINGS</a></li>
             <li><a class="scroll" href="#pricing">PRICING</a></li>
             <li><a class="scroll" href="#accordion">ACCORDION</a></li>
 
@@ -272,9 +272,7 @@
 <!-- masonry-grid effect-2
  -->
 
-<div ng-repeat="(key, item) in items" class="repeated-item"> 
-
-
+<div ng-repeat="(key, item) in items" ng-class="{repeated_item: deleteMe}"> 
 
 <!-- ng-repeat with items/ directive -->
 

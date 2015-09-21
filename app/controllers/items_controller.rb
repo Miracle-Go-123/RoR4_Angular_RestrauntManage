@@ -67,8 +67,6 @@ before_action :set_item, only: [:destroy]
 
 def saveit
 
-# params[:price]
-
 @save = Keep.new 
 @save.item_name = params[:name]
 @save.category = params[:category]
@@ -76,9 +74,7 @@ def saveit
 @save.date_saved = Time.now
 @save.user_id = @user.id
 
-# binding.pry
    if @save.save
-    binding.pry
 
     render json: @save, status: :created  
   
