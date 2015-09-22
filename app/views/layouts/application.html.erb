@@ -52,7 +52,7 @@
 
            <!-- Current User Info -->   
             <li ng-show="currentUser"><p class="navbar-text pad"><img ng-show="currentUser.picture" ng-src="{{currentUser.picture}}" alt="currentUser.picture" class="avatar"><span class="white"> Signed in as {{currentUser.name}}</span></p></li>
-            <li ng-show="currentUser" ng-click="currentUser = false"><%= link_to "Log Out", logout_path, {method: :delete, :style => 'color: white'}%></li>
+            <li ng-show="currentUser"><%= link_to "Log Out", logout_path, {method: :delete, :style => 'color: white'}%></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
