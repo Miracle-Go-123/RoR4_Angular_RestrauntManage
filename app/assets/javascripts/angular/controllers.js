@@ -87,6 +87,8 @@ coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootSc
  $scope.deleteMe = false;
  $scope.showItem = true;
  $scope.items = ItemFactory.items
+ 
+
  // $scope.saves = ItemFactory.saves
 
  
@@ -95,7 +97,8 @@ coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootSc
     }
 
   $http.get('/getsaves').then(function(data) {      
-      $scope.saves = data.data
+      $scope.currentSaver = data.data.user
+      $scope.saves = data.data.saves
    });
 
 // -----------------------------------
@@ -169,7 +172,8 @@ $scope.SaveIt = function(item){
 // Request to get an updated list of saves as of the most recent save.
     $http.get('/getsaves').then(function(data) {  
       // console.log(data);
-      $scope.saves = data.data
+      $scope.currentSaver = data.data.user
+      $scope.saves = data.data.saves
    })  
   }
 };

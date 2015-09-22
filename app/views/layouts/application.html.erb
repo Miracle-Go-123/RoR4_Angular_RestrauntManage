@@ -305,11 +305,34 @@
         
         <div class="content">
           <div class="row single vcontainer">
+              
+            <div class="col-md-6 col-sm-6 col-xs-12 valign">
+
+
+                <div class="preview slide-in left personal_feed">
+                  
+                  <h3>Recent Activity:</h3>
+                  
+                  <div ng-repeat="(key, save) in saves | limitTo:-5 | orderBy:'time':true">                   
+<dh-save-template savedata="save" id="save._id"></dh-save-template>
+
+
+                      </div>
+
+                </div> 
+
+            <!-- Only works on img tags -->
+            <!--   <img class="preview slide-in left" src="assets/preview2.jpg"> -->
+
+            </div>
+
+
+
             <div class="col-md-6 col-sm-6 col-xs-12 valign">
               <div class="wrapper">
                 <h3>How am I doing?</h3>
-                <p>Number of SAVES:</p>
-                <p>{{saves.length}}</p>
+                <p>Number of SAVES: <strong>{{saves.length}}</strong></p>
+                <p>Total amount SAVED: <strong>{{currentSaver.total_savings | currency:"$":2}}</strong></p>
             
 
               <!--   <a class="btn color" href="#">MORE DETAILS</a> -->
@@ -317,11 +340,7 @@
 
               </div>
             </div>
-            <div class="col-md-6 col-sm-6 col-xs-12 valign">
-
-             <!--  <img class="preview slide-in right" src="assets/preview2.jpg"> -->
-
-            </div>
+         
           </div>
           
         </div><!-- /.content -->

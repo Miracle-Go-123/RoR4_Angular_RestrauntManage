@@ -108,6 +108,30 @@ padding-top: 20px;
   padding-top: 16px;
 }
 
+/*********** Personal Stats **********/
+
+/***************************************/
+
+.personal_feed {
+
+ border: 8px solid #CED9D2;
+ background: rgba(248, 249, 255, 0.8);
+ padding: 6px;
+}
+
+.personal_feed_item {
+
+border: 4px solid #FFFFFF;
+padding: 2px;
+margin-bottom: 4px;
+}
+
+.head {
+  font-size: 20px;
+  font-style: bold;
+  color: black;
+}
+
 
 /*********** Animations **********/
 
