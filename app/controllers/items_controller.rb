@@ -93,9 +93,8 @@ end
 def getsaves
 
  @saves = @user.keeps
-    render json: @saves, status: :ok
-
-  
+    # render json: @saves, status: :ok
+  render json: {:saves => @saves, :user => @user}, status: :ok
 end
 
 
