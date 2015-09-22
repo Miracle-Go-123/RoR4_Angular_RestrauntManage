@@ -61,7 +61,6 @@ if ($scope.login_form.$valid) {
         $scope.newUser.password = "";
         $scope.login_form.submitted = false;
         $scope.loginError = false;
-        $rootScope.currentUser = user;
         $location.path("/");
         window.location.reload();
       }, function(response){
