@@ -155,9 +155,6 @@
 
 
 
-
-
-
 <!-- Items will be placed here -->
 
 <div ng-controller="ItemsController" >
@@ -260,9 +257,6 @@
 
 
 
-
-
-
 <!-- ng-repeat for items -->
 
 <p class="red" ng-show="deleteMe">Click on an item to Delete it! <a href="#" ng-click="deleteMe = false">(nevermind)</a></p>
@@ -290,15 +284,7 @@
 
 
 
-
-
-
-
-
-
-
-
-    <!-- Stats Section -->
+    <!-- User Stats Section -->
 
     <div id="features" class="section gray">
       <div class="container">
@@ -318,7 +304,6 @@
 
 
                       </div>
-
                 </div> 
 
             <!-- Only works on img tags -->
@@ -333,18 +318,42 @@
                 <h3>How am I doing?</h3>
                 <p>Number of SAVES: <strong>{{saves.length}}</strong></p>
                 <p>Total amount SAVED: <strong>{{currentSaver.total_savings | currency:"$":2}}</strong></p>
-            
 
               <!--   <a class="btn color" href="#">MORE DETAILS</a> -->
 
 
-              </div>
-            </div>
-         
-          </div>
-          
-        </div><!-- /.content -->
+<dh-chart-template chartdata="{{saves}}"></dh-chart-template>
+
+<!-- Style for D3 chart -->
+
+<style>
+
+path.slice{
+  stroke-width:2px;
+}
+polyline{
+  opacity: .3;
+  stroke: black;
+  stroke-width: 2px;
+  fill: none;
+} 
+svg text.percent{
+  fill:white;
+  text-anchor:middle;
+  font-size:12px;
+}
+
+</style>
+            
+      
+        
+          </div> <!-- end wrapper -->
+        </div>
       </div>
+    </div><!-- /.content -->
+  </div> <!-- end container -->
+
+
       <div class="container">
         
         <div class="content">
@@ -380,12 +389,14 @@
           
         </div><!-- /.content -->
       </div>
-      <hr>
     </div>
-</div>
+
 
 
     <hr>
+
+
+
 
 
     <!-- Collapsible -->
