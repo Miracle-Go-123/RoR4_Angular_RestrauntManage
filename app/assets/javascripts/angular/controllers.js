@@ -87,11 +87,12 @@ coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootSc
  $scope.deleteMe = false;
  $scope.showItem = true;
  $scope.items = ItemFactory.items
- 
-
  // $scope.saves = ItemFactory.saves
-
  
+
+ // -----------------------------------
+
+
  var getAllItems = function() {
       $scope.items = Item.query();
     }
