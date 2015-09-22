@@ -108,6 +108,13 @@ padding-top: 20px;
   padding-top: 16px;
 }
 
+.save_action {
+
+   /*background: rgba(18, 225, 41, 1);*/
+   background-color: green;
+
+}
+
 /*********** Personal Stats **********/
 
 /***************************************/

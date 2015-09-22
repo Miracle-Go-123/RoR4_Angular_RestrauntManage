@@ -63,6 +63,7 @@ if ($scope.login_form.$valid) {
         $scope.loginError = false;
         $rootScope.currentUser = user;
         $location.path("/");
+        window.location.reload();
       }, function(response){
         $scope.loginError = "email / password combination is invalid"
       });
@@ -80,12 +81,13 @@ if ($scope.login_form.$valid) {
 
 
 
-coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootScope", "$location", "ItemFactory", "Item", function($scope, $http, User, $rootScope, $location, ItemFactory, Item) {
+coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootScope", "$location", "ItemFactory", "Item", "$timeout", function($scope, $http, User, $rootScope, $location, ItemFactory, Item, $timeout) {
 
  $scope.newItem = {name: "", price: null, picture: "", category: ""};
  $scope.itemForm = false;
  $scope.deleteMe = false;
  $scope.showItem = true;
+ $scope.saveAction = false;
  $scope.items = ItemFactory.items
  // $scope.saves = ItemFactory.saves
  
@@ -168,11 +170,18 @@ $scope.items.splice($index, 1)
 $scope.SaveIt = function(item){
   
   if ($scope.deleteMe === false) {  
+      
+      // This action changes the background color
+      // after a SAVE....
+      $scope.saveAction = true;      
+      $timeout(function(){ 
+        $scope.saveAction = false; }, 500);
+
          ItemFactory.saveItem(item) 
 
 // Request to get an updated list of saves as of the most recent save.
     $http.get('/getsaves').then(function(data) {  
-      // console.log(data);
+     
       $scope.currentSaver = data.data.user
       $scope.saves = data.data.saves
    })  
