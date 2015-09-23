@@ -63,6 +63,8 @@ if ($scope.login_form.$valid) {
         $scope.loginError = false;
         $location.path("/");
         window.location.reload();
+       
+
       }, function(response){
         $scope.loginError = "email / password combination is invalid"
       });
