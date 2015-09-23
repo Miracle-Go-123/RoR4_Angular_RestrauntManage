@@ -18,7 +18,7 @@ before_action :set_item, only: [:destroy]
   def create
     
     @item = Item.create item_params
-    # binding.pry
+    
     if params[:category] === "food"
       @item.picture = "assets/food.png"
       elsif params[:category] === "drinks"
@@ -39,7 +39,6 @@ before_action :set_item, only: [:destroy]
 
     @item.user_id = @user.id
     if @item.save
-    
 
     render json: @item, status: :created  
   
@@ -101,6 +100,8 @@ def getsaves
 
  @user.month_savings = 0
 
+# Maps over the user's saves and stores the ones from this
+# month in the "thismonth" array....
 @saves.each do |save|
 
 if save.date_saved.month === @today.month && save.date_saved.year === @today.year
@@ -112,8 +113,8 @@ end
 end
 
     @user.save
-    # binding.pry
-    # render json: @saves, status: :ok
+  
+# render json: @saves, status: :ok
   render json: {:saves => @saves, :user => @user, :thisMonth => @thismonth}, 
   status: :ok
 

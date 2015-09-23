@@ -44,10 +44,11 @@ coffeeBankApp.directive('dhChartTemplate', function() {
   return {
     
     restrict: 'E',
-    // templateUrl: 'donut-chart-template.html',
+ // templateUrl: 'donut-chart-template.html',
     scope: {
 
-      chartdata: '@chartdata'
+      chartdata: '@chartdata',
+      monthdata: '@monthdata'
     
       },
 
@@ -55,10 +56,22 @@ link: function($scope, $elem, $attr) {
 
 var svg = d3.select($elem[0]).append("svg").attr("width",700).attr("height",300);
 
-$attr.$observe('chartdata', function(value) {
+// Inserting text that goes on top of the charts.... 
 
-var data = value
+svg.append("text")
+        .attr("x", 300)             
+        .attr("y", 20)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "18px") 
+        .style("font-weight", "bold")
+     // .style("text-decoration", "underline") 
+        .text("Monthly & Total Savings");
 
+// $attr.$observe('chartdata', function(value) {
+$scope.$watchGroup(['chartdata', 'monthdata'], function(value) {
+
+var data = value[0]
+var month = value[1]
 
 var savingData=[
   {label:"food", color:"#A18F8F", saved:0},
@@ -79,12 +92,13 @@ var savingData=[
 if (data) {
 
 var chartdata = JSON.parse(data)
+var monthdata = JSON.parse(month)
 
-function getData() {
+function getData(input) {
 
-  // Maps the chartdata into the savingData array of objects
+  // Maps the input into the savingData array of objects
 
-  chartdata.map(function(d){
+  input.map(function(d){
   
     if (d.category === savingData[0].label) {
           savingData[0].saved += d.price;
@@ -103,29 +117,33 @@ function getData() {
     } else {
           savingData[7].saved += d.price;  
             }; 
-
          })
+  return savingData;
   }
 
-getData();
-
+var total = getData(chartdata);
+var month_total = getData(monthdata);
 
 svg.append("g").attr("id","salesDonut");
 svg.append("g").attr("id","quotesDonut");
 
-Donut3D.draw("salesDonut", displayData(), 150, 150, 130, 100, 30, 0.4);
+Donut3D.draw("salesDonut", displayMonth(), 150, 150, 130, 100, 30, 0.4);
 Donut3D.draw("quotesDonut", displayData(), 450, 150, 130, 100, 30, 0);
   
 function changeData(){
-  Donut3D.transition("salesDonut", displayData(), 130, 100, 30, 0.4);
+  Donut3D.transition("salesDonut", displayMonth(), 130, 100, 30, 0.4);
   Donut3D.transition("quotesDonut", displayData(), 130, 100, 30, 0);
 }
 
 function displayData(){
-  return savingData.map(function(d){ 
+  return total.map(function(d){ 
     return {label:d.label, value:d.saved, color:d.color};});
 }
 
+function displayMonth(){
+  return month_total.map(function(d){ 
+    return {label:d.label, value:d.saved, color:d.color};});
+}
 
        }
      }); 
