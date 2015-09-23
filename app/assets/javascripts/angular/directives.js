@@ -61,14 +61,14 @@ var data = value
 
 
 var savingData=[
-  {label:"food", color:"#3366CC", saved:0},
-  {label:"drinks", color:"#DC3912", saved:0},
-  {label:"coffee", color:"#FF9900", saved:0},
-  {label:"tea", color:"#109618", saved:0},
-  {label:"clothing", color:"#990099", saved: 0},
-  {label:"entertainment", color:"#FF1110", saved: 0},
-  {label:"travel", color:"#FFEB5E", saved: 0},
-  {label:"other", color:"#1AE8DE", saved: 0}
+  {label:"food", color:"#A18F8F", saved:0},
+  {label:"drinks", color:"#778752", saved:0},
+  {label:"coffee", color:"#CC8F79", saved:0},
+  {label:"tea", color:"#CC8F79", saved:0},
+  {label:"clothing", color:"#607D8B", saved: 0},
+  {label:"entertainment", color:"#C2B46B", saved: 0},
+  {label:"travel", color:"#4A4A4A", saved: 0},
+  {label:"other", color:"#4E857C", saved: 0}
 ];
 
 
@@ -93,7 +93,7 @@ function getData() {
     } else if (d.category === savingData[2].label) {
           savingData[2].saved += d.price;          
     } else if (d.category === savingData[3].label) {
-          savingData[3].saved += d.price;  
+          savingData[2].saved += d.price;  
     } else if (d.category === savingData[4].label) {
           savingData[4].saved += d.price;  
     } else if (d.category === savingData[5].label) {
