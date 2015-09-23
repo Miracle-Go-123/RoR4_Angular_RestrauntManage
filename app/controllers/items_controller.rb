@@ -24,7 +24,7 @@ before_action :set_item, only: [:destroy]
       elsif params[:category] === "drinks"
       @item.picture = "assets/drinks.png" 
       elsif params[:category] === "travel"
-      @item.picture = "assets/Travel.png"
+      @item.picture = "assets/transport.png"
       elsif params[:category] === "entertainment"
       @item.picture = "assets/entertainment.png"
       elsif params[:category] === "tea"
@@ -34,7 +34,7 @@ before_action :set_item, only: [:destroy]
       elsif params[:category] === "clothing"
       @item.picture = "assets/clothing.png"
       else 
-      @item.picture = "assets/Dollar.png"
+      @item.picture = "assets/other.png"
     end
 
     @item.user_id = @user.id
@@ -92,18 +92,32 @@ end
 
 def getsaves
 
+# Try to make a better set of queries to the DB
+
  @saves = @user.keeps
-    # render json: @saves, status: :ok
-  render json: {:saves => @saves, :user => @user}, status: :ok
+ 
+ @today = Date.today
+ @thismonth = []
+
+ @user.month_savings = 0
+
+@saves.each do |save|
+
+if save.date_saved.month === @today.month && save.date_saved.year === @today.year
+
+ @thismonth.push(save)
+ @user.month_savings += save.price 
+
+end
 end
 
+    @user.save
+    # binding.pry
+    # render json: @saves, status: :ok
+  render json: {:saves => @saves, :user => @user, :thisMonth => @thismonth}, 
+  status: :ok
 
-
-
-
-
-
-
+end
 
 
 

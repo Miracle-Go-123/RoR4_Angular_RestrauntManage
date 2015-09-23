@@ -47,7 +47,7 @@
             <li><a class="scroll hidden" href="#home"></a></li>
              <li><a class="scroll" href="#gallery">ITEMS</a></li>
             <li><a class="scroll" href="#features">MY SAVINGS</a></li>
-            <li><a class="scroll" href="#accordion">Global</a></li>
+            <li><a class="scroll" href="#accordion">GLOBAL</a></li>
 
 
            <!-- Current User Info -->   
@@ -113,7 +113,10 @@
 
     <label class="col-sm-2 control-label"><strong>Name:</strong></label>
     <div class="col-sm-10">
+      <div class="input-group">
+      <div class="input-group-addon"><i class="fa fa-hand-o-right"></i></div>
       <input type="text" class="form-control" ng-model="newItem.name" name="name" placeholder="item name" required>
+      </div>
        
        <!-- Name Error Message -->
   
@@ -125,7 +128,10 @@
    <div class="form-group">
     <label class="col-sm-2 control-label"><strong>Price:</strong></label>
     <div class="col-sm-10">
+      <div class="input-group">
+      <div class="input-group-addon"><i class="fa fa-usd"></i></div>
       <input type="number" class="form-control price" ng-model="newItem.price" name="price" placeholder="cost of item can't be negative." min="0" required>
+      </div>
    
         <!-- Price Error Message -->
 
@@ -242,7 +248,7 @@
               <div class="wrapper">
                 <h3>How am I doing?</h3>
                 <p>Number of SAVES: <strong>{{saves.length}}</strong></p>
-                <p>Total amount SAVED: <strong>{{currentSaver.total_savings | currency:"$":2}}</strong></p>
+                <p>Amount saved this month: <strong>{{currentSaver.month_savings | currency:"$":2}}</strong>&nbsp;&nbsp; | &nbsp;&nbsp;Total amount saved: <strong>{{currentSaver.total_savings | currency:"$":2}}</strong></p>
 
               <!--   <a class="btn color" href="#">MORE DETAILS</a> -->
 

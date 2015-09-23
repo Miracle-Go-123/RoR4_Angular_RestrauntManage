@@ -101,6 +101,7 @@ coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootSc
   $http.get('/getsaves').then(function(data) {      
       $scope.currentSaver = data.data.user
       $scope.saves = data.data.saves
+      $scope.thisMonth = data.data.thisMonth
    });
 
 // -----------------------------------
@@ -180,9 +181,10 @@ $scope.SaveIt = function(item){
 
 // Request to get an updated list of saves as of the most recent save.
     $http.get('/getsaves').then(function(data) {  
-     
+      console.log("data", data);
       $scope.currentSaver = data.data.user
       $scope.saves = data.data.saves
+      $scope.thisMonth = data.data.thisMonth
    })  
   }
 };
