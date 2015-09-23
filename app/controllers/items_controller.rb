@@ -20,19 +20,19 @@ before_action :set_item, only: [:destroy]
     @item = Item.create item_params
     # binding.pry
     if params[:category] === "food"
-      @item.picture = "assets/Food-Sign.png"
+      @item.picture = "assets/food.png"
       elsif params[:category] === "drinks"
-      @item.picture = "assets/Drinks.png" 
+      @item.picture = "assets/drinks.png" 
       elsif params[:category] === "travel"
       @item.picture = "assets/Travel.png"
       elsif params[:category] === "entertainment"
-      @item.picture = "assets/Entertainment.png"
+      @item.picture = "assets/entertainment.png"
       elsif params[:category] === "tea"
-      @item.picture = "assets/Tea-Cup.png"
+      @item.picture = "assets/coffee_tea.png"
       elsif params[:category] === "coffee"
-      @item.picture = "assets/Coffee-Mug.png"
+      @item.picture = "assets/coffee_tea.png"
       elsif params[:category] === "clothing"
-      @item.picture = "assets/Clothing.png"
+      @item.picture = "assets/clothing.png"
       else 
       @item.picture = "assets/Dollar.png"
     end
