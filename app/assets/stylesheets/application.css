@@ -142,9 +142,37 @@ margin-bottom: 4px;
 
 
 
-/*********** D3 Charts **********/
+/*********** D3 Charts/Graph CSS **********/
 
 /***************************************/
+
+.ct-font {
+  color: #CC8F79;
+}
+
+.t-font {
+  color: #4A4A4A;
+}
+
+.d-font {
+  color: #778752;
+}
+
+.f-font {
+  color: #A18F8F;
+}
+
+.c-font {
+  color: #607D8B;
+}
+
+.e-font {
+  color: #C2B46B;
+}
+
+.o-font {
+  color: #4E857C;
+}
 
 /*path.slice{
   stroke-width:2px;

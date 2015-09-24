@@ -104,6 +104,7 @@ coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootSc
       $scope.currentSaver = data.data.user
       $scope.saves = data.data.saves
       $scope.thisMonth = data.data.thisMonth
+      $scope.monthCat = data.data.monthCat
    });
 
 // -----------------------------------
@@ -187,6 +188,7 @@ $scope.SaveIt = function(item){
       $scope.currentSaver = data.data.user
       $scope.saves = data.data.saves
       $scope.thisMonth = data.data.thisMonth
+      $scope.monthCat = data.data.monthCat
    })  
   }
 };

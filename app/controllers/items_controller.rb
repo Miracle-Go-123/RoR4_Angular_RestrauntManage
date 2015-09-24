@@ -112,15 +112,31 @@ if save.date_saved.month === @today.month && save.date_saved.year === @today.yea
 end
 end
 
+@month_cat = {}
+
+# Maps the current month's savings data into an object....
+
+for i in 0...@thismonth.length
+  
+  cat = @thismonth[i].category
+
+if @month_cat[cat]
+  @month_cat[cat] += @thismonth[i].price 
+else
+  @month_cat[cat] = @thismonth[i].price
+end
+end
+
     @user.save
   
 # render json: @saves, status: :ok
-  render json: {:saves => @saves, :user => @user, :thisMonth => @thismonth}, 
+  render json: {:saves => @saves, 
+    :user => @user, 
+    :thisMonth => @thismonth,
+    :monthCat => @month_cat}, 
   status: :ok
 
 end
-
-
 
 
 

@@ -40,6 +40,27 @@ coffeeBankApp.directive('dhSaveTemplate', function() {
 //////////////////////////////////////////
 
 
+coffeeBankApp.directive('dhChartLegend', function() {
+  return {
+    
+    restrict: 'E',
+    templateUrl: 'chart-legend.html',
+    scope: {
+
+      cat: '=cat'
+    
+      },
+
+    link: function(scope, element, attrs) {
+      
+    }
+  };
+});
+
+
+//////////////////////////////////////////
+
+
 coffeeBankApp.directive('dhChartTemplate', function() {
   return {
     
