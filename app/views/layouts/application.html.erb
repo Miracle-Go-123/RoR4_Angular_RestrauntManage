@@ -241,6 +241,12 @@
                 <h3>How am I doing?</h3>
                 <p>Number of SAVES: <strong>{{saves.length}}</strong></p>
                 <p>Amount saved this month: <strong>{{currentSaver.month_savings | currency:"$":2}}</strong>&nbsp;&nbsp; | &nbsp;&nbsp;Total amount saved: <strong>{{currentSaver.total_savings | currency:"$":2}}</strong></p>
+                
+                <hr>
+
+                <p><strong>Saved this month (by category)</strong></p>
+              
+              <dh-chart-legend cat="monthCat"></dh-chart-legend>
 
               <!--   <a class="btn color" href="#">MORE DETAILS</a> -->
 
