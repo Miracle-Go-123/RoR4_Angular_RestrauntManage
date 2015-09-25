@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-before_action :set_user, except: [:edit]
+before_action :set_user, except: [:edit, :getglobal]
 before_action :set_item, only: [:destroy]
 
 
@@ -67,15 +67,31 @@ before_action :set_item, only: [:destroy]
 def saveit
 
 @save = Keep.new 
+@global_save = Global.new
+
 @save.item_name = params[:name]
+@global_save.item_name = params[:name]
+
 @save.category = params[:category]
+@global_save.category = params[:category]
+
 @save.price = params[:price]
+@global_save.price = params[:price]
+
 @save.date_saved = Time.now
+@global_save.date_added = Time.now
+
 @save.user_id = @user.id
+@global_save.user_id = @user.id
+
 @user.total_savings += params[:price]
-  
+@global_save.user_name = @user.name
+@global_save.user_picture = @user.picture
+@global_save.save 
+@user.globals << @global_save
+
    if @save.save && @user.save
-    # @saves = @user.keeps
+   
     # render json: {:saves => @saves, :user => @user}, status: :created  
     render json: @save, status: :created  
     else
@@ -128,17 +144,43 @@ end
 end
 
     @user.save
-  
+
+# Accessing global data via methods on the Global Model
+@globals = Global.all
+@global_total = Global.total_savings(@globals)
+@global_month_savings = Global.month_savings(@globals)  
+@global_month_totals = Global.month_totals(@global_month_savings) 
+
 # render json: @saves, status: :ok
   render json: {:saves => @saves, 
     :user => @user, 
     :thisMonth => @thismonth,
-    :monthCat => @month_cat}, 
+    :monthCat => @month_cat,
+    :global => @globals,
+    :globalTotal => @global_total,
+    :globalMonth => @global_month_savings,
+    :globalMonthTotal => @global_month_totals}, 
   status: :ok
 
 end
+# --------------------------------------------- 
 
+def getglobal
+  
+# Accessing global data via methods on the Global Model
+@globals = Global.all
+@global_total = Global.total_savings(@globals)
+@global_month_savings = Global.month_savings(@globals)  
+@global_month_totals = Global.month_totals(@global_month_savings) 
 
+# render json: @saves, status: :ok
+  render json: {
+    :global => @globals,
+    :globalTotal => @global_total,
+    :globalMonth => @global_month_savings,
+    :globalMonthTotal => @global_month_totals}, 
+  status: :ok
+end
 
 # --------------------------------------------- 
 

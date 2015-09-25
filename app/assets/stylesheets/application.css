@@ -140,6 +140,20 @@ margin-bottom: 4px;
 }
 
 
+/*********** Global Stats **********/
+
+/***************************************/
+
+.global-feed {
+ border: 8px solid #CED9D2;
+ background: rgba(248, 249, 255, 0.8);
+ padding: 6px;
+ overflow: scroll;
+ max-height: 600px;
+}
+
+
+
 
 
 /*********** D3 Charts/Graph CSS **********/
