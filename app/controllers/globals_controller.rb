@@ -1,2 +1,0 @@
-class GlobalsController < ApplicationController
-end

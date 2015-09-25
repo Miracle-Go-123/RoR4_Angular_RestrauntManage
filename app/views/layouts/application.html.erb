@@ -24,7 +24,6 @@
 <body ng-app="CoffeeBankApp" class="blue" ng-controller="MainController">
 
 
-
 <!-- Nav Bar -->
 
  <div id="navbar" class="navbar navbar-inverse">
@@ -47,7 +46,7 @@
             <li><a class="scroll" href="#accordion">ABOUT</a></li>
 
            <!-- Current User Info -->   
-            <li ng-show="currentUser"><p class="navbar-text pad"><img ng-show="currentUser.picture" ng-src="{{currentUser.picture}}" alt="currentUser.picture" class="avatar"><span class="white"> Signed in as {{currentUser.name}}</span></p></li>
+            <li ng-show="currentUser"><p class="navbar-text pad"><img ng-show="currentUser.picture" ng-src="{{currentUser.picture}}" alt="currentUser.picture" class="img-rounded avatar"><span class="white"> Signed in as {{currentUser.name}}</span></p></li>
             <li ng-show="currentUser"><%= link_to "Log Out", logout_path, {method: :delete, :style => 'color: white'}%></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -160,13 +159,13 @@
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
   
-  <a href="#" ng-click="AddItem(newItem)" id="item" class="btn btn-info">Create</a>
+  <a href="#" ng-click="AddItem(newItem)" id="item" class="btn btn-info">Add It!</a>
 
   <a href="#" id="item" ng-click="ResetItemForm()" class="btn btn-info">Exit</a>
 
-    </div>
-  </div>
-</form>
+              </div>
+           </div>
+        </form>
 
 
 <!-- End of create item form -->
@@ -196,12 +195,10 @@
 
 
         </div> 
-
       </div>
 
       <hr>     
     </div><!-- /.container -->  
-
 </div>
 
 
@@ -220,7 +217,7 @@
 
                 <div class="preview slide-in left personal_feed">
                   
-                  <h3>Recent Activity:</h3>
+                  <h3 class="text-center">Your Recent Activity:</h3>
                   
                   <div ng-repeat="(key, save) in saves | limitTo:-5 | orderBy:'time':true">                   
 <dh-save-template savedata="save" id="save._id"></dh-save-template>
@@ -251,7 +248,7 @@
               <!--   <a class="btn color" href="#">MORE DETAILS</a> -->
 
 
-<dh-chart-template monthdata="{{thisMonth}}" chartdata="{{saves}}"></dh-chart-template>
+<dh-chart-template monthdata="{{thisMonth}}" chartdata="{{saves}}" id="user-chart"></dh-chart-template>
 
 <!-- Style for D3 chart -->
 
@@ -282,32 +279,60 @@ svg text.percent{
     </div><!-- /.content -->
   </div> <!-- end container -->
 
+<hr>
+
+      <!-- Global Stats -->
 
       <div class="container no-bottom" id="global">
         
         <div class="content">
-          <div class="row single">
-            <div class="col-md-2 col-sm-2 col-xs-12 empty"></div>
-            <div class="col-md-8 col-sm-8 col-xs-12">
-              <h3 class="text-center">Global Data</h3>
-              <p>Landjaeger leberkas drumstick sirloin, shankle beef ribs meatloaf kielbasa. Drumstick tongue filet mignon salami pork chop kielbasa. Spare ribs ham hock shankle, meatloaf pork tongue flank kevin jowl pork belly beef ribs frankfurter pork chop tri-tip ham. Strip steak frankfurter tail t-bone venison, sirloin tenderloin hamburger kevin biltong jowl turducken.</p>
+
+          <div class="row single vcontainer">
+              
+            <div class="col-md-6 col-sm-6 col-xs-12 valign">
+
+
+                <div class="preview slide-in left global-feed">
+                  
+                  <h3 class="text-center">Global Activity:</h3>
+                  
+                  <div ng-repeat="(key, save) in globalData | limitTo:-30 | orderBy:'time':true">                   
+<dh-global-save-template savedata="save" id="save._id"></dh-global-save-template>
+
+
+                      </div>
+                </div> 
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-12 empty"></div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
-              <img class="preview slide-in up" src="assets/preview6.jpg">
+
+
+
+            <div class="col-md-6 col-sm-6 col-xs-12 valign">
+              <div class="wrapper">
+                <h3>How are we doing?</h3>
+                <p>Number of SAVES: <strong>{{globalData.length}}</strong></p>
+                <p>Amount saved this month: <strong>{{globalMonthTotal.total | currency:"$":2}}</strong>&nbsp;&nbsp; | &nbsp;&nbsp;Total amount saved: <strong>{{globalTotal | currency:"$":2}}</strong></p>
+                
+                <hr>
+
+                <p><strong>Saved this month (by category)</strong></p>
+              
+              <dh-chart-legend cat="globalMonthTotal"></dh-chart-legend>
+
+
+<dh-chart-two-template monthdatatwo="{{globalMonth}}" chartdatatwo="{{globalData}}" id="global-chart"></dh-chart-two-template>           
+      
+        
+                 </div> <!-- end wrapper -->
+              </div>
             </div>
-          </div>
           
         </div> <!-- /.content -->
       </div> <!-- end container -->
     </div>
 </div> <!-- End of the Items Controller -->
 
+
     <hr>
-
-
 
     <!-- Collapsible -->
     <!-- End Section, About Us -->
@@ -351,13 +376,13 @@ svg text.percent{
             <div class="panel-heading">
               <h4 class="panel-title">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                  Collapsible Group Item #3
+                  Site Developer
                 </a>
               </h4><i class="fa fa-plus"></i><i class="fa fa-minus"></i>
             </div>
             <div id="collapseThree" class="panel-collapse collapse">
               <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                David Horn is a Junior Developer and an active, participating, and collaborating member of the tech community who is seeking to become a contributing member of a development team where I can productively support and engage my proven ability to improve team work flow, dynamic, and results.
               </div>
             </div>
           </div>
@@ -379,10 +404,10 @@ svg text.percent{
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="">
             <p class="social-media">
-              <a href="#" data-toggle="tooltip" title="twitter"><i class="fa fa-twitter"></i></a>
+             <!--  <a href="#" data-toggle="tooltip" title="twitter"><i class="fa fa-twitter"></i></a> -->
               <a href="#" data-toggle="tooltip" title="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" data-toggle="tooltip" title="linkedin"><i class="fa fa-linkedin"></i></a>
-              <a href="#" data-toggle="tooltip" title="github"><i class="fa fa-github"></i></a>
+            <!--   <a href="#" data-toggle="tooltip" title="linkedin"><i class="fa fa-linkedin"></i></a> -->
+              <a href="https://github.com/horndavidg/coffee_bank" data-toggle="tooltip" title="github" target="_blank"><i class="fa fa-github"></i></a>
             </p>
          </div>
         </div>

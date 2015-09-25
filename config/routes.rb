@@ -13,6 +13,6 @@ resources :items, except: [:edit, :new]
 
 post '/saveit', to: "items#saveit"
 get '/getsaves', to: "items#getsaves"
-
+get '/getglobal', to: "items#getglobal"
 
 end
