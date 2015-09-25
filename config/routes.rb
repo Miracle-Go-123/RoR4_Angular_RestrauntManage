@@ -13,6 +13,7 @@ resources :resets, except: [:index, :destroy, :new]
 resources :users, except: [:edit, :new]
 resources :items, except: [:edit, :new]
 
+delete '/lastsave', to: "items#lastsave"
 post '/saveit', to: "items#saveit"
 get '/getsaves', to: "items#getsaves"
 get '/getglobal', to: "items#getglobal"

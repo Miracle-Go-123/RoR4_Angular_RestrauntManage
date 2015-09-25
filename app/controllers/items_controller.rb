@@ -57,13 +57,24 @@ before_action :ensure_correct_user, only: [:saveit]
   def destroy
    
     @item.destroy
-    render json: @item, status: ok
+    render json: @item, status: :ok
 
   end
 
 
 # --------------------------------------------------
+  
+  # DELETE LAST SAVE
+  def lastsave
+  
+  @user.keeps.last.destroy
 
+  render json: @user, status: :ok
+
+  end
+
+
+# --------------------------------------------------
 
 def saveit
 
