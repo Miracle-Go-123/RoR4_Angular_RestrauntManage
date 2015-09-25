@@ -55,6 +55,7 @@
   border: 6px solid #F8F9FF;
   background: rgba(206, 217, 210, 0.8);
   max-height: 400px;
+  padding-top: 6px;
 }
 
 .red {
@@ -109,10 +110,23 @@ padding-top: 20px;
 }
 
 .save_action {
-
    /*background: rgba(18, 225, 41, 1);*/
    background-color: green;
 
+}
+
+/*********** Reset View **********/
+
+/***************************************/
+
+
+.well {
+height: 300px;
+}
+
+.reset-button {
+  color: black;
+  border: 2px solid black;
 }
 
 /*********** Personal Stats **********/
