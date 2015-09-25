@@ -81,6 +81,7 @@ if ($scope.login_form.$valid) {
 
 // -----------------------------------
 
+
 $scope.RequestReset = function(){
 if ($scope.reset_form.$valid) {
      
@@ -91,11 +92,7 @@ if ($scope.reset_form.$valid) {
      $scope.reset_form.submitted = false;
      $scope.loginError = false;
      $location.path("/");
-
-
-     console.log("HEY", data)
        
-
      }, function(response){
         $scope.resetError = "email not found"
       });
@@ -106,6 +103,8 @@ if ($scope.reset_form.$valid) {
 
 
 }]);
+
+
 
 //////////////////////////////////////////////
 
@@ -129,7 +128,9 @@ coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootSc
       $scope.items = Item.query();
     }
 
-  $http.get('/getsaves').then(function(data) {      
+  var getAllSaves = function() {
+
+      $http.get('/getsaves').then(function(data) {      
       $scope.currentSaver = data.data.user
       $scope.saves = data.data.saves
       $scope.thisMonth = data.data.thisMonth
@@ -139,6 +140,9 @@ coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootSc
       $scope.globalMonth = data.data.globalMonth
       $scope.globalMonthTotal = data.data.globalMonthTotal
    });
+}
+
+getAllSaves();
 
 // -----------------------------------
 
@@ -217,17 +221,32 @@ $scope.SaveIt = function(item){
          ItemFactory.saveItem(item) 
 
 // Request to get an updated list of saves as of the most recent save.
-    $http.get('/getsaves').then(function(data) {  
-      $scope.currentSaver = data.data.user
-      $scope.saves = data.data.saves
-      $scope.thisMonth = data.data.thisMonth
-      $scope.monthCat = data.data.monthCat
-      $scope.globalData = data.data.global
-      $scope.globalTotal = data.data.globalTotal
-      $scope.globalMonth = data.data.globalMonth
-      $scope.globalMonthTotal = data.data.globalMonthTotal
-   })  
+  getAllSaves();
+   //  $http.get('/getsaves').then(function(data) {  
+   //    $scope.currentSaver = data.data.user
+   //    $scope.saves = data.data.saves
+   //    $scope.thisMonth = data.data.thisMonth
+   //    $scope.monthCat = data.data.monthCat
+   //    $scope.globalData = data.data.global
+   //    $scope.globalTotal = data.data.globalTotal
+   //    $scope.globalMonth = data.data.globalMonth
+   //    $scope.globalMonthTotal = data.data.globalMonthTotal
+   // })  
+    
   }
+};
+
+// -----------------------------------
+
+$scope.UndoSave = function(){
+
+if ($scope.saves.length > 1) {
+$http.delete('/lastsave').then(function(data) { 
+
+getAllSaves();
+
+  })
+ }
 };
 
 // -----------------------------------
