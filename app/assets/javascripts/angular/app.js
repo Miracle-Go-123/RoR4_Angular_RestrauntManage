@@ -14,16 +14,16 @@ $routeProvider
         templateUrl: 'partials/home.html',
         controller: 'MainController'
       })
-       .when('/users/:id', {
-        templateUrl: 'partials/items.html',
-        controller: 'MainController'
-      })
       .when('/login', {
          templateUrl: 'partials/login.html',
          controller: 'AuthController'
         })
       .when('/signup', {
          templateUrl: 'partials/signin.html',
+         controller: 'AuthController'
+        })
+      .when('/resets', {
+         templateUrl: 'partials/reset.html',
          controller: 'AuthController'
         })
       .otherwise({ redirectTo: '/'});

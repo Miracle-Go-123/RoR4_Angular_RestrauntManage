@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
 def confirm_logged_in
     unless session[:user_id]
-      redirect_to login_path, alert: "Please log in"
+      redirect_to root_path, alert: "Please log in"
     end
 end
 
@@ -17,7 +17,7 @@ end
 
   def confirm_admin
      unless current_user.is_admin
-       redirect_to user_path(current_user), alert: "You must be an admin to perform that action."
+       redirect_to root_path, alert: "You must be an admin to perform that action."
      end
   end
 
@@ -69,6 +69,5 @@ end
         render "layouts/application"
       end
     end
-
 
 end

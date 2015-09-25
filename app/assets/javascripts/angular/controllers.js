@@ -26,7 +26,7 @@ coffeeBankApp.controller("MainController", ["$scope", "$http", "User", "$rootSco
 
 
 
-coffeeBankApp.controller("AuthController", ["$scope", "$http", "User", "$rootScope", "Login", "$location", "ItemFactory", "Item", function($scope, $http, User, $rootScope, Login, $location, ItemFactory, Item) {
+coffeeBankApp.controller("AuthController", ["$scope", "$http", "User", "$rootScope", "Login", "$location", "ItemFactory", "Item", "Reset", function($scope, $http, User, $rootScope, Login, $location, ItemFactory, Item, Reset) {
 
   $scope.newUser = {name: "", email: "", picture: "", password: ""};
 
@@ -45,7 +45,7 @@ if ($scope.auth_form.$valid) {
         $scope.authError = false;
         $rootScope.currentUser = user;
         $location.path("/");
-        window.location.reload();
+        // window.location.reload();
       }, function(response){
         $scope.authError = response.data.email[0];
         $scope.auth_form.submitted = true;
@@ -79,10 +79,33 @@ if ($scope.login_form.$valid) {
   }
 };
 
+// -----------------------------------
+
+$scope.RequestReset = function(){
+if ($scope.reset_form.$valid) {
+     
+     var user = new Reset($scope.newUser);
+     
+     user.$save().then(function(data) { 
+     $scope.newUser.email = "";
+     $scope.reset_form.submitted = false;
+     $scope.loginError = false;
+     $location.path("/");
+
+
+     console.log("HEY", data)
+       
+
+     }, function(response){
+        $scope.resetError = "email not found"
+      });
+} else {
+  $scope.reset_form.submitted = true;
+  }
+};
+
 
 }]);
-
-
 
 //////////////////////////////////////////////
 

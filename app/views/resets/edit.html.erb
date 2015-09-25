@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>Stash</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Saving money is fun">
+    
+    <meta name="author" content="David Horn">
+
+  <%= render partial: 'shared/theme_header' %>
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+
+  <%= csrf_meta_tags %>
+
+<base href="/">
+
+</head>
+
+<body>
+
+
+   <% flash.each do |key, value| %>
+      <% if key == "notice" %>
+        <%= content_tag :div, value, class: "text-center alert alert-warning pad" %>
+      <% elsif key == "alert" %>
+        <%= content_tag :div, value, class: "text-center alert alert-danger pad" %>
+      <% else %>
+        <%= content_tag :div, value, class: "text-center alert alert-success pad" %>
+      <% end %>
+    <% end %>
+
+
+<div class="col-sm-offset-3 reset-box">
+  <div class="col-sm-7">
+    <div class="well">
+      <h2 class="text-center">Change Your Password</h2><br>
+      <%= form_for :user, url:reset_path(@user.password_reset_token), method: :patch do |f|%>
+        <div class="form-group">
+          <%= f.label :passwrod, "New Password", class:"control-label" %>
+          <%= f.password_field :password, autofocus: true, class:"form-control"%>
+        </div>
+       
+       <div class="form-group">
+        <%= f.submit "Reset Password", class:"btn btn-block btn-primary reset-button" %>
+        </div>
+      <% end %>
+  
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

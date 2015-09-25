@@ -15,6 +15,15 @@
   );
 }]);
 
+ //////////////////////////
+
+ coffeeBankApp.service('Reset', ['$resource', function($resource) {
+  return $resource(
+    "/resets/:id.json",
+    {id: "@id"},
+    {update: {method: "PUT"}}    
+  );
+}]);
 
 //////////////////////////
 
