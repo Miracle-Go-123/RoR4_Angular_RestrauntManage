@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
 
 before_action :set_user, except: [:edit, :getglobal]
 before_action :set_item, only: [:destroy]
-
+before_action :confirm_logged_in, except: [:getglobal]
+before_action :ensure_correct_user, only: [:saveit]
 
 # --------------------------------------------------
 
@@ -205,5 +206,12 @@ end
       :user_id
     )
  end
+
+def ensure_correct_user
+      user = User.find params[:user_id]
+      unless user.id.to_i == current_user.id
+        redirect_to root_path, alert: "Not Authorized"
+      end
+end
 
 end
