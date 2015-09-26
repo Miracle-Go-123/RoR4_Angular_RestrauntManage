@@ -1,0 +1,27 @@
+<h1>Reward Status:
+
+<span style="color: purple" ng-show="data.total_savings < 50">
+New Member
+</span>
+
+<span style="color: blue" ng-show="data.total_savings >= 50 && data.total_savings < 100">
+Simple Saver ($50+)
+</span>
+
+<span style="color: green" ng-show="data.total_savings >= 100 && data.total_savings < 300">
+Awesome Saver ($100+)
+</span>
+
+<span style="color: yellow" ng-show="data.total_savings >= 300 && data.total_savings < 500">
+Super Saver ($300+)
+</span>
+
+<span style="color: orange" ng-show="data.total_savings >= 500">
+Master Saver ($500+)
+</span>
+
+</h1>
+
+<br>
+<hr>
+<br>
