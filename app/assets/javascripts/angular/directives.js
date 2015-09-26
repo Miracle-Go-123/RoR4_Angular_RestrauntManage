@@ -61,6 +61,27 @@ coffeeBankApp.directive('dhGlobalSaveTemplate', function() {
 //////////////////////////////////////////
 
 
+coffeeBankApp.directive('dhRewardTemplate', function() {
+  return {
+    
+    restrict: 'E',
+    templateUrl: 'reward-template.html',
+    scope: {
+
+      data: '=data'
+    
+      },
+
+    link: function(scope, element, attrs) {
+      
+    }
+  };
+});
+
+
+//////////////////////////////////////////
+
+
 coffeeBankApp.directive('dhChartLegend', function() {
   return {
     
