@@ -216,7 +216,7 @@ $scope.SaveIt = function(item){
       // after a SAVE....
       $scope.saveAction = true;      
       $timeout(function(){ 
-        $scope.saveAction = false; }, 500);
+        $scope.saveAction = false; }, 1000);
 
          ItemFactory.saveItem(item) 
 

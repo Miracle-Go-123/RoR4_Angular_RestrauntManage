@@ -194,15 +194,16 @@
 
 
         </div> 
-     
-   </div>
 
-   <div ng-show="saveAction"><img ng-src="assets/green_check.png"><h3 style="color: green">SAVED!</h3></div>
+       <div ng-show="saveAction" class="text-center save-me"><img ng-src="assets/green_check.png"><h3 style="color: green">SAVED!</h3></div> 
+
+   </div>
    
+  <div class="row"> 
  <a href="#" id="item" class="btn btn-info" ng-show="currentUser && saves.length > 1" ng-click="UndoSave()">Undo Last Save</a> 
 
       <hr> 
-          
+    </div>        
     </div><!-- /.container -->  
 
 
