@@ -112,7 +112,11 @@ padding-top: 20px;
 .save_action {
    /*background: rgba(18, 225, 41, 1);*/
    background-color: #00FF42;
+}
 
+.save-me {
+background-color: #00FF42;
+width: 100%;
 }
 
 /*********** Reset View **********/
