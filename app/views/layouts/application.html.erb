@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="description" content="Saving money is fun">
+    
     <meta name="author" content="David Horn">
 
   <%= render partial: 'shared/theme_header' %>
@@ -184,9 +185,6 @@
 
 <div id="grid" class="row effect-2" ng-show="showItem" ng-class="{save_action: saveAction}">
 
-<!-- masonry-grid effect-2
- -->
-
 
 <div ng-repeat="(key, item) in items" ng-class="{repeated_item: deleteMe}"> 
 
@@ -204,6 +202,8 @@
       <hr> 
           
     </div><!-- /.container -->  
+
+
 </div>
 
 
