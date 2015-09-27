@@ -66,11 +66,13 @@ before_action :ensure_correct_user, only: [:saveit]
   
   # DELETE LAST SAVE
   def lastsave
-  
+
+  @user.total_savings -= @user.keeps.last.price
   @user.keeps.last.destroy
 
+if @user.save
   render json: @user, status: :ok
-
+end
   end
 
 
