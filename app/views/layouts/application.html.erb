@@ -183,11 +183,9 @@
 
 <p class="red" ng-show="deleteMe">Click on an item to Delete it! <a href="#" ng-click="deleteMe = false">(nevermind)</a></p>
 
-<div id="grid" class="row effect-2" ng-show="showItem">
+<div id="grid" class="row effect-2" ng-show="showItem" ng-class="{'save_action': saveAction}">
 
-<!-- ng-class="{save_action: saveAction}" -->
-
-<div ng-repeat="(key, item) in items" ng-class="{repeated_item: deleteMe, save_action: saveAction}"> 
+<div ng-repeat="(key, item) in items" ng-class="{'repeated_item': deleteMe}"> 
 
 
 <!-- ng-repeat with items/ directive -->
