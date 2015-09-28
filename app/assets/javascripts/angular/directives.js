@@ -118,7 +118,7 @@ coffeeBankApp.directive('dhChartTemplate', function() {
 link: function($scope, $elem, $attr) {
 
 // var svg = d3.select($elem[0]).append("svg").attr("width",700).attr("height",300);
-var svg = d3.select("#user-chart").append("svg").attr("width",700).attr("height",300);
+var svg = d3.select("#user-chart").append("svg").attr("width",600).attr("height",300);
 // Inserting text that goes on top of the charts.... 
 
 svg.append("text")
@@ -231,7 +231,7 @@ coffeeBankApp.directive('dhChartTwoTemplate', function() {
 
 link: function($scope, $elem, $attr) {
 
-var svg = d3.select("#global-chart").append("svg").attr("width",700).attr("height",300);
+var svg = d3.select("#global-chart").append("svg").attr("width",600).attr("height",300);
 
 // Inserting text that goes on top of the charts.... 
 

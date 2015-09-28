@@ -36,7 +36,6 @@ class UsersController < ApplicationController
       if @found_user && @found_user.authenticate(params[:password])
         session[:user_id] = @found_user.id
         render json: @found_user, status: :created 
-       
       else
         render json: @found_user.errors, status: :unprocessable_entity
         # flash[:alert] = "email / password combination is invalid"
