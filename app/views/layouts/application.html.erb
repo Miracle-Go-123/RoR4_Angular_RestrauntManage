@@ -61,13 +61,16 @@
 
 
     <!-- Home Section -->
-    <div id="home" class="section macbook" >   
+
+    <div id="home" class="section" >   
       <div class="parallax"><img src="assets/coffee-head.png"></div>
+
+
 
   <!-- Auth Section and Landing Section -->
 
-  <div ng-view></div>
 
+  <div ng-view></div>
 
   </div><!-- /.container -->
 
@@ -198,7 +201,7 @@
         </div> 
 
        <div ng-show="saveAction" class="text-center save-me">
-       <img ng-src="assets/green_check.png"><h3 style="color: green">SAVED!</h3></div> 
+      <!--  <img ng-src="assets/green_check.png"><h3 style="color: green">SAVED!</h3> --></div> 
 
    </div>
    
@@ -261,7 +264,7 @@
 
 
 
-<div class="container charts">
+<div class="charts">
 
 <dh-chart-template monthdata="{{thisMonth}}" chartdata="{{saves}}" id="user-chart"></dh-chart-template>
 
@@ -336,7 +339,7 @@ svg text.percent{
               
               <dh-chart-legend cat="globalMonthTotal"></dh-chart-legend>
 
-<div class="container charts">
+<div class="charts">
 
 <dh-chart-two-template monthdatatwo="{{globalMonth}}" chartdatatwo="{{globalData}}" id="global-chart"></dh-chart-two-template>           
       

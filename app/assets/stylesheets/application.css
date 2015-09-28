@@ -68,7 +68,8 @@
 
 .auth-form {
 
-margin-top: 80px;
+margin-top: 40px;
+/*background: rgba(112, 199, 232, 0.6);*/
 background: rgba(206, 217, 210, 0.8);
 padding-top: 20px;
 
@@ -117,7 +118,16 @@ padding-top: 20px;
 .save-me {
 background-color: #00FF42;
 width: 100%;
-padding: 10%;
+/*padding: 10%;*/
+}
+
+.scroll-form {
+/*padding-top: 2px;*/
+/*margin-top: 0px;*/
+/*margin-left: auto;
+margin-right: auto;*/
+/*background-color: red;
+*//*  overflow: scroll;*/
 }
 
 
@@ -173,10 +183,6 @@ margin-bottom: 4px;
  max-height: 600px;
 }
 
-
-
-
-
 /*********** D3 Charts/Graph CSS **********/
 
 /***************************************/
@@ -210,7 +216,7 @@ margin-bottom: 4px;
 }
 
 .charts {
-  /*overflow: auto;*/
+  overflow: auto;
 }
 
 /*path.slice{
