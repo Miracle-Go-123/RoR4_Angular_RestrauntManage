@@ -42,10 +42,12 @@
           <ul class="nav navbar-nav">
             
             <li><a class="scroll hidden" href="#home"></a></li>
-             <li><a class="scroll" href="#gallery">ITEMS</a></li>
+            <li><a class="scroll" href="#gallery">ITEMS</a></li>
             <li><a class="scroll" href="#features">MY SAVINGS</a></li>
-             <li><a class="scroll" href="#global">GLOBAL</a></li>
+            <li><a class="scroll" href="#global">GLOBAL</a></li>
             <li><a class="scroll" href="#accordion">ABOUT</a></li>
+
+            <li ng-show="!currentUser"><a href="/login">LOGIN</a></li>
 
            <!-- Current User Info -->   
             <li ng-show="currentUser"><p class="navbar-text pad"><img ng-show="currentUser.picture" ng-src="{{currentUser.picture}}" alt="currentUser.picture" class="img-rounded avatar"><span class="white"> Signed in as {{currentUser.name}}</span></p></li>
@@ -87,7 +89,7 @@
           <div class="row">
             <div class="col-md-2 col-sm-2 col-xs-12"></div>
             <div class="col-md-8 col-sm-8 col-xs-12">
-              <p class="description text-center">Create custom items that you can save on every day, and then when you skip something, make sure to tap it and watch your savings grow! Also compare yourself with the whole STASH community.</p>
+              <p class="description text-center">Create custom items that you can save on every day, and then when you skip something, make sure to tap it and watch your savings grow! Click on the “Add Item” button, enter a name and price for the item you will be saving on, then select a category and save it.</p>
 
             </div>
             <div class="col-md-2 col-sm-2 col-xs-12">
@@ -124,7 +126,7 @@
     <div class="col-sm-10">
       <div class="input-group">
       <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-      <input type="number" class="form-control price" ng-model="newItem.price" name="price" placeholder="cost of item can't be negative." min="0" required>
+      <input type="number" class="form-control price" ng-model="newItem.price" name="price" placeholder="cost of item can't be negative and should be less than 100." min="0" max="100" required>
       </div>
    
         <!-- Price Error Message -->
@@ -195,7 +197,8 @@
 
         </div> 
 
-       <div ng-show="saveAction" class="text-center save-me"><img ng-src="assets/green_check.png"><h3 style="color: green">SAVED!</h3></div> 
+       <div ng-show="saveAction" class="text-center save-me">
+       <img ng-src="assets/green_check.png"><h3 style="color: green">SAVED!</h3></div> 
 
    </div>
    
@@ -214,8 +217,8 @@
 
     <!-- User Stats Section -->
 
-    <div id="features" class="section gray">
-      <div class="container" ng-show="currentUser">
+    <div class="section gray">
+      <div id="features" class="container" ng-show="currentUser">
         
         <div class="content">
 
@@ -256,10 +259,13 @@
               
               <dh-chart-legend cat="monthCat"></dh-chart-legend>
 
-              <!--   <a class="btn color" href="#">MORE DETAILS</a> -->
 
+
+<div class="container charts">
 
 <dh-chart-template monthdata="{{thisMonth}}" chartdata="{{saves}}" id="user-chart"></dh-chart-template>
+
+</div>
 
 <!-- Style for D3 chart -->
 
@@ -308,6 +314,7 @@ svg text.percent{
                   <h3 class="text-center">Global Activity:</h3>
                   
                   <div ng-repeat="(key, save) in globalData | limitTo:-30 | orderBy:'time':true">                   
+
 <dh-global-save-template savedata="save" id="save._id"></dh-global-save-template>
 
 
@@ -329,10 +336,11 @@ svg text.percent{
               
               <dh-chart-legend cat="globalMonthTotal"></dh-chart-legend>
 
+<div class="container charts">
 
 <dh-chart-two-template monthdatatwo="{{globalMonth}}" chartdatatwo="{{globalData}}" id="global-chart"></dh-chart-two-template>           
       
-        
+    </div>    
                  </div> <!-- end wrapper -->
               </div>
             </div>
@@ -365,7 +373,7 @@ svg text.percent{
             </div>
             <div id="collapseOne" class="panel-collapse collapse in">
               <div class="panel-body">
-              <i class="fa fa-usd"></i>TASH is the Capstone Project developed by David Horn for the Galvanize 6-moth Full Stack Web Development Program. It uses AngularJS with a Ruby on Rails API and D3. 
+               Simply create an account, add items that you buy regularly but are not necessities (these should be small purchases), and then the next time you skip one of those purchases, tap it and give yourself a pat on the back. Keep track of how much you are saving and also see what your friends on <i class="fa fa-usd"></i>TASH are saving with you. 
               </div>
             </div>
           </div>
@@ -379,7 +387,8 @@ svg text.percent{
             </div>
             <div id="collapseTwo" class="panel-collapse collapse">
               <div class="panel-body">
-                David Horn is a Junior Developer and an active, participating, and collaborating member of the tech community who is seeking to become a contributing member of a development team where I can productively support and engage my proven ability to improve team work flow, dynamic, and results.
+                <i class="fa fa-usd"></i>TASH was developed by David Horn for the Galvanize 6-moth Full Stack Web Development Program. It uses AngularJS with a Ruby on Rails API and D3.<br/ > 
+                David is a Software Developer and an active, participating, and collaborating member of the tech community who is seeking to become a contributing member of a development team where I can productively support and engage my proven ability to improve team work flow, dynamic, and results.
               </div>
             </div>
           </div>
