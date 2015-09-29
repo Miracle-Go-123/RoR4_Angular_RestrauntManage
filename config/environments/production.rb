@@ -11,7 +11,7 @@ Rails.application.configure do
     :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
     :enable_starttls_auto => true, # detects and uses STARTTLS
     :user_name => Rails.application.secrets[:MANDRILL_USERNAME], # email used to signup for mandrill
-    :password  => Rails.application.secrets[:MANDRILL_PASSWORD], # SMTP password is any valid API key
+    :password  => Rails.application.secrets[:MANDRILL_APIKEY], # SMTP password is any valid API key
     :domain =>         'heroku.com',
     :authentication => :plain
   }
