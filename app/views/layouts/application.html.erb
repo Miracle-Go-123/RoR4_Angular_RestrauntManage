@@ -174,20 +174,23 @@
            </div>
         </form>
 
+      <!-- End of create item form -->
 
-<!-- End of create item form -->
-
-           </div>
-        </div><!-- /.content -->  
+    </div>
+</div><!-- /.content -->  
 
 
+
+
+
+<p class="red" ng-show="deleteMe">Click on an item to Delete it! <a href="#" ng-click="deleteMe = false">(nevermind)</a></p>
 
 
 <!-- ng-repeat for items -->
 
-<p class="red" ng-show="deleteMe">Click on an item to Delete it! <a href="#" ng-click="deleteMe = false">(nevermind)</a></p>
-
 <div id="grid" class="row effect-2" ng-show="showItem" ng-class="{'save_action': saveAction}">
+
+
 
 <div ng-repeat="(key, item) in items" ng-class="{'repeated_item': deleteMe}"> 
 
@@ -197,10 +200,10 @@
 <dh-item-template ng-click="SaveIt(item); DeleteItem(item, $index)" itemdata="item" id="item._id"></dh-item-template>
 
 
-        </div> 
+      </div> 
 
        <div ng-show="saveAction" class="text-center save-me">
-       <img ng-src="assets/green_check.png"><!-- <h3 style="color: green">SAVED!</h3> --></div> 
+       <img ng-src="assets/green_check.png"></div> 
 
    </div>
    
@@ -241,10 +244,6 @@
 
                       </div>
                 </div> 
-
-            <!-- Only works on img tags -->
-            <!--   <img class="preview slide-in left" src="assets/preview2.jpg"> -->
-
             </div>
 
 
@@ -413,9 +412,8 @@ svg text.percent{
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="">
             <p class="social-media">
-             <!--  <a href="#" data-toggle="tooltip" title="twitter"><i class="fa fa-twitter"></i></a> -->
               <a href="https://www.facebook.com/games/?fbs=-1&app_id=402024286657649&preview=1&locale=en_US" data-toggle="tooltip" title="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-            <!--   <a href="#" data-toggle="tooltip" title="linkedin"><i class="fa fa-linkedin"></i></a> -->
+              <a href="https://www.linkedin.com/in/horndavidg" data-toggle="tooltip" title="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
               <a href="https://github.com/horndavidg/coffee_bank" data-toggle="tooltip" title="github" target="_blank"><i class="fa fa-github"></i></a>
             </p>
          </div>
