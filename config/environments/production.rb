@@ -12,7 +12,7 @@ Rails.application.configure do
     :enable_starttls_auto => true, # detects and uses STARTTLS
     :user_name => Rails.application.secrets[:MANDRILL_USERNAME], # email used to signup for mandrill
     :password  => Rails.application.secrets[:MANDRILL_APIKEY], # SMTP password is any valid API key
-    :domain =>         'heroku.com',
+    :domain =>         'https://stash-it-daily.herokuapp.com',
     :authentication => :plain
   }
 
