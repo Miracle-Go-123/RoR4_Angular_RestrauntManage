@@ -57,7 +57,7 @@ ItemList.items = [];
       item.$save().then(function(data) {    
         
       }, function(response){
-        console.log("response", response);
+        console.log("ERROR:", response);
 
       });
   };
@@ -68,10 +68,11 @@ ItemList.items = [];
  // Removes an Item from the database
  ItemList.deleteItem = function(id) {    
      new Item({id: id}).$remove().then(function() {         
+     
      getAllItems();
 
       }), function(response){
-        console.log("response", response);
+        console.log("ERROR:", response);
      }
   };
 
@@ -80,10 +81,10 @@ ItemList.items = [];
 // Saves item to the current user
 ItemList.saveItem = function(item) {     
    $http.post('/saveit', item).then(function(data) {
-    // console.log("HOWDY!", data.data); 
+   
 
    }), function(response){
-        console.log("response", response);
+        console.log("ERROR:", response);
      }
 
   };

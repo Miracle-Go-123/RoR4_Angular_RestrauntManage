@@ -21,9 +21,7 @@ coffeeBankApp.controller("MainController", ["$scope", "$http", "User", "$rootSco
 }]);
 
 
-
 //////////////////////////////////////////////
-
 
 
 coffeeBankApp.controller("AuthController", ["$scope", "$http", "User", "$rootScope", "Login", "$location", "ItemFactory", "Item", "Reset", function($scope, $http, User, $rootScope, Login, $location, ItemFactory, Item, Reset) {
@@ -119,7 +117,6 @@ coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootSc
  $scope.showItem = true;
  $scope.saveAction = false;
  $scope.items = ItemFactory.items
- // $scope.saves = ItemFactory.saves
  
 
  // -----------------------------------
@@ -222,7 +219,7 @@ $scope.SaveIt = function(item){
          ItemFactory.saveItem(item) 
 
 // Request to get an updated list of saves as of the most recent save.
-getAllSaves();
+   getAllSaves();
     
    // Delays an API call incase the intial data doesn't render correctly.
    $timeout(function () {
@@ -235,7 +232,7 @@ getAllSaves();
       $scope.globalTotal = data.data.globalTotal
       $scope.globalMonth = data.data.globalMonth
       $scope.globalMonthTotal = data.data.globalMonthTotal
-       }) }, 2000); 
+       }) }, 1000); 
     
   }
 };
@@ -268,13 +265,3 @@ getAllSaves();
 }]);
 
 //////////////////////////////////////////////
-
-// coffeeBankApp.controller("LocationController", ["$scope", "$route", "$routeParams", "$location", function($scope, $route, $routeParams, $location) {
-//   $scope.$location = {};
-//   angular.forEach("protocol host port path search hash".split(" "), function(method){
-//    $scope.$location[method] = function(){
-//      var result = $location[method].call($location);
-//      return angular.isObject(result) ? angular.toJson(result) : result;
-//    };
-//   });
-// }]);
