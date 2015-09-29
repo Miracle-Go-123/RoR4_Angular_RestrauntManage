@@ -32,6 +32,8 @@ gem "bootstrap-sass"
 gem "bootswatch-rails"
 gem 'font-awesome-sass'
 
+gem 'mandrill-api'
+
 gem 'dotenv-rails', :groups => [:development, :test]
 
 # Different Auth Options:
