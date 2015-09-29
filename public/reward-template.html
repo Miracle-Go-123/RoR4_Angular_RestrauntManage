@@ -1,23 +1,33 @@
-<h1>Reward Status:
+<h1>Rewards:
 
 <span style="color: purple" ng-show="data.total_savings < 50">
-New Member
+<img ng-src="assets/new_member.png" alt="New Member">
 </span>
 
 <span style="color: blue" ng-show="data.total_savings >= 50 && data.total_savings < 100">
-Simple Saver ($50+)
+<img ng-src="assets/simple_saver.png" alt="Simple Saver">($50+)
+<img ng-src="assets/new_member.png" alt="New Member">
 </span>
 
 <span style="color: green" ng-show="data.total_savings >= 100 && data.total_savings < 300">
-Awesome Saver ($100+)
+<img ng-src="assets/awesome_saver.png" alt="Awesome Saver">($100+)
+<img ng-src="assets/simple_saver.png" alt="Simple Saver">
+<img ng-src="assets/new_member.png" alt="New Member">
 </span>
 
 <span style="color: yellow" ng-show="data.total_savings >= 300 && data.total_savings < 500">
-Super Saver ($300+)
+<img ng-src="assets/super_saver.png" alt="Super Saver">($300+)
+<img ng-src="assets/awesome_saver.png" alt="Awesome Saver">
+<img ng-src="assets/simple_saver.png" alt="Simple Saver">
+<img ng-src="assets/new_member.png" alt="New Member">
 </span>
 
 <span style="color: orange" ng-show="data.total_savings >= 500">
-Master Saver ($500+)
+<img ng-src="assets/master_saver.png" alt="Master Saver">($500+)
+<img ng-src="assets/super_saver.png" alt="Super Saver">
+<img ng-src="assets/awesome_saver.png" alt="Awesome Saver">
+<img ng-src="assets/simple_saver.png" alt="Simple Saver">
+<img ng-src="assets/new_member.png" alt="New Member">
 </span>
 
 </h1>

@@ -38,22 +38,8 @@
   </div>
 
    <div class="form-group">
-    <label class="col-sm-2 control-label"><strong>Picture:</strong></label>
-    <div class="col-sm-10">
-      <input type="url" class="form-control" ng-model="newUser.picture" name="picture" placeholder="url only please" required>
-
-       <!-- Picture Error Message -->
-  
-        <div class="auth-error alert alert-danger" ng-show="auth_form.picture.$error.required && auth_form.picture.$invalid && auth_form.submitted">A URL is Required</div>
-
-        <div class="auth-error alert alert-danger" ng-show="auth_form.picture.$error.url && auth_form.picture.$invalid && auth_form.submitted">A valid URL is Required</div>
-
-    </div>
-  </div>
-
-   <div class="form-group">
     <label class="col-sm-2 control-label"><strong>Password:</strong></label>
-    <div class="col-sm-10">
+    <div class="col-sm-offset-1 col-sm-4">
       <input type="password" class="form-control" ng-model="newUser.password" name="password" placeholder="password" required>
    
         <!-- Password Error Message -->
@@ -62,11 +48,38 @@
         
 
      </div>
+
+<!-- Picture Upload -->
+
+    <label class="col-sm-2 control-label"><strong>Picture:</strong></label>
+    <div class="col-sm-2">
+
+<input
+  uploadcare-widget
+  ng-model="newUser.picture"
+  data-tabs="file url camera facebook instagram flickr box"
+  data-images-only="true"
+  data-preview-step="true"
+  data-clearable="true"
+  data-multiple="false"
+  data-crop="300:300"
+  on-upload-complete="onUCUploadComplete(info)"
+  on-widget-ready="onUCWidgetReady(widget)"
+  value="{{ object.image.info.uuid }}"
+ />
+
+       <!-- Picture Error Message -->
+  
+     <!--    <div class="auth-error alert alert-danger" ng-show="auth_form.picture.$error.required && auth_form.picture.$invalid && auth_form.submitted">A URL is Required</div>
+
+        <div class="auth-error alert alert-danger" ng-show="auth_form.picture.$error.url && auth_form.picture.$invalid && auth_form.submitted">A valid URL is Required</div> -->
+
+    </div>
   </div>
- 
+
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button ng-click="AddUser()" class="btn btn-info">Signup</button>   
+      <button ng-click="AddUser(picture)" class="btn btn-info">Signup</button>   
       
       <a href="/login" class="btn btn-info">Already have an account?</a>
 
@@ -74,9 +87,8 @@
 
       <a href="/" class="btn btn-info">Exit</a>
 
-     <!-- ng-click="loginForm = true; signUpForm = false" -->
-
     </div>
   </div>
 </form>
+
 </div>

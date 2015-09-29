@@ -29,13 +29,14 @@ coffeeBankApp.controller("MainController", ["$scope", "$http", "User", "$rootSco
 coffeeBankApp.controller("AuthController", ["$scope", "$http", "User", "$rootScope", "Login", "$location", "ItemFactory", "Item", "Reset", function($scope, $http, User, $rootScope, Login, $location, ItemFactory, Item, Reset) {
 
   $scope.newUser = {name: "", email: "", picture: "", password: ""};
-
+ 
 // -----------------------------------
 
-$scope.AddUser = function(){
+$scope.AddUser = function(picture){
 if ($scope.auth_form.$valid) {
+
       var user = new User($scope.newUser);
-      
+
       user.$save().then(function(data) {     
         $scope.newUser.name = "";
         $scope.newUser.email = "";
