@@ -222,17 +222,17 @@ $scope.SaveIt = function(item){
          ItemFactory.saveItem(item) 
 
 // Request to get an updated list of saves as of the most recent save.
-  getAllSaves();
-   //  $http.get('/getsaves').then(function(data) {  
-   //    $scope.currentSaver = data.data.user
-   //    $scope.saves = data.data.saves
-   //    $scope.thisMonth = data.data.thisMonth
-   //    $scope.monthCat = data.data.monthCat
-   //    $scope.globalData = data.data.global
-   //    $scope.globalTotal = data.data.globalTotal
-   //    $scope.globalMonth = data.data.globalMonth
-   //    $scope.globalMonthTotal = data.data.globalMonthTotal
-   // })  
+  // getAllSaves();
+    $http.get('/getsaves').then(function(data) {  
+      $scope.currentSaver = data.data.user
+      $scope.saves = data.data.saves
+      $scope.thisMonth = data.data.thisMonth
+      $scope.monthCat = data.data.monthCat
+      $scope.globalData = data.data.global
+      $scope.globalTotal = data.data.globalTotal
+      $scope.globalMonth = data.data.globalMonth
+      $scope.globalMonthTotal = data.data.globalMonthTotal
+   })  
     
   }
 };
