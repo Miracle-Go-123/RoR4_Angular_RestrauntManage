@@ -6,4 +6,14 @@ This Application is built with AngularJS and has a Ruby on Rails API with D3 Cha
 
 This app is currently deployed on Heroku.
 
-![screen shot](https://github.com/horndavidg/project_screenshots/blob/master/Screen%20Shot%202015-09-29%20at%204.25.22%20PM.png "Screen Shot 1")
+###Landing Section
+![screen shot](https://github.com/horndavidg/project_screenshots/blob/master/Screen%20Shot%202015-09-29%20at%204.25.22%20PM.png "Welcome")
+
+###Sample Items to Save On
+![screen shot 2](https://github.com/horndavidg/project_screenshots/blob/master/Screen%20Shot%202015-09-29%20at%204.39.28%20PM.png "Items")
+
+###User Stats
+![screen shot 3](https://github.com/horndavidg/project_screenshots/blob/master/Screen%20Shot%202015-09-29%20at%204.39.44%20PM.png "User Stats")
+
+###Global Stats
+![screen shot 4](https://github.com/horndavidg/project_screenshots/blob/master/Screen%20Shot%202015-09-29%20at%204.39.57%20PM.png "Global Stats")
