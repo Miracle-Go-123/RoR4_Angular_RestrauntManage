@@ -4,6 +4,8 @@
 
 This Application is built with AngularJS and has a Ruby on Rails API with D3 Charts, Uploadcare API for user photos, and Mandrill for mailers. You can see this application live at [stash-it-daily](https://stash-it-daily.herokuapp.com/).
 
+The database is postgresql.
+
 This app is currently deployed on Heroku.
 
 ###Landing Section
