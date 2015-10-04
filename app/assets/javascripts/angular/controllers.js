@@ -265,3 +265,46 @@ getAllSaves();
 }]);
 
 //////////////////////////////////////////////
+
+coffeeBankApp.controller("GoalController", ["$scope", "$http", "User", "$rootScope", "$location", "ItemFactory", "Item", "$timeout", "$interval", "$firebaseArray", function($scope, $http, User, $rootScope, $location, ItemFactory, Item, $timeout, $interval, $firebaseArray) {
+
+var goalsRef = new Firebase("https://stash-it.firebaseio.com/goals");
+
+$scope.goals = $firebaseArray(goalsRef);
+$scope.goalForm = false;
+
+$scope.newGoal = {name:"", message:"", goal:"", edit: false}
+
+
+$scope.addGoal = function(user){
+
+if ($scope.goal_form.$valid) {
+
+$scope.newGoal.name = user.name
+
+  $scope.goals.$add($scope.newGoal).then(function(data) {      
+      $scope.newGoal = {name:"", message:"", goal:"", edit: false};
+      $scope.goalForm = false;
+      $scope.goal_form.submitted = false;
+      $scope.goal_form.$setUntouched();
+  })
+
+} else {
+
+  $scope.goal_form.submitted = true;
+
+  }
+}
+
+
+$scope.removeGoal = function(goal){
+  $scope.goals.$remove(goal).then(function(data) {
+
+    console.log("Goal Removed!");
+
+  })
+}
+
+
+
+}]);

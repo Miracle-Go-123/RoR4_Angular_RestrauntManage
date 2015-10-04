@@ -57,6 +57,26 @@ coffeeBankApp.directive('dhGlobalSaveTemplate', function() {
   };
 });
 
+//////////////////////////////////////////
+
+
+coffeeBankApp.directive('dhGoalTemplate', function() {
+  return {
+    
+    restrict: 'E',
+    templateUrl: 'community-achv-template.html',
+    scope: {
+
+      goal: '=goaldata'
+    
+      },
+
+    link: function(scope, element, attrs) {
+      
+    }
+  };
+});
+
 
 //////////////////////////////////////////
 
@@ -137,23 +157,21 @@ var month = value[1];
 
 var savingData=[
   {label:"food", color:"#A18F8F", saved:0},
-  {label:"drinks", color:"#778752", saved:0},
-  {label:"coffee", color:"#CC8F79", saved:0},
-  {label:"tea", color:"#CC8F79", saved:0},
+  {label:"alcohol", color:"#778752", saved:0},
+  {label:"drink", color:"#CC8F79", saved:0},
   {label:"clothing", color:"#607D8B", saved: 0},
   {label:"entertainment", color:"#C2B46B", saved: 0},
-  {label:"travel", color:"#4A4A4A", saved: 0},
+  {label:"transportation", color:"#4A4A4A", saved: 0},
   {label:"other", color:"#4E857C", saved: 0}
 ];
 
 var savingData2=[
   {label:"food", color:"#A18F8F", saved:0},
-  {label:"drinks", color:"#778752", saved:0},
-  {label:"coffee", color:"#CC8F79", saved:0},
-  {label:"tea", color:"#CC8F79", saved:0},
+  {label:"alcohol", color:"#778752", saved:0},
+  {label:"drink", color:"#CC8F79", saved:0},
   {label:"clothing", color:"#607D8B", saved: 0},
   {label:"entertainment", color:"#C2B46B", saved: 0},
-  {label:"travel", color:"#4A4A4A", saved: 0},
+  {label:"transportation", color:"#4A4A4A", saved: 0},
   {label:"other", color:"#4E857C", saved: 0}
 ];
 
@@ -173,17 +191,15 @@ function getData(input) {
     } else if (d.category === savingData[1].label) {
           savingData[1].saved += d.price;  
     } else if (d.category === savingData[2].label) {
-          savingData[2].saved += d.price;          
+          savingData[2].saved += d.price;           
     } else if (d.category === savingData[3].label) {
-          savingData[2].saved += d.price;  
+          savingData[3].saved += d.price;  
     } else if (d.category === savingData[4].label) {
-          savingData[4].saved += d.price;  
+          savingData[4].saved += d.price;         
     } else if (d.category === savingData[5].label) {
-          savingData[5].saved += d.price;         
-    } else if (d.category === savingData[6].label) {
-          savingData[6].saved += d.price;   
+          savingData[5].saved += d.price;   
     } else {
-          savingData[7].saved += d.price;  
+          savingData[6].saved += d.price;  
             }
          });
    
@@ -202,17 +218,15 @@ function getData2(input) {
     } else if (d.category === savingData2[1].label) {
           savingData2[1].saved += d.price;  
     } else if (d.category === savingData2[2].label) {
-          savingData2[2].saved += d.price;          
+          savingData2[2].saved += d.price;           
     } else if (d.category === savingData2[3].label) {
-          savingData2[2].saved += d.price;  
+          savingData2[3].saved += d.price;  
     } else if (d.category === savingData2[4].label) {
-          savingData2[4].saved += d.price;  
+          savingData2[4].saved += d.price;         
     } else if (d.category === savingData2[5].label) {
-          savingData2[5].saved += d.price;         
-    } else if (d.category === savingData2[6].label) {
-          savingData2[6].saved += d.price;   
+          savingData2[5].saved += d.price;   
     } else {
-          savingData2[7].saved += d.price;  
+          savingData2[6].saved += d.price;  
             }
          });
   
@@ -278,7 +292,7 @@ svg.append("text")
         .attr("text-anchor", "middle")  
         .style("font-size", "18px") 
         .style("font-weight", "bold")
-        .text("Community Monthly & Total Savings");
+        .text("Monthly & Total Savings");
 
 $scope.$watchGroup(['chartdatatwo', 'monthdatatwo'], function(value) {
 
@@ -287,23 +301,21 @@ var month = value[1];
 
 var savingData=[
   {label:"food", color:"#A18F8F", saved:0},
-  {label:"drinks", color:"#778752", saved:0},
-  {label:"coffee", color:"#CC8F79", saved:0},
-  {label:"tea", color:"#CC8F79", saved:0},
+  {label:"alcohol", color:"#778752", saved:0},
+  {label:"drink", color:"#CC8F79", saved:0},
   {label:"clothing", color:"#607D8B", saved: 0},
   {label:"entertainment", color:"#C2B46B", saved: 0},
-  {label:"travel", color:"#4A4A4A", saved: 0},
+  {label:"transportation", color:"#4A4A4A", saved: 0},
   {label:"other", color:"#4E857C", saved: 0}
 ];
 
 var savingData2=[
   {label:"food", color:"#A18F8F", saved:0},
-  {label:"drinks", color:"#778752", saved:0},
-  {label:"coffee", color:"#CC8F79", saved:0},
-  {label:"tea", color:"#CC8F79", saved:0},
+  {label:"alcohol", color:"#778752", saved:0},
+  {label:"drink", color:"#CC8F79", saved:0},
   {label:"clothing", color:"#607D8B", saved: 0},
   {label:"entertainment", color:"#C2B46B", saved: 0},
-  {label:"travel", color:"#4A4A4A", saved: 0},
+  {label:"transportation", color:"#4A4A4A", saved: 0},
   {label:"other", color:"#4E857C", saved: 0}
 ];
 
@@ -323,17 +335,15 @@ function getData(input) {
     } else if (d.category === savingData[1].label) {
           savingData[1].saved += d.price;  
     } else if (d.category === savingData[2].label) {
-          savingData[2].saved += d.price;          
+          savingData[2].saved += d.price;            
     } else if (d.category === savingData[3].label) {
-          savingData[2].saved += d.price;  
+          savingData[3].saved += d.price;  
     } else if (d.category === savingData[4].label) {
-          savingData[4].saved += d.price;  
+          savingData[4].saved += d.price;         
     } else if (d.category === savingData[5].label) {
-          savingData[5].saved += d.price;         
-    } else if (d.category === savingData[6].label) {
-          savingData[6].saved += d.price;   
+          savingData[5].saved += d.price;   
     } else {
-          savingData[7].saved += d.price;  
+          savingData[6].saved += d.price;  
             }
          });
   return savingData;
@@ -350,17 +360,15 @@ function getData2(input) {
     } else if (d.category === savingData2[1].label) {
           savingData2[1].saved += d.price;  
     } else if (d.category === savingData2[2].label) {
-          savingData2[2].saved += d.price;          
+          savingData2[2].saved += d.price;           
     } else if (d.category === savingData2[3].label) {
-          savingData2[2].saved += d.price;  
+          savingData2[3].saved += d.price;  
     } else if (d.category === savingData2[4].label) {
-          savingData2[4].saved += d.price;  
+          savingData2[4].saved += d.price;         
     } else if (d.category === savingData2[5].label) {
-          savingData2[5].saved += d.price;         
-    } else if (d.category === savingData2[6].label) {
-          savingData2[6].saved += d.price;   
+          savingData2[5].saved += d.price;   
     } else {
-          savingData2[7].saved += d.price;  
+          savingData2[6].saved += d.price;  
             }
          });
   
