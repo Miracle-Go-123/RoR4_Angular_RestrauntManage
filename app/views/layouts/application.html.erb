@@ -44,7 +44,7 @@
             <li><a class="scroll hidden" href="#home"></a></li>
             <li><a class="scroll" href="#gallery">ITEMS</a></li>
             <li><a class="scroll" href="#features">MY SAVINGS</a></li>
-            <li><a class="scroll" href="#global">COMMUNITY</a></li>
+            <li><a class="scroll" href="#global">SOCIAL</a></li>
             <li><a class="scroll" href="#accordion">ABOUT</a></li>
 
             <li ng-show="!currentUser"><a href="/login">LOGIN</a></li>
@@ -144,18 +144,17 @@
     <div class="col-sm-10">
 
 <select ng-model="newItem.category" class="form-control" name="category" required>
-  <option value="coffee">Coffee</option>
-  <option value="tea">Tea</option>
-  <option value="drinks">Drinks</option>
+  <option value="drink">Coffee/Tea</option>
+  <option value="alcohol">Alcohol</option>
   <option value="entertainment">Entertainment</option>
   <option value="food">Food</option>
-  <option value="travel">Travel</option>
+  <option value="transportation">Transportation</option>
   <option value="clothing">Clothing</option>
   <option value="other">Other</option>
 </select>
 
 
-        <!-- Price Error Message -->
+        <!-- Category Error Message -->
 
         <div class="alert alert-danger auth-error text-center" ng-show="item_form.category.$error.required && item_form.category.$invalid && item_form.submitted">A category for the item is Required</div>
         
@@ -216,7 +215,7 @@
 
     <!-- User Stats Section -->
 
-    <div class="section gray">
+    <div class="section gray" ng-controller="GoalController">
       <div id="features" class="container" ng-show="currentUser">
         
         <div class="content">
@@ -290,15 +289,87 @@ svg text.percent{
         </div>
       </div>
     </div><!-- /.content -->
+  
+<br>
+
+
+
+<!-- Icon to bring up goal form -->
+
+   <div class="row" ng-hide="goalForm">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <p class="icon-description">
+                <span class="icon-wrapper">
+                  <span class="circle" ng-click="goalForm = true"><i class="fa fa-check-square-o"></i></span>
+                </span>
+                <strong>Meet a personal goal or donate to charity? Tells us!</strong>
+              </p>         
+            </div>
+          </div>
+
+
+
+<!-- Forms for CRUD on Goals -->
+
+<div class="row" ng-show="goalForm">
+
+<form class="form-horizontal" novalidate name="goal_form">
+
+  <div class="form-group">
+
+    <label class="col-sm-2 control-label"><strong>Achievement:</strong></label>
+    <div class="col-sm-10">
+      <div class="input-group">
+      <div class="input-group-addon"><i class="fa fa-hand-o-right"></i></div>
+      <input type="text" class="form-control" ng-model="newGoal.goal" name="name" placeholder="donated to a charity, which one? paid off a bill? give us a hint!" required autofocus>
+      </div>
+       
+       <!-- Name Error Message -->
+  
+        <div class="auth-error alert alert-danger text-center" ng-show="goal_form.name.$error.required && goal_form.name.$invalid && goal_form.submitted">A goal name is Required</div>
+
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label class="col-sm-2 control-label"><strong>Tell us more!</strong></label>
+    <div class="col-sm-10">
+      <div class="input-group">
+      <div class="input-group-addon"><i class="fa fa-thumbs-up"></i></div>
+      <input type="text" class="form-control" ng-model="newGoal.message" name="message" placeholder="(optional)" >
+      </div>
+     </div>
+  </div>
+
+ 
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+  
+ <button class="btn color" ng-click="addGoal(currentUser)">Post It</button>
+ <button class="btn color" ng-click="goalForm = false">Not Now</button>
+
+              </div>
+           </div>
+        </form>
+
+      <!-- End of create goal form -->
+
+    </div>
+
   </div> <!-- end container -->
+
+
 
 <hr>
 
       <!-- Global Stats -->
 
       <div class="container no-bottom" id="global">
-        
+          
+          <h2 class="text-center"><u>Social Activity</u></h2>
+       
         <div class="content">
+
 
           <div class="row single vcontainer">
               
@@ -307,7 +378,7 @@ svg text.percent{
 
                 <div class="preview slide-in left global-feed">
                   
-                  <h3 class="text-center">Community Activity:</h3>
+                  <h3 class="text-center">Who's Saving?</h3>
                   
                   <div ng-repeat="(key, save) in globalData | limitTo:-30 | orderBy:'time':true">                   
 
@@ -340,8 +411,55 @@ svg text.percent{
                  </div> <!-- end wrapper -->
               </div>
             </div>
+
+<br>
+
+<h2 class="text-center">Community Achievements</h2>
+
+<!-- Carousel for User Goals Met -->
+
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <ul class="row">
+                
+              <div ng-repeat="(key, goal) in goals | limitTo:-4 | orderBy:'time':true">
+
+                <dh-goal-template goaldata="goal"></dh-goal-template> 
+
+               </div>
+              </ul>
+            </div>
+
+
+
+            <div class="item">
+              <ul class="row">
+               
+                <div ng-repeat="(key, goal) in goals | limitTo:-4:-4 | orderBy:'time':true">
+
+               <dh-goal-template goaldata="goal"></dh-goal-template>  
+
+               </div>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </div>  <!-- End Carousel -->
+
+
           
         </div> <!-- /.content -->
+        <br>
       </div> <!-- end container -->
     </div>
 </div> <!-- End of the Items Controller -->

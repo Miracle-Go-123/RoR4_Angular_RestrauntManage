@@ -1,4 +1,4 @@
-var coffeeBankApp = angular.module("CoffeeBankApp", ["ngRoute", "ngResource", "Devise", "ngAnimate", "ng-uploadcare"]);
+var coffeeBankApp = angular.module("CoffeeBankApp", ["ngRoute", "ngResource", "Devise", "ngAnimate", "ng-uploadcare", "firebase"]);
 
 coffeeBankApp.config(['$httpProvider', function($httpProvider) {
   $httpProvider.defaults.headers.common['X-CSRF-Token'] =

@@ -179,6 +179,28 @@ margin-bottom: 4px;
  max-height: 600px;
 }
 
+
+
+/*********** Goal Styling **********/
+
+/***************************************/
+
+
+.goal-image {
+ overflow: hidden;
+ float: left;
+}
+
+.goal-a {
+  padding: 6%;
+  overflow: hidden;
+}
+
+
+
+
+
+
 /*********** D3 Charts/Graph CSS **********/
 
 /***************************************/
