@@ -107,7 +107,7 @@ coffeeBankApp.directive('dhChartTemplate', function() {
   return {
     
     restrict: 'E',
- // templateUrl: 'donut-chart-template.html',
+
     scope: {
 
       chartdata: '@chartdata',
@@ -119,6 +119,7 @@ link: function($scope, $elem, $attr) {
 
 // var svg = d3.select($elem[0]).append("svg").attr("width",700).attr("height",300);
 var svg = d3.select("#user-chart").append("svg").attr("width",600).attr("height",300);
+
 // Inserting text that goes on top of the charts.... 
 
 svg.append("text")
@@ -126,15 +127,13 @@ svg.append("text")
         .attr("y", 20)
         .attr("text-anchor", "middle")  
         .style("font-size", "18px") 
-        .style("font-weight", "bold")
-     // .style("text-decoration", "underline") 
+        .style("font-weight", "bold") 
         .text("Monthly & Total Savings");
 
-// $attr.$observe('chartdata', function(value) {
 $scope.$watchGroup(['chartdata', 'monthdata'], function(value) {
 
-var data = value[0]
-var month = value[1]
+var data = value[0];
+var month = value[1];
 
 var savingData=[
   {label:"food", color:"#A18F8F", saved:0},
@@ -147,15 +146,21 @@ var savingData=[
   {label:"other", color:"#4E857C", saved: 0}
 ];
 
-
-// var svg = d3.select($elem[0]).append("svg").attr("width",700).attr("height",300);
-// var svg = d3.select("#my-chart-here").append("svg").attr("width",700).attr("height",300).append("g").attr("id","salesDonut");
-
+var savingData2=[
+  {label:"food", color:"#A18F8F", saved:0},
+  {label:"drinks", color:"#778752", saved:0},
+  {label:"coffee", color:"#CC8F79", saved:0},
+  {label:"tea", color:"#CC8F79", saved:0},
+  {label:"clothing", color:"#607D8B", saved: 0},
+  {label:"entertainment", color:"#C2B46B", saved: 0},
+  {label:"travel", color:"#4A4A4A", saved: 0},
+  {label:"other", color:"#4E857C", saved: 0}
+];
 
 if (data) {
 
-var chartdata = JSON.parse(data)
-var monthdata = JSON.parse(month)
+var chartdata = JSON.parse(data);
+var monthdata = JSON.parse(month);
 
 function getData(input) {
 
@@ -179,13 +184,44 @@ function getData(input) {
           savingData[6].saved += d.price;   
     } else {
           savingData[7].saved += d.price;  
-            }; 
-         })
+            }
+         });
+   
   return savingData;
+
+  }
+
+function getData2(input) {
+
+  // Maps the input into the savingData array of objects
+
+  input.map(function(d){
+  
+    if (d.category === savingData2[0].label) {
+          savingData2[0].saved += d.price;
+    } else if (d.category === savingData2[1].label) {
+          savingData2[1].saved += d.price;  
+    } else if (d.category === savingData2[2].label) {
+          savingData2[2].saved += d.price;          
+    } else if (d.category === savingData2[3].label) {
+          savingData2[2].saved += d.price;  
+    } else if (d.category === savingData2[4].label) {
+          savingData2[4].saved += d.price;  
+    } else if (d.category === savingData2[5].label) {
+          savingData2[5].saved += d.price;         
+    } else if (d.category === savingData2[6].label) {
+          savingData2[6].saved += d.price;   
+    } else {
+          savingData2[7].saved += d.price;  
+            }
+         });
+  
+  return savingData2;
+
   }
 
 var total = getData(chartdata);
-var month_total = getData(monthdata);
+var month_total = getData2(monthdata);
 
 svg.append("g").attr("id","salesDonut");
 svg.append("g").attr("id","quotesDonut");
@@ -200,13 +236,14 @@ function changeData(){
 
 function displayData(){
   return total.map(function(d){ 
-    return {label:d.label, value:d.saved, color:d.color};});
+  return {label:d.label, value:d.saved, color:d.color};});
 }
 
 function displayMonth(){
   return month_total.map(function(d){ 
-    return {label:d.label, value:d.saved, color:d.color};});
+  return {label:d.label, value:d.saved, color:d.color};});
 }
+
 
        }
      }); 
@@ -241,14 +278,12 @@ svg.append("text")
         .attr("text-anchor", "middle")  
         .style("font-size", "18px") 
         .style("font-weight", "bold")
-     // .style("text-decoration", "underline") 
-        .text("Global Monthly & Total Savings");
+        .text("Community Monthly & Total Savings");
 
-// $attr.$observe('chartdata', function(value) {
 $scope.$watchGroup(['chartdatatwo', 'monthdatatwo'], function(value) {
 
-var data = value[0]
-var month = value[1]
+var data = value[0];
+var month = value[1];
 
 var savingData=[
   {label:"food", color:"#A18F8F", saved:0},
@@ -261,15 +296,21 @@ var savingData=[
   {label:"other", color:"#4E857C", saved: 0}
 ];
 
-
-// var svg = d3.select($elem[0]).append("svg").attr("width",700).attr("height",300);
-// var svg = d3.select("#my-chart-here").append("svg").attr("width",700).attr("height",300).append("g").attr("id","salesDonut");
-
+var savingData2=[
+  {label:"food", color:"#A18F8F", saved:0},
+  {label:"drinks", color:"#778752", saved:0},
+  {label:"coffee", color:"#CC8F79", saved:0},
+  {label:"tea", color:"#CC8F79", saved:0},
+  {label:"clothing", color:"#607D8B", saved: 0},
+  {label:"entertainment", color:"#C2B46B", saved: 0},
+  {label:"travel", color:"#4A4A4A", saved: 0},
+  {label:"other", color:"#4E857C", saved: 0}
+];
 
 if (data) {
 
-var chartdata = JSON.parse(data)
-var monthdata = JSON.parse(month)
+var chartdata = JSON.parse(data);
+var monthdata = JSON.parse(month);
 
 function getData(input) {
 
@@ -293,13 +334,42 @@ function getData(input) {
           savingData[6].saved += d.price;   
     } else {
           savingData[7].saved += d.price;  
-            }; 
-         })
+            }
+         });
   return savingData;
   }
 
+function getData2(input) {
+
+  // Maps the input into the savingData array of objects
+
+  input.map(function(d){
+  
+    if (d.category === savingData2[0].label) {
+          savingData2[0].saved += d.price;
+    } else if (d.category === savingData2[1].label) {
+          savingData2[1].saved += d.price;  
+    } else if (d.category === savingData2[2].label) {
+          savingData2[2].saved += d.price;          
+    } else if (d.category === savingData2[3].label) {
+          savingData2[2].saved += d.price;  
+    } else if (d.category === savingData2[4].label) {
+          savingData2[4].saved += d.price;  
+    } else if (d.category === savingData2[5].label) {
+          savingData2[5].saved += d.price;         
+    } else if (d.category === savingData2[6].label) {
+          savingData2[6].saved += d.price;   
+    } else {
+          savingData2[7].saved += d.price;  
+            }
+         });
+  
+  return savingData2;
+
+  }
+
 var total = getData(chartdata);
-var month_total = getData(monthdata);
+var month_total = getData2(monthdata);
 
 svg.append("g").attr("id","salesDonutTwo");
 svg.append("g").attr("id","quotesDonutTwo");

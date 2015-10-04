@@ -6,16 +6,16 @@ coffeeBankApp.controller("MainController", ["$scope", "$http", "User", "$rootSco
       User.get(function(user){
  		$rootScope.currentUser = user;
       	
-      })
-    }
+      });
+    };
 
   getCurrentUser();
 
       $http.get('/getglobal').then(function(data) {      
-      $scope.globalData = data.data.global
-      $scope.globalTotal = data.data.globalTotal
-      $scope.globalMonth = data.data.globalMonth
-      $scope.globalMonthTotal = data.data.globalMonthTotal
+      $scope.globalData = data.data.global;
+      $scope.globalTotal = data.data.globalTotal;
+      $scope.globalMonth = data.data.globalMonth;
+      $scope.globalMonthTotal = data.data.globalMonthTotal;
           });
   
 }]);
@@ -71,7 +71,7 @@ if ($scope.login_form.$valid) {
         $location.path("/");
          window.location.reload();
       }, function(response){
-        $scope.loginError = "email / password combination is invalid"
+        $scope.loginError = "email / password combination is invalid";
       });
 } else {
   $scope.login_form.submitted = true;
@@ -93,7 +93,7 @@ if ($scope.reset_form.$valid) {
      $location.path("/");
        
      }, function(response){
-        $scope.resetError = "email not found"
+        $scope.resetError = "email not found";
       });
 } else {
   $scope.reset_form.submitted = true;
@@ -116,7 +116,7 @@ coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootSc
  $scope.deleteMe = false;
  $scope.showItem = true;
  $scope.saveAction = false;
- $scope.items = ItemFactory.items
+ $scope.items = ItemFactory.items;
  
 
  // -----------------------------------
@@ -124,21 +124,21 @@ coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootSc
 
  var getAllItems = function() {
       $scope.items = Item.query();
-    }
+    };
 
   var getAllSaves = function() {
 
       $http.get('/getsaves').then(function(data) {      
-      $scope.currentSaver = data.data.user
-      $scope.saves = data.data.saves
-      $scope.thisMonth = data.data.thisMonth
-      $scope.monthCat = data.data.monthCat
-      $scope.globalData = data.data.global
-      $scope.globalTotal = data.data.globalTotal
-      $scope.globalMonth = data.data.globalMonth
-      $scope.globalMonthTotal = data.data.globalMonthTotal
+      $scope.currentSaver = data.data.user;
+      $scope.saves = data.data.saves;
+      $scope.thisMonth = data.data.thisMonth;
+      $scope.monthCat = data.data.monthCat;
+      $scope.globalData = data.data.global;
+      $scope.globalTotal = data.data.globalTotal;
+      $scope.globalMonth = data.data.globalMonth;
+      $scope.globalMonthTotal = data.data.globalMonthTotal;
    });
-}
+};
 
 getAllSaves();
 
@@ -153,14 +153,14 @@ if ($scope.showItem === false) {
 } else {
 $scope.showItem = false;
     }
-}
+};
 
 // -----------------------------------
 
 $scope.AddItem = function(){
 if ($scope.item_form.$valid) {
 
-        ItemFactory.addItem($scope.newItem)
+        ItemFactory.addItem($scope.newItem);
 
         // Use push() into the array if you want to incorporate the singular
         // addition of an item to the array. Ran into issues with formating this
@@ -194,15 +194,15 @@ $scope.ResetItemForm = function(){
 
 $scope.DeleteItem = function(item, $index){
 if ($scope.deleteMe === true) {
-ItemFactory.deleteItem(item.id)
+ItemFactory.deleteItem(item.id);
 $scope.deleteMe = false;
-$scope.items.splice($index, 1)
+$scope.items.splice($index, 1);
 
 // Trying to avoid a full reset after deleting an item
 // getAllItems();
 
     }
-}
+};
 
 // -----------------------------------
 
@@ -216,7 +216,7 @@ $scope.SaveIt = function(item){
       $timeout(function(){ 
         $scope.saveAction = false; }, 1000);
 
-         ItemFactory.saveItem(item) 
+         ItemFactory.saveItem(item);
 
 // Request to get an updated list of saves as of the most recent save.
    getAllSaves();
@@ -224,15 +224,15 @@ $scope.SaveIt = function(item){
    // Delays an API call incase the intial data doesn't render correctly.
    $timeout(function () {
       $http.get('/getsaves').then(function(data) {  
-      $scope.currentSaver = data.data.user
-      $scope.saves = data.data.saves
-      $scope.thisMonth = data.data.thisMonth
-      $scope.monthCat = data.data.monthCat
-      $scope.globalData = data.data.global
-      $scope.globalTotal = data.data.globalTotal
-      $scope.globalMonth = data.data.globalMonth
-      $scope.globalMonthTotal = data.data.globalMonthTotal
-       }) }, 1000); 
+      $scope.currentSaver = data.data.user;
+      $scope.saves = data.data.saves;
+      $scope.thisMonth = data.data.thisMonth;
+      $scope.monthCat = data.data.monthCat;
+      $scope.globalData = data.data.global;
+      $scope.globalTotal = data.data.globalTotal;
+      $scope.globalMonth = data.data.globalMonth;
+      $scope.globalMonthTotal = data.data.globalMonthTotal;
+       });}, 1000); 
     
   }
 };
@@ -246,7 +246,7 @@ $http.delete('/lastsave').then(function(data) {
 
 getAllSaves();
 
-  })
+  });
  }
 };
 
@@ -255,11 +255,11 @@ getAllSaves();
 // Pings the api every 10 seconds to get current global data....
     $interval(function () {
       $http.get('/getglobal').then(function(data) {      
-      $scope.globalData = data.data.global
-      $scope.globalTotal = data.data.globalTotal
-      $scope.globalMonth = data.data.globalMonth
-      $scope.globalMonthTotal = data.data.globalMonthTotal
-          })}, 10000);
+      $scope.globalData = data.data.global;
+      $scope.globalTotal = data.data.globalTotal;
+      $scope.globalMonth = data.data.globalMonth;
+      $scope.globalMonthTotal = data.data.globalMonthTotal;
+          });}, 10000);
 
 
 }]);
