@@ -44,7 +44,6 @@ if ($scope.auth_form.$valid) {
         $scope.authError = false;
         $rootScope.currentUser = user;
         $location.path("/");
-        // window.location.reload();
       }, function(response){
         $scope.authError = response.data.email[0];
         $scope.auth_form.submitted = true;
@@ -76,6 +75,24 @@ if ($scope.login_form.$valid) {
 } else {
   $scope.login_form.submitted = true;
   }
+};
+
+// -----------------------------------
+
+$scope.TestUser = function(){
+    
+    $scope.newUser.email = "testme@example.com"
+    $scope.newUser.password = "1111"
+     
+     var user = new Login($scope.newUser);
+     user.$save().then(function(data) {   
+        $scope.newUser.name = "";
+        $scope.newUser.email = "";
+        $scope.newUser.picture = "";
+        $scope.newUser.password = "";
+        $location.path("/");
+         window.location.reload();
+      });
 };
 
 // -----------------------------------
