@@ -122,16 +122,11 @@ height: 100%;
 /*padding: 10%;*/
 }
 
-.scroll-form {
-/*padding-top: 2px;*/
-/*margin-top: 0px;*/
-/*margin-left: auto;
-margin-right: auto;*/
-/*background-color: red;
-*//*  overflow: scroll;*/
+.welcome-text-box {
+ background: rgba(255, 255, 255, 0.6);
+ padding: 1%;
+
 }
-
-
 
 /*********** Reset View **********/
 

@@ -44,7 +44,7 @@
             <li><a class="scroll hidden" href="#home"></a></li>
             <li><a class="scroll" href="#gallery">ITEMS</a></li>
             <li><a class="scroll" href="#features">MY SAVINGS</a></li>
-            <li><a class="scroll" href="#global">GLOBAL</a></li>
+            <li><a class="scroll" href="#global">COMMUNITY</a></li>
             <li><a class="scroll" href="#accordion">ABOUT</a></li>
 
             <li ng-show="!currentUser"><a href="/login">LOGIN</a></li>
@@ -307,7 +307,7 @@ svg text.percent{
 
                 <div class="preview slide-in left global-feed">
                   
-                  <h3 class="text-center">Global Activity:</h3>
+                  <h3 class="text-center">Community Activity:</h3>
                   
                   <div ng-repeat="(key, save) in globalData | limitTo:-30 | orderBy:'time':true">                   
 
