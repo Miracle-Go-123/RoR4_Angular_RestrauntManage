@@ -136,6 +136,15 @@ height: 300px;
   border: 2px solid black;
 }
 
+#features {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+#global {
+  padding-top: 3%;
+}
+
 /*********** Personal Stats **********/
 
 /***************************************/
