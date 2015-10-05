@@ -51,7 +51,7 @@
 .item {
   border: 6px solid #F8F9FF;
   background: rgba(206, 217, 210, 0.8);
-  max-height: 290px;
+  max-height: 302px;
   padding-top: 6px;
   overflow: scroll;
 }
