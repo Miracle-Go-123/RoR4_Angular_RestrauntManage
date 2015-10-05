@@ -216,6 +216,7 @@
     <!-- User Stats Section -->
 
     <div class="section gray" ng-controller="GoalController">
+      
       <div id="features" class="container" ng-show="currentUser">
         
         <div class="content">
@@ -233,7 +234,6 @@
                   
                   <div ng-repeat="(key, save) in saves | limitTo:-5 | orderBy:'time':true">                   
 <dh-save-template savedata="save" id="save._id"></dh-save-template>
-
 
                       </div>
 
