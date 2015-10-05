@@ -19,8 +19,8 @@ This application is currently deployed on Heroku and you can see live here: [sta
 ###User Stats
 ![screen shot 3](https://github.com/horndavidg/project_screenshots/blob/master/Screen%20Shot%202015-09-29%20at%204.39.44%20PM.png "User Stats")
 
-###Global Stats
-![screen shot 4](https://github.com/horndavidg/project_screenshots/blob/master/Screen%20Shot%202015-09-29%20at%204.39.57%20PM.png "Global Stats")
+###Social Stats
+![screen shot 4](https://github.com/horndavidg/project_screenshots/blob/master/Screen%20Shot%202015-09-29%20at%204.39.57%20PM.png "Social Stats")
 
 ###Live Updating Carousel
 ![screen shot 5](https://github.com/horndavidg/project_screenshots/blob/master/Screen%20Shot%202015-10-04%20at%209.43.02%20PM.png "Live Updating Carousel")
