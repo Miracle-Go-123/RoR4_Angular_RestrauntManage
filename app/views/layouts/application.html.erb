@@ -75,8 +75,6 @@
 
 
 
-
-
 <!-- Items will be placed here -->
 
 <div ng-controller="ItemsController" >
@@ -84,6 +82,7 @@
  <div id="gallery" class="section">
 
       <div class="container" ng-class="{'save-me': saveAction}">  
+
         <div class="content">
           <div class="text-center">
             <h2 class="title">What did you save on today?</h2>            
@@ -187,8 +186,7 @@
 
 <!-- ng-repeat for items -->
 
-<div id="grid" class="row effect-2" ng-show="showItem" ng-class="{'save_action': saveAction}">
-
+<div id="grid" class="row effect-2" ng-show="showItem">
 
 
 <div ng-repeat="(key, item) in items" ng-class="{'repeated_item': deleteMe}"> 
@@ -201,13 +199,11 @@
 
       </div> 
 
-    <!--  -->
-
    </div>
-     
- </div><!-- /.container -->  
+ 
+ </div> <!-- /.container -->  
 
-</div>
+</div> <!-- End of Gallery --> 
 
 
 
