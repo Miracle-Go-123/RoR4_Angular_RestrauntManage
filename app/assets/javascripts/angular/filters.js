@@ -1,1 +1,5 @@
-coffeeBankApp.filter("fromNow",function(){return function(n){return moment(n).fromNow()}});
+ coffeeBankApp.filter('fromNow', function() {
+    return function(dateString) {
+      return moment(dateString).fromNow();
+    };
+});
