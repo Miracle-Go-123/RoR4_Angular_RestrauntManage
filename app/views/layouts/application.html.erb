@@ -83,7 +83,7 @@
 
  <div id="gallery" class="section">
 
-      <div class="container">  
+      <div class="container" ng-class="{'save-me': saveAction}">  
         <div class="content">
           <div class="text-center">
             <h2 class="title">What did you save on today?</h2>            
@@ -201,11 +201,10 @@
 
       </div> 
 
-       <div ng-show="saveAction" class="text-center save-me">
-       <img ng-src="assets/green_check.png"></div> 
+    <!--  -->
 
    </div>
-         
+     
  </div><!-- /.container -->  
 
 </div>
