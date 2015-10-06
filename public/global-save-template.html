@@ -1,7 +1,16 @@
 <div class="personal_feed_item"> 
 
-<p><img ng-src="{{save.user_picture}}" alt="assets/profile.png" class="avatar img-rounded">&nbsp;&nbsp;&nbsp;<span class="head">{{save.user_name}}</span> saved on <span class="head">{{save.item_name}}</span></p>
+<p>
+
+<img ng-hide="!save.user_picture" ng-src="{{save.user_picture}}" alt="&#x24;" class="avatar img-rounded">
+
+<img ng-show="!save.user_picture" src="assets/profile.png" alt="&#x24;" class="avatar img-rounded">&nbsp;&nbsp;&nbsp;<span class="head">{{save.user_name}}</span> saved on <span class="head">{{save.item_name}}</span>
+
+</p>
 
 <p>{{save.date_added | fromNow}}</p>
                         
 </div>
+
+
+
