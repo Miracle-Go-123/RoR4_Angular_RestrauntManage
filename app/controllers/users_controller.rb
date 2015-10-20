@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
 
+before_action :find_user, only: [:index, :update, :destroy]
 
  
 # ---------------------------------------------
 
  def index
     
-    @user = User.find @current_user.id
     render json: @user, status: :ok
  end
 
@@ -50,34 +50,43 @@ class UsersController < ApplicationController
 # --------------------------------------------- 
 
 
+def update
+
+  @user.name = user_params[:name]
+  @user.picture = user_params[:picture]
+  @user.email = user_params[:email]
+
+if @user.save
+
+  render json: @user, status: :created 
+
+else
+
+  render json: @user.errors, status: :unprocessable_entity
+
+end
+
+end
 
 
+# --------------------------------------------- 
 
 
+def destroy
 
 
+@user.destroy
+session[:user_id] = nil
+    # flash[:notice] = "Account Deleted!"
+    render json: @user, status: ok
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+end
 
 
 # --------------------------------------------- 
 
   private
-
-
 
  def user_params
     params.require(:user).permit(
@@ -87,5 +96,9 @@ class UsersController < ApplicationController
       :email
     )
  end
+
+def find_user
+  @user = User.find @current_user.id
+end
 
 end

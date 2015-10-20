@@ -1,4 +1,4 @@
-coffeeBankApp.controller("MainController", ["$scope", "$http", "User", "$rootScope", "Login", "$location", function($scope, $http, User, $rootScope, Login, $location) {
+coffeeBankApp.controller("MainController", ["$scope", "$http", "User", "$rootScope", "Login", "$location", "$anchorScroll", function($scope, $http, User, $rootScope, Login, $location, $anchorScroll) {
 
 // -----------------------------------
 
@@ -17,7 +17,12 @@ coffeeBankApp.controller("MainController", ["$scope", "$http", "User", "$rootSco
       $scope.globalMonth = data.data.globalMonth;
       $scope.globalMonthTotal = data.data.globalMonthTotal;
           });
-  
+
+  $scope.scrollTo = function(id) {
+      $location.hash(id);
+      $anchorScroll();
+   }
+
 }]);
 
 
@@ -52,6 +57,48 @@ if ($scope.auth_form.$valid) {
 } else {
   $scope.auth_form.submitted = true;
   }
+};
+
+// -----------------------------------
+
+$scope.EditUser = function(picture){
+if ($scope.auth_form.$valid) {
+
+      var user = new User($rootScope.currentUser);
+
+      user.$update({ id:$rootScope.currentUser.id}, $rootScope.currentUser)
+     
+      $scope.auth_form.submitted = false;
+      $scope.authError = false;
+      $location.path("/");
+
+      // .then(function(data) {     
+      //   $scope.auth_form.submitted = false;
+      //   $scope.authError = false;
+      //   // $rootScope.currentUser = user;
+      //   $location.path("/");
+      //    window.location.reload();
+      // }, function(response){
+      //   // $scope.authError = response.data.email[0];
+      //   console.log(response);
+      //   $scope.auth_form.submitted = true;
+      // });
+
+} else {
+  $scope.auth_form.submitted = true;
+  }
+};
+
+
+// -----------------------------------
+
+$scope.DeleteUser = function(){
+
+      new User({ id:$rootScope.currentUser.id}).$remove()
+      $rootScope.currentUser = null;
+      $location.path("/");
+      // window.location.reload();
+
 };
 
 // -----------------------------------

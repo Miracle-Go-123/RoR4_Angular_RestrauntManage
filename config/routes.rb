@@ -6,6 +6,7 @@ root 'statics#index'
 get '/login', to: "statics#index"
 get '/signup', to: "statics#index"
 get '/resets', to: "statics#index"
+get '/edit', to: "statics#index"
 delete '/logout', to: "sessions#logout", as: "logout"
 post '/login', to: "users#login"
 
