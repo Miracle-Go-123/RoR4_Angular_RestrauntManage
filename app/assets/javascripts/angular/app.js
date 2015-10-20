@@ -26,6 +26,10 @@ $routeProvider
          templateUrl: 'partials/reset.html',
          controller: 'AuthController'
         })
+       .when('/edit', {
+         templateUrl: 'partials/edit.html',
+         controller: 'AuthController'
+        })
       .otherwise({ redirectTo: '/'});
 
 }]);

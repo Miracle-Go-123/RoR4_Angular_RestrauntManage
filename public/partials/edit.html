@@ -1,0 +1,78 @@
+<!-- Auth Sign Up Section -->
+
+<div class="row">
+
+<form class="form-horizontal auth-form" novalidate name="auth_form">
+
+<h3>Edit Your Account:</h3>
+
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label"><strong>Name:</strong></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="currentUser.name" name="name" required>
+   
+         <!-- Name Error Message -->
+  
+        <div class="auth-error alert alert-danger" ng-show="auth_form.name.$error.required && auth_form.name.$invalid && auth_form.submitted">Your Name is Required</div>
+    
+    
+    </div>
+  </div>
+ 
+  <div class="form-group">
+    <label class="col-sm-2 control-label"><strong>Email:</strong></label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" ng-model="currentUser.email" name="email" required>
+       
+       <!-- Email Error Message -->
+  
+        <div class="auth-error alert alert-danger" ng-show="auth_form.email.$error.required && auth_form.email.$invalid && auth_form.submitted">A email is Required</div>
+
+         <div class="auth-error alert alert-danger" ng-show="authError">Email: {{authError}}</div>
+
+         <div class="auth-error alert alert-danger" ng-show="auth_form.email.$error.email && auth_form.email.$invalid && auth_form.submitted">A valid email is Required</div>
+
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label class="col-sm-2 control-label"><strong>Change Picture:</strong></label>
+
+<!-- Picture Upload -->
+    <div class="col-sm-4">
+
+<input
+  uploadcare-widget
+  ng-model="currentUser.picture"
+  data-tabs="file url camera facebook instagram flickr box"
+  data-images-only="true"
+  data-preview-step="true"
+  data-clearable="true"
+  data-multiple="false"
+  data-crop="300:300"
+  on-upload-complete="onUCUploadComplete(info)"
+  on-widget-ready="onUCWidgetReady(widget)"
+  value="{{ object.image.info.uuid }}"
+ />
+
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      
+     <button ng-click="EditUser(picture)" class="btn btn-info">Make Changes!</button> 
+     
+     <button ng-click="DeleteUser()" class="btn btn-danger">Delete My Account</button> 
+       
+     <a href="/resets" class="btn btn-info">Forgot Password?</a> 
+
+      <a href="/" class="btn btn-info">Exit</a>
+
+    </div>
+  </div>
+</form>
+
+</div>
