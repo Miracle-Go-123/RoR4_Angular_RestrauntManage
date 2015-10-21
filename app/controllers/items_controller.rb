@@ -97,10 +97,11 @@ def saveit
 @save.user_id = @user.id
 @global_save.user_id = @user.id
 
-@user.total_savings += params[:price]
+@user.total_savings += params[:price].to_i
 @global_save.user_name = @user.name
 @global_save.user_picture = @user.picture
 @global_save.save 
+
 @user.globals << @global_save
 
    if @save.save && @user.save
