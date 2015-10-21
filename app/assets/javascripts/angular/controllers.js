@@ -82,7 +82,6 @@ if ($scope.auth_form.$valid) {
 $scope.DeleteUser = function(){
 
       new User({ id:$rootScope.currentUser.id}).$remove()
-      $rootScope.currentUser = null;
       $location.path("/");
       window.location.reload();
 
