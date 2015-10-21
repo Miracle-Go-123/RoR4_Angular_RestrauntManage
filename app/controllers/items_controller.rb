@@ -17,7 +17,7 @@ before_action :ensure_correct_user, only: [:saveit]
   
   # POST /items
   def create
-    
+  
     @item = Item.create item_params
     
     if params[:category] === "food"
@@ -37,6 +37,7 @@ before_action :ensure_correct_user, only: [:saveit]
     end
 
     @item.user_id = @user.id
+
     if @item.save
 
     render json: @item, status: :created  

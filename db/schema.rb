@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150911224131) do
+ActiveRecord::Schema.define(version: 20151021204219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,32 +32,32 @@ ActiveRecord::Schema.define(version: 20150911224131) do
     t.string   "category"
     t.string   "item_name"
     t.datetime "date_added"
-    t.integer  "price"
+    t.decimal  "price",        precision: 5, scale: 2
     t.integer  "points"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.string   "category"
-    t.integer  "price"
+    t.decimal  "price",      precision: 5, scale: 2
     t.string   "picture"
     t.string   "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "keeps", force: :cascade do |t|
     t.string   "item_name"
     t.string   "category"
-    t.integer  "price"
+    t.decimal  "price",      precision: 5, scale: 2
     t.datetime "date_saved"
     t.text     "message"
     t.string   "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,18 +65,18 @@ ActiveRecord::Schema.define(version: 20150911224131) do
     t.string   "email"
     t.string   "password"
     t.string   "picture"
-    t.integer  "total_savings",        default: 0
-    t.integer  "month_savings",        default: 0
+    t.decimal  "total_savings",        precision: 12, scale: 2, default: 0.0
+    t.decimal  "month_savings",        precision: 12, scale: 2, default: 0.0
     t.string   "password_digest"
     t.string   "password_reset_token"
-    t.boolean  "is_admin",             default: false
+    t.boolean  "is_admin",                                      default: false
     t.string   "provider"
     t.string   "uid"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.integer  "points"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
   end
 
   add_foreign_key "connections", "globals"
