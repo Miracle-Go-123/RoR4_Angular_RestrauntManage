@@ -179,7 +179,7 @@ coffeeBankApp.controller("ItemsController", ["$scope", "$http", "User", "$rootSc
 
   var getAllSaves = function() {
 
-      $http.get('/getsaves').then(function(data) {      
+      $http.get('/getsaves').then(function(data) {     
       $scope.currentSaver = data.data.user;
       $scope.saves = data.data.saves;
       $scope.thisMonth = data.data.thisMonth;

@@ -187,19 +187,19 @@ function getData(input) {
   input.map(function(d){
   
     if (d.category === savingData[0].label) {
-          savingData[0].saved += d.price;
+          savingData[0].saved += parseInt(d.price, 10);
     } else if (d.category === savingData[1].label) {
-          savingData[1].saved += d.price;  
+          savingData[1].saved += parseInt(d.price, 10);  
     } else if (d.category === savingData[2].label) {
-          savingData[2].saved += d.price;           
+          savingData[2].saved += parseInt(d.price, 10);           
     } else if (d.category === savingData[3].label) {
-          savingData[3].saved += d.price;  
+          savingData[3].saved += parseInt(d.price, 10);  
     } else if (d.category === savingData[4].label) {
-          savingData[4].saved += d.price;         
+          savingData[4].saved += parseInt(d.price, 10);         
     } else if (d.category === savingData[5].label) {
-          savingData[5].saved += d.price;   
+          savingData[5].saved += parseInt(d.price, 10);   
     } else {
-          savingData[6].saved += d.price;  
+          savingData[6].saved += parseInt(d.price, 10);  
             }
          });
    
@@ -214,19 +214,19 @@ function getData2(input) {
   input.map(function(d){
   
     if (d.category === savingData2[0].label) {
-          savingData2[0].saved += d.price;
+          savingData2[0].saved += parseInt(d.price, 10);
     } else if (d.category === savingData2[1].label) {
-          savingData2[1].saved += d.price;  
+          savingData2[1].saved += parseInt(d.price, 10);  
     } else if (d.category === savingData2[2].label) {
-          savingData2[2].saved += d.price;           
+          savingData2[2].saved += parseInt(d.price, 10);           
     } else if (d.category === savingData2[3].label) {
-          savingData2[3].saved += d.price;  
+          savingData2[3].saved += parseInt(d.price, 10);  
     } else if (d.category === savingData2[4].label) {
-          savingData2[4].saved += d.price;         
+          savingData2[4].saved += parseInt(d.price, 10);         
     } else if (d.category === savingData2[5].label) {
-          savingData2[5].saved += d.price;   
+          savingData2[5].saved += parseInt(d.price, 10);   
     } else {
-          savingData2[6].saved += d.price;  
+          savingData2[6].saved += parseInt(d.price, 10);  
             }
          });
   
@@ -331,19 +331,19 @@ function getData(input) {
   input.map(function(d){
   
     if (d.category === savingData[0].label) {
-          savingData[0].saved += d.price;
+          savingData[0].saved += parseInt(d.price, 10);
     } else if (d.category === savingData[1].label) {
-          savingData[1].saved += d.price;  
+          savingData[1].saved += parseInt(d.price, 10);  
     } else if (d.category === savingData[2].label) {
-          savingData[2].saved += d.price;            
+          savingData[2].saved += parseInt(d.price, 10);            
     } else if (d.category === savingData[3].label) {
-          savingData[3].saved += d.price;  
+          savingData[3].saved += parseInt(d.price, 10);  
     } else if (d.category === savingData[4].label) {
-          savingData[4].saved += d.price;         
+          savingData[4].saved += parseInt(d.price, 10);         
     } else if (d.category === savingData[5].label) {
-          savingData[5].saved += d.price;   
+          savingData[5].saved += parseInt(d.price, 10);   
     } else {
-          savingData[6].saved += d.price;  
+          savingData[6].saved += parseInt(d.price, 10);  
             }
          });
   return savingData;
@@ -356,19 +356,19 @@ function getData2(input) {
   input.map(function(d){
   
     if (d.category === savingData2[0].label) {
-          savingData2[0].saved += d.price;
+          savingData2[0].saved += parseInt(d.price, 10);
     } else if (d.category === savingData2[1].label) {
-          savingData2[1].saved += d.price;  
+          savingData2[1].saved += parseInt(d.price, 10);  
     } else if (d.category === savingData2[2].label) {
-          savingData2[2].saved += d.price;           
+          savingData2[2].saved += parseInt(d.price, 10);           
     } else if (d.category === savingData2[3].label) {
-          savingData2[3].saved += d.price;  
+          savingData2[3].saved += parseInt(d.price, 10);  
     } else if (d.category === savingData2[4].label) {
-          savingData2[4].saved += d.price;         
+          savingData2[4].saved += parseInt(d.price, 10);         
     } else if (d.category === savingData2[5].label) {
-          savingData2[5].saved += d.price;   
+          savingData2[5].saved += parseInt(d.price, 10);   
     } else {
-          savingData2[6].saved += d.price;  
+          savingData2[6].saved += parseInt(d.price, 10);  
             }
          });
   
