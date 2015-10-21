@@ -22,8 +22,8 @@
 
 </head>
 
-<body ng-app="CoffeeBankApp" class="blue" ng-controller="MainController">
-<a id="top"></a>
+<body ng-app="CoffeeBankApp" class="blue" ng-controller="MainController" id="top">
+
 <%= render partial: 'shared/flash' %>
 
 <!-- Nav Bar -->
@@ -46,7 +46,6 @@
             <li><a class="scroll" href="#features">MY SAVINGS</a></li>
             <li><a class="scroll" href="#global">SOCIAL</a></li>
             <li><a class="scroll" href="#accordion">ABOUT</a></li>
-
             <li ng-show="!currentUser" ng-click="scrollTo('top')"><a href="/login">LOGIN</a></li>
 
            <!-- Current User Info -->   

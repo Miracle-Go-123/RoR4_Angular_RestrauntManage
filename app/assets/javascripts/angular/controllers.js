@@ -61,32 +61,19 @@ if ($scope.auth_form.$valid) {
 
 // -----------------------------------
 
-$scope.EditUser = function(picture){
+$scope.EditUser = function(){
+
 if ($scope.auth_form.$valid) {
 
       var user = new User($rootScope.currentUser);
-
       user.$update({ id:$rootScope.currentUser.id}, $rootScope.currentUser)
      
       $scope.auth_form.submitted = false;
       $scope.authError = false;
       $location.path("/");
-
-      // .then(function(data) {     
-      //   $scope.auth_form.submitted = false;
-      //   $scope.authError = false;
-      //   // $rootScope.currentUser = user;
-      //   $location.path("/");
-      //    window.location.reload();
-      // }, function(response){
-      //   // $scope.authError = response.data.email[0];
-      //   console.log(response);
-      //   $scope.auth_form.submitted = true;
-      // });
-
 } else {
-  $scope.auth_form.submitted = true;
-  }
+        $scope.auth_form.submitted = true;
+    }
 };
 
 
@@ -97,7 +84,6 @@ $scope.DeleteUser = function(){
       new User({ id:$rootScope.currentUser.id}).$remove()
       $rootScope.currentUser = null;
       $location.path("/");
-      // window.location.reload();
 
 };
 

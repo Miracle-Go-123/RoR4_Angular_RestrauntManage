@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+before_action :confirm_logged_in, only: [:update, :destroy]
 before_action :find_user, only: [:index, :update, :destroy]
 
  
@@ -74,12 +75,10 @@ end
 
 def destroy
 
-
 @user.destroy
 session[:user_id] = nil
     # flash[:notice] = "Account Deleted!"
     render json: @user, status: ok
-
 
 end
 
