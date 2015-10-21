@@ -84,6 +84,7 @@ $scope.DeleteUser = function(){
       new User({ id:$rootScope.currentUser.id}).$remove()
       $rootScope.currentUser = null;
       $location.path("/");
+      window.location.reload();
 
 };
 
@@ -101,7 +102,7 @@ if ($scope.login_form.$valid) {
         $scope.login_form.submitted = false;
         $scope.loginError = false;
         $location.path("/");
-         window.location.reload();
+        window.location.reload();
       }, function(response){
         $scope.loginError = "email / password combination is invalid";
       });
