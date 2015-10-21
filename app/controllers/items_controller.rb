@@ -97,15 +97,14 @@ def saveit
 @save.user_id = @user.id
 @global_save.user_id = @user.id
 
-@user.total_savings += params[:price].to_i
+@user.total_savings += params[:price].to_f
 @global_save.user_name = @user.name
 @global_save.user_picture = @user.picture
 @global_save.save 
 
 @user.globals << @global_save
 
-   if @save.save && @user.save
-   
+   if @save.save && @user.save 
     # render json: {:saves => @saves, :user => @user}, status: :created  
     render json: @save, status: :created  
     else
@@ -193,7 +192,7 @@ def getglobal
     :globalTotal => @global_total,
     :globalMonth => @global_month_savings,
     :globalMonthTotal => @global_month_totals}, 
-  status: :ok
+    status: :ok
 end
 
 # --------------------------------------------- 

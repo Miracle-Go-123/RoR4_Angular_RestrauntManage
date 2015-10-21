@@ -44,7 +44,6 @@ class ResetsController < ApplicationController
     @user = User.find_by(password_reset_token: params[:id])
 
     if user_params[:password] === ""
-    	# binding.pry
       flash.now[:notice] = "Your new password can't be blank!"
       render "resets/edit", :layout => false 
 
@@ -54,7 +53,6 @@ class ResetsController < ApplicationController
       # flash[:success] = "Password updated!"
       redirect_to root_path
     else
-    	# binding.pry
       flash.now[:notice] = "Password reset token not found."
       render "resets/edit", :layout => false
     end
