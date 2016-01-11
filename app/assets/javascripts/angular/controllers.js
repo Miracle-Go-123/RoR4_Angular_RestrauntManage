@@ -21,7 +21,7 @@ coffeeBankApp.controller("MainController", ["$scope", "$http", "User", "$rootSco
   $scope.scrollTo = function(id) {
       $location.hash(id);
       $anchorScroll();
-   }
+   };
 
 }]);
 
@@ -66,7 +66,7 @@ $scope.EditUser = function(){
 if ($scope.auth_form.$valid) {
 
       var user = new User($rootScope.currentUser);
-      user.$update({ id:$rootScope.currentUser.id}, $rootScope.currentUser)
+      user.$update({ id:$rootScope.currentUser.id}, $rootScope.currentUser);
      
       $scope.auth_form.submitted = false;
       $scope.authError = false;
@@ -81,7 +81,7 @@ if ($scope.auth_form.$valid) {
 
 $scope.DeleteUser = function(){
 
-      new User({ id:$rootScope.currentUser.id}).$remove()
+      new User({ id:$rootScope.currentUser.id}).$remove();
       $location.path("/");
       window.location.reload();
 
@@ -114,8 +114,8 @@ if ($scope.login_form.$valid) {
 
 $scope.TestUser = function(){
     
-    $scope.newUser.email = "testme@example.com"
-    $scope.newUser.password = "1111"
+    $scope.newUser.email = "testme@example.com";
+    $scope.newUser.password = "1111";
      
      var user = new Login($scope.newUser);
      user.$save().then(function(data) {   

@@ -180,7 +180,7 @@ if (data) {
 var chartdata = JSON.parse(data);
 var monthdata = JSON.parse(month);
 
-function getData(input) {
+var getData = function(input) {
 
   // Maps the input into the savingData array of objects
 
@@ -205,9 +205,9 @@ function getData(input) {
    
   return savingData;
 
-  }
+  };
 
-function getData2(input) {
+var getData2 = function(input) {
 
   // Maps the input into the savingData array of objects
 
@@ -232,7 +232,7 @@ function getData2(input) {
   
   return savingData2;
 
-  }
+  };
 
 var total = getData(chartdata);
 var month_total = getData2(monthdata);
@@ -243,20 +243,20 @@ svg.append("g").attr("id","quotesDonut");
 Donut3D.draw("salesDonut", displayMonth(), 150, 150, 130, 100, 30, 0.4);
 Donut3D.draw("quotesDonut", displayData(), 450, 150, 130, 100, 30, 0);
   
-function changeData(){
+var changeData = function(){
   Donut3D.transition("salesDonut", displayMonth(), 130, 100, 30, 0.4);
   Donut3D.transition("quotesDonut", displayData(), 130, 100, 30, 0);
-}
+};
 
-function displayData(){
+var displayData = function(){
   return total.map(function(d){ 
   return {label:d.label, value:d.saved, color:d.color};});
-}
+};
 
-function displayMonth(){
+var displayMonth = function(){
   return month_total.map(function(d){ 
   return {label:d.label, value:d.saved, color:d.color};});
-}
+};
 
 
        }
@@ -324,7 +324,7 @@ if (data) {
 var chartdata = JSON.parse(data);
 var monthdata = JSON.parse(month);
 
-function getData(input) {
+var getData = function(input) {
 
   // Maps the input into the savingData array of objects
 
@@ -347,9 +347,9 @@ function getData(input) {
             }
          });
   return savingData;
-  }
+  };
 
-function getData2(input) {
+var getData2 = function(input) {
 
   // Maps the input into the savingData array of objects
 
@@ -374,7 +374,7 @@ function getData2(input) {
   
   return savingData2;
 
-  }
+  };
 
 var total = getData(chartdata);
 var month_total = getData2(monthdata);
@@ -385,20 +385,20 @@ svg.append("g").attr("id","quotesDonutTwo");
 Donut3D.draw("salesDonutTwo", displayMonth(), 150, 150, 130, 100, 30, 0.4);
 Donut3D.draw("quotesDonutTwo", displayData(), 450, 150, 130, 100, 30, 0);
   
-function changeData(){
+var changeData = function(){
   Donut3D.transition("salesDonutTwo", displayMonth(), 130, 100, 30, 0.4);
   Donut3D.transition("quotesDonutTwo", displayData(), 130, 100, 30, 0);
-}
+};
 
-function displayData(){
+var displayData = function(){
   return total.map(function(d){ 
     return {label:d.label, value:d.saved, color:d.color};});
-}
+};
 
-function displayMonth(){
+var displayMonth = function(){
   return month_total.map(function(d){ 
     return {label:d.label, value:d.saved, color:d.color};});
-}
+};
 
        }
      }); 
