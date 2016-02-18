@@ -33,12 +33,12 @@ angular.module('ng-uploadcare', [])
           if (data) {
             data.promise().done(function(info) {
               $scope.$apply(function () {
-                $scope.ngModel = $element.val()
+                $scope.ngModel = $element.val();
               });
             });
           }
           $scope.onChange({data: data});
-        })
+        });
       }]
     };
   });
